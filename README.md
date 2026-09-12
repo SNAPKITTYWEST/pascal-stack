@@ -73,53 +73,9 @@ The block discipline is what lets us multiply safely. Because each block is self
 
 
 
-## Methods & templating — how we got to 200k without lying
+## License — every node is AGPLv3, with headers, 
 
 
-
-
-```
-handcrafted/               ← 11 files, 22,635 lines, exact copy, Sovereign headers intact
-src/                       ← 71 files, 96,779 lines, synthetic 5,330-block stack (previous work, kept separate)
-expanded/                  ← 45 files, 97,194 lines, generated, handcrafted-only boilerplate
-```
-
-pascal-stack/
-  handcrafted/                # 11 files, AGPLv3 headers, Sovereign Node Keys — the source of truth
-    advanced/
-    core/
-    device/
-    execution/
-    integration/
-    kernel/
-    matrix/
-    memory/
-    numerical/
-    sync/
-    tests/
-  expanded/                   # 45 files, AGPLv3 headers, 4 variants per handcrafted + master
-    advanced/PascalGPU_Advanced_Strided.pas
-    advanced/PascalGPU_Advanced_Batched.pas
-    ...
-    numerical/PascalGPU_Numerical_Strided.pas
-    PascalGPU_Expanded_Master.pas
-  src/                        # 71 files, synthetic 5,330-block clean-room (kept separate)
-    core/  memory/  collections/  serialization/  parsing/  runtime/  algorithms/  io/  net/  storage/  config/  crypto/
-  tools/                      # Verify.pas — Pascal verifier, no Python required
-  tests/                      # TestRunner.pas
-  build/                      # build.ps1, build.cmd, Makefile, expand_handcrafted.py
-  docs/                       # SOURCE_ACCOUNTING, DEPENDENCY_GRAPH, SYMBOL_LEDGER, BLOCK_ACCOUNTING, COVERAGE_MATRIX, VERIFICATION, EXPANSION_REPORT
-  handcrafted/                # (this dir) — production, not an example
-  expanded/                   # (this dir) — production, not a sketch
-  src/                        # (this dir) — production, separate lineage
-```
-
-
-## License — every node is AGPLv3, with headers, no MIT
-
-This is not MIT. There is no permissive relicense. Every file in `handcrafted/` and `expanded/` carries:
-
-```
 { ========================================================================
   SOVEREIGN LEVIATHAN COVENANT — MGPLv3 RECURSIVE INFECTION CLAUSE
   Node-ID:           PASCAL-STACK-008
