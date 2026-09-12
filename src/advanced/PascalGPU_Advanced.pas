@@ -54,6 +54,14 @@ const
   PGPU_MIN_F32      = TFloat32(-3.4028235e+38);
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-401
+  Block              : TRegisterFile record
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:5f3eaa9824ec957aefbb8aea8f7ac7d90cfd8f88fcf975e65f2a82a1d7b283f6
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 401: TRegisterFile record ===                                  }
 { Simulates per-thread register bank: 256 TUInt32 slots                   }
 { ======================================================================= }
@@ -65,6 +73,14 @@ type
   PRegisterFile = ^TRegisterFile;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-402
+  Block              : RegisterFileRead/Write operations
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:7733b829d25f0f216d8e6b67aa986b6a8352a716eecd3463abae58e8519c663f
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 402: RegisterFileRead/Write operations ===                     }
 { ======================================================================= }
 
@@ -72,6 +88,14 @@ function  RegisterFileRead(const RF: TRegisterFile; Idx: TUInt32): TUInt32;
 procedure RegisterFileWrite(var RF: TRegisterFile; Idx: TUInt32; Value: TUInt32);
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-403
+  Block              : TSharedMemTile
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:cb94b6d01ecdd83711c22013a1c294873b52acfa9e768d9dd86b2deef618a044
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 403: TSharedMemTile ===                                        }
 { 2D tile in shared memory: W, H, Data array (max 32x32)                  }
 { ======================================================================= }
@@ -101,6 +125,14 @@ type
   PTensor = ^TTensor;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-404
+  Block              : LoadTile
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:996db744c36c37f6eb1b3e79a257173d2c2ebdb6c0c9badb5b3d7bf845eb8a97
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 404: LoadTile ===                                              }
 { Copy a rectangular tile from Src matrix into shared-memory tile         }
 { ======================================================================= }
@@ -109,6 +141,14 @@ function LoadTile(var Tile: TSharedMemTile; const Src: TMatrix;
                   TileRow, TileCol, TileW, TileH: TUInt32): TResult;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-405
+  Block              : StoreTile
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:54f651a75a2c532f074c80fd0d21dc15a953ac9326e970226128a51595d4c47d
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 405: StoreTile ===                                             }
 { Write a shared-memory tile back to destination matrix                   }
 { ======================================================================= }
@@ -117,6 +157,14 @@ function StoreTile(const Tile: TSharedMemTile; var Dst: TMatrix;
                    TileRow, TileCol: TUInt32): TResult;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-406
+  Block              : TiledMatMulKernel
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:65a54762eb43b18fb565e02a70dc4dbf329c42f414d72a17071596d49e125236
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 406: TiledMatMulKernel ===                                     }
 { Full tiled SGEMM using TSharedMemTile; 16x16 inner tile                 }
 { ======================================================================= }
@@ -124,6 +172,14 @@ function StoreTile(const Tile: TSharedMemTile; var Dst: TMatrix;
 function TiledMatMulKernel(const A, B: TMatrix; var C: TMatrix): TResult;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-407
+  Block              : TWarpReduceSum
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:798e332fcedaea62fd8dbea1628b09c8ccc7a1913f34beb47e96341c4a3e1cb7
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 407: TWarpReduceSum ===                                        }
 { 32-element parallel reduction (warp-level simulation)                   }
 { ======================================================================= }
@@ -147,6 +203,14 @@ function WarpReduceAnd(const W: TWarpReduceSum): TUInt32;
 function WarpReduceOr (const W: TWarpReduceSum): TUInt32;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-409
+  Block              : TBlockReduceSum
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:171de212e30e91ea6eba302a8ddf74a9e0360366072e3a5498b3f5767ea9e841
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 409: TBlockReduceSum ===                                       }
 { Block-level reduction that calls warp-level reductions                  }
 { ======================================================================= }
@@ -161,6 +225,14 @@ type
 function BlockReduceSum(const B: TBlockReduceSum): TFloat32;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-410
+  Block              : TScanOp
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:b517194aedb507bf202329f9bac689ad00488255b532cd020d354ad3e6c0e12c
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 410: TScanOp ===                                               }
 { Scan operation enumeration for prefix scans                             }
 { ======================================================================= }
@@ -169,6 +241,14 @@ type
   TScanOp = (soAdd, soMax, soMin);
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-411
+  Block              : ExclusiveScanF32
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:8adef15c7ef1df40e6928510f7e95f609d3f8abc2a12bbfcddc83f1082e7d39e
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 411: ExclusiveScanF32 ===                                      }
 { Exclusive prefix scan over float array                                  }
 { ======================================================================= }
@@ -177,6 +257,14 @@ function ExclusiveScanF32(InArr, OutArr: PFloat32; N: TUInt32;
                            Op: TScanOp): TResult;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-412
+  Block              : InclusiveScanF32
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:01195442e9ec02ed803c705e8cd88f1ea979530dbe51ace15594ebbfaf523d28
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 412: InclusiveScanF32 ===                                      }
 { Inclusive prefix scan over float array                                  }
 { ======================================================================= }
@@ -185,6 +273,14 @@ function InclusiveScanF32(InArr, OutArr: PFloat32; N: TUInt32;
                            Op: TScanOp): TResult;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-413
+  Block              : THistogram
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:757e8a48fd73dcdd5ffae2ea9671a2c2d5fb55f2d3c626912c0fe0a13623e0a6
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 413: THistogram ===                                            }
 { Histogram with integer bins and normalised float bins                   }
 { ======================================================================= }
@@ -204,6 +300,14 @@ function  HistogramCreate(var H: THistogram; BinCount: TUInt32;
 procedure HistogramDestroy(var H: THistogram);
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-414
+  Block              : ComputeHistogram
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:25e04d5120d46a193ddb723ea4023174f4dd6e59281ff7aab5380f71fe7ee798
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 414: ComputeHistogram ===                                      }
 { Bin a float array into H.Bins                                           }
 { ======================================================================= }
@@ -212,6 +316,14 @@ function ComputeHistogram(InArr: PFloat32; N: TUInt32;
                           var H: THistogram): TResult;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-415
+  Block              : HistogramNormalize
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:331a73201defec24917e5012e643ea239ab5175249ed4604f72c4ec70cffab8f
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 415: HistogramNormalize ===                                    }
 { Convert integer bin counts to probabilities in H.NormBins               }
 { ======================================================================= }
@@ -219,6 +331,14 @@ function ComputeHistogram(InArr: PFloat32; N: TUInt32;
 procedure HistogramNormalize(var H: THistogram);
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-416
+  Block              : GatherF32
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:c4475be3132f2750775d3d80664fb44a4ebcc5a8b9536f05aa0d717c83f5eade
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 416: GatherF32 ===                                             }
 { Indexed gather: Out[i] = Values[Indices[i]]                             }
 { ======================================================================= }
@@ -227,6 +347,14 @@ function GatherF32(Values: PFloat32; Indices: PUInt32;
                    OutArr: PFloat32; N: TUInt32): TResult;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-417
+  Block              : ScatterF32
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:3b83e86b66d27312486fe3b4fb654d69cd097324f095a1868797d1b1f2957828
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 417: ScatterF32 ===                                            }
 { Indexed scatter-add: Out[Indices[i]] += Values[i]  (atomic add sim)     }
 { ======================================================================= }
@@ -235,6 +363,14 @@ function ScatterF32(Values: PFloat32; Indices: PUInt32;
                     OutArr: PFloat32; N: TUInt32): TResult;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-418
+  Block              : RadixSortUInt32
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:7498d4aba85d9baa7ec71732aa30bd0375febc08fa98b8d828c447d0976b3152
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 418: RadixSortUInt32 ===                                       }
 { LSD radix sort over TUInt32 array, 8-bit digits, 4 passes               }
 { ======================================================================= }
@@ -243,6 +379,14 @@ function RadixSortUInt32(Keys: PUInt32; N: TUInt32;
                           Ascending: Boolean): TResult;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-419
+  Block              : BitonicSortF32
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:b48318e9f8cfece986fe5ccf65dce9b21ccde0c99c2fd079a1c91d5f698a1cec
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 419: BitonicSortF32 ===                                        }
 { Bitonic network sort; pads to next power-of-two internally              }
 { ======================================================================= }
@@ -251,6 +395,14 @@ function BitonicSortF32(Arr: PFloat32; N: TUInt32;
                          Ascending: Boolean): TResult;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-420
+  Block              : Stencil1D
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:6d5850cda6ea8447031f3428325cf972c2332cc33f3f0093a8f55c3912a54033
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 420: Stencil1D ===                                             }
 { 1D stencil with arbitrary kernel (boundary-clamped to zero)             }
 { ======================================================================= }
@@ -259,6 +411,14 @@ function Stencil1D(InArr, OutArr: PFloat32; N: TUInt32;
                    const Weights: array of TFloat32): TResult;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-421
+  Block              : Stencil2D 3x3
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:c0c0b7a1123e18d695fcb85b11386154c606c984f33917a9a3b8c36f727a3883
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 421: Stencil2D 3x3 ===                                        }
 { 2D 3x3 convolution stencil (zero-pad borders)                          }
 { ======================================================================= }
@@ -267,6 +427,14 @@ function Stencil2D(InArr, OutArr: PFloat32; W, H: TUInt32;
                    const Kernel3x3: array of TFloat32): TResult;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-422
+  Block              : DepthwiseConv2D
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:0ad8143a6004ff75d00fff2c8cd2e308118e15381e9716f3429f6d190de904cd
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 422: DepthwiseConv2D ===                                       }
 { Depthwise separable conv: one filter per input channel                  }
 { Input/Filter/Output layout: [C, H, W]                                   }
@@ -277,6 +445,14 @@ function DepthwiseConv2D(Input, Filters, Output: PFloat32;
                           StrideH, StrideW, PadH, PadW: TUInt32): TResult;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-423
+  Block              : Im2Col
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:f9659a044b3148adba38b1cbe3f74193600d7b42e99bd59ab7b3beca573a10ec
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 423: Im2Col ===                                                }
 { Reshape input for GEMM-based convolution: output is [C*KH*KW, OH*OW]   }
 { ======================================================================= }
@@ -286,6 +462,14 @@ function Im2Col(Input, ColBuf: PFloat32;
                 StrideH, StrideW, PadH, PadW: TUInt32): TResult;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-424
+  Block              : Col2Im
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:b61d0a94cbe0ad5e8ee67830a1e9056027d57f3780546ccb64741b329c4f1d05
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 424: Col2Im ===                                                }
 { Inverse of Im2Col; accumulates back into spatial output                 }
 { ======================================================================= }
@@ -295,6 +479,14 @@ function Col2Im(ColBuf, Output: PFloat32;
                 StrideH, StrideW, PadH, PadW: TUInt32): TResult;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-425
+  Block              : DropoutF32
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:f271189a17515fe8dffb03060ec742b3875d2ca6433f95b20c55671dfeccca06
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 425: DropoutF32 ===                                            }
 { Forward dropout: zero out with probability Rate, scale surviving units  }
 { ======================================================================= }
@@ -303,6 +495,14 @@ function DropoutF32(InArr, OutArr, Mask: PFloat32; N: TUInt32;
                     Rate: TFloat32; Seed: TUInt32): TResult;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-426
+  Block              : TRandomState
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:7f32acb41e846bc44732acda4abe37509a58249fc213c2d645f3c71705b09738
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 426: TRandomState ===                                          }
 { LCG PRNG state: Seed, Multiplier, Increment                             }
 { ======================================================================= }
@@ -316,6 +516,14 @@ type
   PRandomState = ^TRandomState;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-427
+  Block              : RandomInit
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:4f5268a2deeb11acc65ba571b5bc3a03dc6a03636f4e6b0bd6ff8ca5f96000d3
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 427: RandomInit ===                                            }
 { Initialise LCG state with Knuth multiplier / increment                  }
 { ======================================================================= }
@@ -323,6 +531,14 @@ type
 procedure RandomInit(var R: TRandomState; Seed: TUInt64);
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-428
+  Block              : RandomNext
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:7b4f25b8fd8ed2d93d3c8f68c42e59d919a84742de70b01b6bce09a63c4e70f6
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 428: RandomNext ===                                            }
 { Advance LCG; return upper 32 bits of new seed                           }
 { ======================================================================= }
@@ -330,6 +546,14 @@ procedure RandomInit(var R: TRandomState; Seed: TUInt64);
 function RandomNext(var R: TRandomState): TUInt32;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-429
+  Block              : RandomFloat
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:8322c7675dcb424363ea62bfb44f4d2032067dd4bfbf9994d03344347e889583
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 429: RandomFloat ===                                           }
 { Uniform float in [0, 1)                                                 }
 { ======================================================================= }
@@ -337,6 +561,14 @@ function RandomNext(var R: TRandomState): TUInt32;
 function RandomFloat(var R: TRandomState): TFloat32;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-430
+  Block              : RandomNormal
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:a3394b8fbd039db4c147d74376a9ba6d330f252cde05ba6e3da5391b87c7bceb
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 430: RandomNormal ===                                          }
 { Box-Muller normal deviate (mean=0, std=1)                               }
 { ======================================================================= }
@@ -344,6 +576,14 @@ function RandomFloat(var R: TRandomState): TFloat32;
 function RandomNormal(var R: TRandomState): TFloat32;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-431
+  Block              : FillRandom
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:8f2a262a574fb0dc46c769654f700c46f2024eed213617c7b61d588edf57bb23
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 431: FillRandom ===                                            }
 { Fill array with uniform [0,1) random floats                             }
 { ======================================================================= }
@@ -352,6 +592,14 @@ function FillRandom(OutArr: PFloat32; N: TUInt32;
                     var R: TRandomState): TResult;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-432
+  Block              : TPositionalEncoding
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:2baa9986dd96bff725cb83a2586a9655f936686b1019f5526001e4da87e2a7ee
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 432: TPositionalEncoding ===                                   }
 { Sinusoidal PE table: MaxLen x Dim                                       }
 { ======================================================================= }
@@ -365,6 +613,14 @@ type
   PPositionalEncoding = ^TPositionalEncoding;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-433
+  Block              : BuildPositionalEncoding
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:2940c2ee68fec3db3a54e3218f56048546c1c2f87daee2469e108253c7f14900
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 433: BuildPositionalEncoding ===                               }
 { Fill sinusoidal table; caller must free PE.Table with FreeMem           }
 { ======================================================================= }
@@ -373,6 +629,14 @@ function BuildPositionalEncoding(var PE: TPositionalEncoding;
                                   MaxLen, Dim: TUInt32): TResult;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-434
+  Block              : ApplyPositionalEncoding
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:0ebecd200a98d9509552a1c4eb4cef919606a374bee7071daef4f6447e1badf3
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 434: ApplyPositionalEncoding ===                               }
 { Add PE table rows to tensor rows (tensor must be [SeqLen, Dim])         }
 { ======================================================================= }
@@ -381,6 +645,14 @@ function ApplyPositionalEncoding(const PE: TPositionalEncoding;
                                   var T: TTensor): TResult;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-435
+  Block              : TEmbeddingTable
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:5042b9a7f98acc8f5b23405865abdabecbb3b707fe7782420faed64226bdae62
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 435: TEmbeddingTable ===                                       }
 { VocabSize x EmbedDim weight matrix                                      }
 { ======================================================================= }
@@ -394,6 +666,14 @@ type
   PEmbeddingTable = ^TEmbeddingTable;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-436
+  Block              : EmbeddingLookup
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:17436f56825edde79ced7b504eb01d51cf6738e3da1d70f3ff3c8a4177568b70
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 436: EmbeddingLookup ===                                       }
 { Copy EmbedDim rows from table for each index in Indices[0..N-1]         }
 { ======================================================================= }
@@ -403,6 +683,14 @@ function EmbeddingLookup(const ET: TEmbeddingTable;
                           OutArr: PFloat32): TResult;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-437
+  Block              : CrossEntropyLoss
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:ee396d9d7a30201c53f19ffdc3edd3502af4eac101834c48ed905bc09866d056
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 437: CrossEntropyLoss ===                                      }
 { Numerically stable softmax cross-entropy; Labels hold integer indices   }
 { ======================================================================= }
@@ -412,6 +700,14 @@ function CrossEntropyLoss(Logits, Labels: PFloat32;
                            out Loss: TFloat32): TResult;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-438
+  Block              : MSELoss
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:d9c2a72e51d4ac3ea31198a8b1d77b635356d5d55ca7ab073bc79f64694aa8d6
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 438: MSELoss ===                                               }
 { Mean squared error between Predictions and Targets                      }
 { ======================================================================= }
@@ -420,6 +716,14 @@ function MSELoss(Predictions, Targets: PFloat32; N: TUInt32;
                  out Loss: TFloat32): TResult;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-439
+  Block              : L2Regularization
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:505531acc0d0fa0e777f9ba0edd00ef7f55743eba7dfc056b93502db606d9e91
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 439: L2Regularization ===                                      }
 { L2 penalty: 0.5 * Lambda * ||params||^2                                 }
 { ======================================================================= }
@@ -429,6 +733,14 @@ function L2Regularization(Params: PFloat32; N: TUInt32;
                            out Penalty: TFloat32): TResult;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-440
+  Block              : ClipGradNorm
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:ab1397d0e5872bcc849e6eab560268559b2efc62e607b78a5ba4e315c453e0d3
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 440: ClipGradNorm ===                                          }
 { Clip gradient vector by global L2 norm                                  }
 { ======================================================================= }
@@ -437,6 +749,14 @@ function ClipGradNorm(Grads: PFloat32; N: TUInt32;
                        MaxNorm: TFloat32): TResult;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-441
+  Block              : SGDStep
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:face9b3a7d2c86526648c563d37c37b609edd29346b05845400e51782d47407e
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 441: SGDStep ===                                               }
 { params -= lr * grads                                                    }
 { ======================================================================= }
@@ -445,6 +765,14 @@ function SGDStep(Params, Grads: PFloat32; N: TUInt32;
                  LR: TFloat32): TResult;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-442
+  Block              : TAdamState
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:4fcf969fa8ecb0177378bcfaef0ff64d0fd9999c3ed570527418ea5b9423145f
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 442: TAdamState ===                                            }
 { Adam optimizer first/second moment vectors and step counter             }
 { ======================================================================= }
@@ -462,6 +790,14 @@ function  AdamStateCreate(var S: TAdamState; N: TUInt32): TResult;
 procedure AdamStateDestroy(var S: TAdamState);
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-443
+  Block              : AdamStep
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:790cf55a90cbf45df52584794556f2ff8b041d2bee929fd1f33c89774c5a65a9
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 443: AdamStep ===                                              }
 { Adam update: bias-corrected moment estimates + param update             }
 { ======================================================================= }
@@ -470,6 +806,14 @@ function AdamStep(Params, Grads: PFloat32; var S: TAdamState;
                   N: TUInt32; LR, Beta1, Beta2, Eps: TFloat32): TResult;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-444
+  Block              : TAdamW
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:440b5e7bceb476f7111862c6062fbbab47a6c8dcaa2fa3ec457c7a326fcd09f4
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 444: TAdamW ===                                                }
 { Adam with decoupled weight decay                                        }
 { ======================================================================= }
@@ -486,6 +830,14 @@ function  AdamWCreate(var AW: TAdamW; N: TUInt32;
 procedure AdamWDestroy(var AW: TAdamW);
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-445
+  Block              : AdamWStep
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:37555b5a5ff66f9147a2d56877fb9f0b26ac07d5958e621ed271e72f729b977c
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 445: AdamWStep ===                                             }
 { Weight decay applied before moment update (decoupled)                   }
 { ======================================================================= }
@@ -494,6 +846,14 @@ function AdamWStep(Params, Grads: PFloat32; var AW: TAdamW;
                    N: TUInt32; LR, Beta1, Beta2, Eps: TFloat32): TResult;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-446
+  Block              : CosineAnnealingLR
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:718d96c0008a19c3e8de5a09928ae022f587bfe973c8011c29f0e258355af79c
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 446: CosineAnnealingLR ===                                     }
 { Cosine schedule between MaxLR and MinLR over TotalSteps                 }
 { ======================================================================= }
@@ -502,6 +862,14 @@ function CosineAnnealingLR(Step, TotalSteps: TUInt32;
                             MaxLR, MinLR: TFloat32): TFloat32;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-447
+  Block              : WarmupCosine
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:64834ec53696c4d5ca7336f7cf9e75fddd0cf3da8e26e6ed504e57b70d1f0e72
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 447: WarmupCosine ===                                          }
 { Linear warmup then cosine decay to zero                                 }
 { ======================================================================= }
@@ -510,6 +878,14 @@ function WarmupCosine(Step, WarmupSteps, TotalSteps: TUInt32;
                        MaxLR: TFloat32): TFloat32;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-448
+  Block              : TGradAccumulator
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:c051cb56570b040e9af1161ea173ce28ec00df270d8ff8719ba0cf5249b60e72
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 448: TGradAccumulator ===                                      }
 { Accumulate gradients over N micro-steps before applying                 }
 { ======================================================================= }
@@ -531,6 +907,14 @@ function  GradAccumulatorAdd(var Acc: TGradAccumulator;
 procedure GradAccumulatorReset(var Acc: TGradAccumulator);
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-449
+  Block              : TBenchResult
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:122e0458220c067237ea22304fcc076d57f4e9b53469162e76bd6c445d03e9aa
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 449: TBenchResult ===                                          }
 { Benchmark result: op name, element count, timing, throughput            }
 { ======================================================================= }
@@ -550,6 +934,14 @@ function MakeBenchResult(const OpName: AnsiString; N: TUInt64;
 function BenchResultToString(const B: TBenchResult): AnsiString;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-450
+  Block              : AdvancedSubsystemTest
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:56d96b1432dc2123c0668ea2b67debd3d75ca0e06338f98c4d4fb856bb7d3ade
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 450: AdvancedSubsystemTest ===                                 }
 { Smoke-tests all advanced subsystems; returns PGPU_SUCCESS on pass       }
 { ======================================================================= }
@@ -561,6 +953,14 @@ function AdvancedSubsystemTest: TResult;
 implementation
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-402
+  Block              : RegisterFileRead/Write operations
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:7733b829d25f0f216d8e6b67aa986b6a8352a716eecd3463abae58e8519c663f
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 402: RegisterFileRead/Write operations ===                     }
 { ======================================================================= }
 
@@ -579,6 +979,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-404
+  Block              : LoadTile
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:996db744c36c37f6eb1b3e79a257173d2c2ebdb6c0c9badb5b3d7bf845eb8a97
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 404: LoadTile ===                                              }
 { ======================================================================= }
 
@@ -609,6 +1017,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-405
+  Block              : StoreTile
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:54f651a75a2c532f074c80fd0d21dc15a953ac9326e970226128a51595d4c47d
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 405: StoreTile ===                                             }
 { ======================================================================= }
 
@@ -633,6 +1049,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-406
+  Block              : TiledMatMulKernel
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:65a54762eb43b18fb565e02a70dc4dbf329c42f414d72a17071596d49e125236
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 406: TiledMatMulKernel ===                                     }
 { Full tiled SGEMM: C = A * B, using 16x16 shared-memory tiles            }
 { ======================================================================= }
@@ -693,6 +1117,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-407
+  Block              : WarpReduceSum
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:c4cc639d1ef300ed73b1b5fe738f340a9663faeb7411e618c473507964f01807
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 407: WarpReduceSum ===                                         }
 { Simulate 32-lane parallel reduction by serial summation                 }
 { ======================================================================= }
@@ -766,6 +1198,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-409
+  Block              : BlockReduceSum
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:bbd250310fdbd1a669d0ab8a9ce03d9d0c44b1e7e1fcc56cef5107b255897042
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 409: BlockReduceSum ===                                        }
 { Block-level reduction: sum across all warps                             }
 { ======================================================================= }
@@ -783,6 +1223,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-411
+  Block              : ExclusiveScanF32
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:8adef15c7ef1df40e6928510f7e95f609d3f8abc2a12bbfcddc83f1082e7d39e
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 411: ExclusiveScanF32 ===                                      }
 { ======================================================================= }
 
@@ -816,6 +1264,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-412
+  Block              : InclusiveScanF32
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:01195442e9ec02ed803c705e8cd88f1ea979530dbe51ace15594ebbfaf523d28
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 412: InclusiveScanF32 ===                                      }
 { ======================================================================= }
 
@@ -846,6 +1302,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-413
+  Block              : THistogram helpers
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:7bb6c0468aafa436432f7da53b635e69c0055e18d799919c86ba7fa333ed25ef
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 413: THistogram helpers ===                                    }
 { ======================================================================= }
 
@@ -882,6 +1346,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-414
+  Block              : ComputeHistogram
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:25e04d5120d46a193ddb723ea4023174f4dd6e59281ff7aab5380f71fe7ee798
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 414: ComputeHistogram ===                                      }
 { ======================================================================= }
 
@@ -915,6 +1387,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-415
+  Block              : HistogramNormalize
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:331a73201defec24917e5012e643ea239ab5175249ed4604f72c4ec70cffab8f
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 415: HistogramNormalize ===                                    }
 { ======================================================================= }
 
@@ -938,6 +1418,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-416
+  Block              : GatherF32
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:c4475be3132f2750775d3d80664fb44a4ebcc5a8b9536f05aa0d717c83f5eade
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 416: GatherF32 ===                                             }
 { ======================================================================= }
 
@@ -954,6 +1442,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-417
+  Block              : ScatterF32
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:3b83e86b66d27312486fe3b4fb654d69cd097324f095a1868797d1b1f2957828
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 417: ScatterF32 ===                                            }
 { Simulated atomic add: Out[Indices[i]] += Values[i]                      }
 { (On real hardware this would use InterlockedExchangeAdd)                }
@@ -977,6 +1473,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-418
+  Block              : RadixSortUInt32
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:7498d4aba85d9baa7ec71732aa30bd0375febc08fa98b8d828c447d0976b3152
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 418: RadixSortUInt32 ===                                       }
 { LSD radix sort — 8-bit digits, 4 passes, stable                         }
 { ======================================================================= }
@@ -1054,6 +1558,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-419
+  Block              : BitonicSortF32
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:b48318e9f8cfece986fe5ccf65dce9b21ccde0c99c2fd079a1c91d5f698a1cec
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 419: BitonicSortF32 ===                                        }
 { Bitonic network sort; pads to next power-of-two with sentinel values    }
 { ======================================================================= }
@@ -1142,6 +1654,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-420
+  Block              : Stencil1D
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:6d5850cda6ea8447031f3428325cf972c2332cc33f3f0093a8f55c3912a54033
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 420: Stencil1D ===                                             }
 { ======================================================================= }
 
@@ -1175,6 +1695,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-421
+  Block              : Stencil2D 3x3
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:c0c0b7a1123e18d695fcb85b11386154c606c984f33917a9a3b8c36f727a3883
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 421: Stencil2D 3x3 ===                                        }
 { ======================================================================= }
 
@@ -1211,6 +1739,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-422
+  Block              : DepthwiseConv2D
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:0ad8143a6004ff75d00fff2c8cd2e308118e15381e9716f3429f6d190de904cd
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 422: DepthwiseConv2D ===                                       }
 { Layout: [Channels, InH, InW]; one filter per channel                    }
 { ======================================================================= }
@@ -1255,6 +1791,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-423
+  Block              : Im2Col
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:f9659a044b3148adba38b1cbe3f74193600d7b42e99bd59ab7b3beca573a10ec
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 423: Im2Col ===                                                }
 { Output column buffer shape: [C*KH*KW,  OutH*OutW]                       }
 { ======================================================================= }
@@ -1300,6 +1844,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-424
+  Block              : Col2Im
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:b61d0a94cbe0ad5e8ee67830a1e9056027d57f3780546ccb64741b329c4f1d05
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 424: Col2Im ===                                                }
 { Inverse of Im2Col; accumulates gradient back into spatial tensor        }
 { ======================================================================= }
@@ -1345,6 +1897,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-427
+  Block              : RandomInit
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:4f5268a2deeb11acc65ba571b5bc3a03dc6a03636f4e6b0bd6ff8ca5f96000d3
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 427: RandomInit ===                                            }
 { LCG multiplier and increment from Knuth TAOCP Vol.2                     }
 { ======================================================================= }
@@ -1357,6 +1917,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-428
+  Block              : RandomNext
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:7b4f25b8fd8ed2d93d3c8f68c42e59d919a84742de70b01b6bce09a63c4e70f6
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 428: RandomNext ===                                            }
 { ======================================================================= }
 
@@ -1367,6 +1935,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-429
+  Block              : RandomFloat
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:8322c7675dcb424363ea62bfb44f4d2032067dd4bfbf9994d03344347e889583
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 429: RandomFloat ===                                           }
 { ======================================================================= }
 
@@ -1376,6 +1952,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-430
+  Block              : RandomNormal
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:a3394b8fbd039db4c147d74376a9ba6d330f252cde05ba6e3da5391b87c7bceb
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 430: RandomNormal ===                                          }
 { Box-Muller: returns N(0,1) deviate                                      }
 { ======================================================================= }
@@ -1393,6 +1977,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-431
+  Block              : FillRandom
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:8f2a262a574fb0dc46c769654f700c46f2024eed213617c7b61d588edf57bb23
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 431: FillRandom ===                                            }
 { ======================================================================= }
 
@@ -1409,6 +2001,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-425
+  Block              : DropoutF32
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:f271189a17515fe8dffb03060ec742b3875d2ca6433f95b20c55671dfeccca06
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 425: DropoutF32 ===                                            }
 { (placed after RandomInit/RandomFloat on which it depends)               }
 { ======================================================================= }
@@ -1445,6 +2045,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-433
+  Block              : BuildPositionalEncoding
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:2940c2ee68fec3db3a54e3218f56048546c1c2f87daee2469e108253c7f14900
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 433: BuildPositionalEncoding ===                               }
 { Sinusoidal table: PE[pos,2i] = sin(pos/10000^(2i/d)),                   }
 {                   PE[pos,2i+1] = cos(pos/10000^(2i/d))                  }
@@ -1474,6 +2082,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-434
+  Block              : ApplyPositionalEncoding
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:0ebecd200a98d9509552a1c4eb4cef919606a374bee7071daef4f6447e1badf3
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 434: ApplyPositionalEncoding ===                               }
 { Add PE rows to tensor in-place; tensor Dims[0]=SeqLen, Dims[1]=Dim      }
 { ======================================================================= }
@@ -1500,6 +2116,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-436
+  Block              : EmbeddingLookup
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:17436f56825edde79ced7b504eb01d51cf6738e3da1d70f3ff3c8a4177568b70
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 436: EmbeddingLookup ===                                       }
 { ======================================================================= }
 
@@ -1526,6 +2150,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-437
+  Block              : CrossEntropyLoss
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:ee396d9d7a30201c53f19ffdc3edd3502af4eac101834c48ed905bc09866d056
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 437: CrossEntropyLoss ===                                      }
 { Numerically stable: logsumexp trick; Labels hold class indices as f32   }
 { ======================================================================= }
@@ -1567,6 +2199,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-438
+  Block              : MSELoss
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:d9c2a72e51d4ac3ea31198a8b1d77b635356d5d55ca7ab073bc79f64694aa8d6
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 438: MSELoss ===                                               }
 { ======================================================================= }
 
@@ -1595,6 +2235,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-439
+  Block              : L2Regularization
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:505531acc0d0fa0e777f9ba0edd00ef7f55743eba7dfc056b93502db606d9e91
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 439: L2Regularization ===                                      }
 { ======================================================================= }
 
@@ -1619,6 +2267,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-440
+  Block              : ClipGradNorm
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:ab1397d0e5872bcc849e6eab560268559b2efc62e607b78a5ba4e315c453e0d3
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 440: ClipGradNorm ===                                          }
 { ======================================================================= }
 
@@ -1649,6 +2305,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-441
+  Block              : SGDStep
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:face9b3a7d2c86526648c563d37c37b609edd29346b05845400e51782d47407e
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 441: SGDStep ===                                               }
 { ======================================================================= }
 
@@ -1665,6 +2329,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-442
+  Block              : TAdamState helpers
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:0d32e9b7d90f192270aa73aaeb0a17ea59ff080c5a9abd14dc8a08591a349d51
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 442: TAdamState helpers ===                                    }
 { ======================================================================= }
 
@@ -1689,6 +2361,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-443
+  Block              : AdamStep
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:790cf55a90cbf45df52584794556f2ff8b041d2bee929fd1f33c89774c5a65a9
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 443: AdamStep ===                                              }
 { Compact bias-correction form: alpha_t = lr * sqrt(1-b2^t)/(1-b1^t)     }
 { ======================================================================= }
@@ -1720,6 +2400,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-444
+  Block              : TAdamW helpers
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:8f4dd4d8ba7820eec76a2682cfb31141028dbf9423d755c292ae4584fb48c1c9
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 444: TAdamW helpers ===                                        }
 { ======================================================================= }
 
@@ -1736,6 +2424,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-445
+  Block              : AdamWStep
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:37555b5a5ff66f9147a2d56877fb9f0b26ac07d5958e621ed271e72f729b977c
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 445: AdamWStep ===                                             }
 { Decoupled weight decay applied before moment update                     }
 { ======================================================================= }
@@ -1769,6 +2465,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-446
+  Block              : CosineAnnealingLR
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:718d96c0008a19c3e8de5a09928ae022f587bfe973c8011c29f0e258355af79c
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 446: CosineAnnealingLR ===                                     }
 { ======================================================================= }
 
@@ -1784,6 +2488,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-447
+  Block              : WarmupCosine
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:64834ec53696c4d5ca7336f7cf9e75fddd0cf3da8e26e6ed504e57b70d1f0e72
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 447: WarmupCosine ===                                          }
 { Linear warmup 0 -> MaxLR, then cosine decay MaxLR -> 0                  }
 { ======================================================================= }
@@ -1809,6 +2521,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-448
+  Block              : TGradAccumulator helpers
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:6962bb39bf1882983a5e823c968d2819211da2aa39de02ec9bc5b6ba0ef36dcb
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 448: TGradAccumulator helpers ===                              }
 { ======================================================================= }
 
@@ -1858,6 +2578,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-449
+  Block              : TBenchResult helpers
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:b1de75a6ad773515d16985c7c267b8c8a57e6918451a7617e12582089e8477bb
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 449: TBenchResult helpers ===                                  }
 { ======================================================================= }
 
@@ -1878,6 +2606,14 @@ begin
 end;
 
 { ======================================================================= }
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-010-BLK-450
+  Block              : AdvancedSubsystemTest
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:56d96b1432dc2123c0668ea2b67debd3d75ca0e06338f98c4d4fb856bb7d3ade
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 450: AdvancedSubsystemTest ===                                 }
 { Exercises every major subsystem; returns PGPU_SUCCESS on full pass      }
 { ======================================================================= }
