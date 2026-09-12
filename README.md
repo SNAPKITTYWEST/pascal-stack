@@ -1,8 +1,22 @@
-# Pascal GPU Stack
+# pascal-stack
 
-Pascal GPU Stack is a Free Pascal implementation of common GPU programming concepts. It provides APIs for device memory, kernel dispatch, synchronization, numerical operations, matrices, tensors, and several machine-learning operations.
+**500-block pure Pascal replacement for CUDA GPU computation stack: device, memory, kernel, execution, sync, numerical, matrix, tensor, and optimizer layers.**
 
-The current backend is a CPU simulation. Kernels run as serial loops and device memory is allocated from host memory. It does not run code on a GPU. The OpenCL, Vulkan, and Metal backends are placeholders that return unsupported errors.
+`pascal-stack` is a Pascal-first systems project for reconstructing a GPU-computation stack from explicit building blocks. Device discovery, memory ownership, kernel representation, execution scheduling, synchronization, numerical primitives, matrices, tensors, and optimization are separable layers — not hidden behind a runtime.
+
+> Build the computation stack from the bottom up.
+
+The current backend is a CPU simulation. Kernels run as serial loops and device memory is allocated from host memory. It does not run on a GPU. The OpenCL, Vulkan, and Metal backends are placeholders that return unsupported errors.
+
+## Table of Contents
+
+- [Requirements](#requirements)
+- [Build and Run](#build-and-run)
+- [Source Layout](#source-layout)
+- [What You Will Build](#what-you-will-build)
+- [Limitations](#limitations)
+- [Testing](#testing)
+- [License](#license)
 
 ## Requirements
 
@@ -10,7 +24,7 @@ The current backend is a CPU simulation. Kernels run as serial loops and device 
 
 No CUDA toolkit or GPU is required.
 
-## Build and run
+## Build and Run
 
 From the repository root:
 
@@ -30,7 +44,7 @@ fpc cmd/pascal-gpu-stack.lpr \
   -O2
 ```
 
-Run the program:
+Run:
 
 ```sh
 ./cmd/pascal-gpu-stack
@@ -42,19 +56,19 @@ On Windows:
 .\cmd\pascal-gpu-stack.exe
 ```
 
-The program initializes the simulated backend, prints a compatibility report, runs an integration check, and runs the test suite. A result of `0` means success.
+The program initializes the simulated backend, prints a compatibility report, runs an integration check, and runs the test suite. Exit code `0` means success.
 
-## Source layout
+## Source Layout
 
 | Path | Contents |
 | --- | --- |
 | `cmd/` | Command-line program |
-| `src/core/` | Scalar types, dimensions, errors, and utilities |
+| `src/core/` | Scalar types, dimensions, errors, utilities |
 | `src/memory/` | Host-backed device memory and allocators |
 | `src/device/` | Device API and backend interfaces |
 | `src/kernel/` | Kernel types, parameters, and dispatch |
-| `src/execution/` | Streams, queues, events, and scheduling |
-| `src/sync/` | Synchronization and atomic operations |
+| `src/execution/` | Streams, queues, events, scheduling |
+| `src/sync/` | Synchronization and atomics |
 | `src/numerical/` | Numerical functions and reductions |
 | `src/matrix/` | Matrix and tensor operations |
 | `src/advanced/` | Higher-level compute and ML operations |
@@ -62,15 +76,34 @@ The program initializes the simulated backend, prints a compatibility report, ru
 | `src/integration/` | Public initialization and integration API |
 | `build/` | Free Pascal package files |
 
-The source is organized into numbered blocks. The block labels are navigation markers within the Pascal units; they are not separate packages or executables.
+Source is organized into numbered blocks. Block labels are navigation markers within Pascal units — not separate packages.
+
+## What You Will Build
+
+- **Device** — identity, capabilities, limits, discovery
+- **Context** — ownership and lifetime
+- **Memory** — allocation, bounds, alignment, transfer, copy/fill/mapping
+- **Kernel** — source, metadata, arguments, launch, work dimensions/groups
+- **Execution** — queue, command model, submission, state
+- **Synchronization** — events, barriers, fences
+- **Numerical** — scalars, vectors, reductions
+- **Matrix / Tensor** — shape, strides, views, broadcasting, ops
+- **Optimizer** — SGD, Momentum, Adam, state and training step
+- **Backend** — reference, emulation, and accelerator boundary
+
+Each block has an explicit interface, invariant, and failure condition. Higher layers consume lower-layer contracts without changing semantics.
 
 ## Limitations
 
-- Execution is serial on the host CPU.
-- Memory transfers copy between host allocations; there is no hardware DMA.
-- Streams do not provide concurrent GPU execution.
-- Hardware-specific warp operations are not implemented.
-- The non-simulated device backends are not implemented.
+- Execution is serial on the host CPU
+- Memory transfers copy between host allocations; no hardware DMA
+- Streams do not provide concurrent GPU execution
+- Hardware-specific warp operations not implemented
+- Non-simulated device backends not implemented
+
+## Testing
+
+Tests are grouped by layer. Each block has tests for its invariant and at least one boundary case. See `src/tests/` for the runner. All tests run on the simulated backend with no hardware required.
 
 ## License
 
