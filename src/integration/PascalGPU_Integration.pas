@@ -46,6 +46,14 @@ uses
   SysUtils,
   PascalGPU_Types;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-483
+  Block              : Public API type aliases
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:5e045dabeb8d8eccadffc1f10159cf38cf3366718e5412a546bf61d8c80c7f00
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 483: Public API type aliases === }
 { Forward declarations for alias resolution — real types are declared in
   their respective units.  Here we define the public-facing names that
@@ -57,6 +65,14 @@ type
   TGPUEvent   = THandle;
   TGPUMemory  = THandle;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-486
+  Block              : TCompatEntry record
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:afea2de5144fd8b6c82e63d6004bef4e69f1abeba91348ee6050c6dbee4c0afb
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 486: TCompatEntry record === }
 type
   TCompatEntry = record
@@ -67,6 +83,14 @@ type
   end;
   PCompatEntry = ^TCompatEntry;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-488
+  Block              : TDependencyReport record
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:37b9c64c72d1f1ce27c12d7e249793c5b7d7982f8001aced2ace3e3b153c2575
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 488: TDependencyReport record === }
 type
   TBackendKind = (
@@ -87,6 +111,14 @@ type
     BackendName     : AnsiString;
   end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-489
+  Block              : TVerificationMatrix record
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:92c3e34d815fa1f6cca74393a040a855fb786412967f89d7978f38b2792eca92
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 489: TVerificationMatrix record === }
 type
   TTestStatus = (tsPass, tsFail, tsSkipped, tsNotRun);
@@ -108,6 +140,14 @@ type
     TotalFail   : Integer;
   end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-497
+  Block              : TFutureWork record
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:fb1504fe5df81a97ce583e01443386a49095dc7a11b5b27b356aea4d0887c0f3
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 497: TFutureWork record === }
 type
   TFutureWorkItem = record
@@ -121,6 +161,14 @@ type
     Count : Integer;
   end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-500
+  Block              : TArchitectureSummary record
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:c565f794233297be6b2cce24ddf1992ed177da939006f54e3e28706dbe14fbff
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 500: TArchitectureSummary record === }
 type
   TUnitManifestEntry = record
@@ -152,52 +200,180 @@ type
 procedure PascalGPU_Init(LogCallback: TLogCallback);
 procedure PascalGPU_Shutdown;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-484
+  Block              : Version string
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:d5cd0a08e56be65cd978a9e1abb8dc16c5228aaca9281df965f5c7c80a720703
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 484: Version string === }
 function PascalGPUVersion: AnsiString;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-485
+  Block              : CUDA compatibility table accessor
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:c3d1afd877ff0233a48842caa3199817a38efbe76219421f9146a79652b42f81
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 485: CUDA compatibility table accessor === }
 function GetCompatibilityTable(out Count: Integer): PCompatEntry;
 procedure FreeCompatibilityTable(Table: PCompatEntry);
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-487
+  Block              : Compatibility report
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:4e47e40380f6a4c0001229a4929608ae69edce019c5b4993f4eb0ff26e5f5d8c
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 487: Compatibility report === }
 function PrintCompatibilityReport: AnsiString;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-488
+  Block              : Dependency report builder
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:76eb78f423fe894e301170a19efa3241029800871f646afd8c8f8cb046a7e635
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 488: Dependency report builder === }
 function BuildDependencyReport: TDependencyReport;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-489
+  Block              : Verification matrix builder
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:d8a3c8ee429a1561b490cf948e500d56e52ef3fd5aad54a739d29eecee03926c
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 489: Verification matrix builder === }
 function BuildVerificationMatrix: TVerificationMatrix;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-490
+  Block              : Example 1 — VectorAdd end-to-end
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:8faee731c83ed26849d629794d4a50c5c9b7f634db50e6b5dbe8ec2de7a5f83b
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 490: Example 1 — VectorAdd end-to-end === }
 function Example_VectorAdd: TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-491
+  Block              : Example 2 — MatMul end-to-end
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:f06df565ef972bc8d061be48df9b5493a8cf4aa79de8f1fd058bb559f43fa8c0
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 491: Example 2 — MatMul end-to-end === }
 function Example_MatMul: TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-492
+  Block              : Example 3 — Softmax over batch
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:e761040977fa72ca4503586ad0a1e81f4d9276efc620c425ff806f4a6cc1a266
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 492: Example 3 — Softmax over batch === }
 function Example_Softmax: TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-493
+  Block              : Example 4 — Simple training step
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:e15a41178efe6cf7fbdb048a3dead37c15315a17f53dbe0f3273293b4f562b1e
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 493: Example 4 — Simple training step === }
 function Example_TrainingStep: TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-494
+  Block              : Example 5 — Stream pipeline
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:c70efa0cdb20843cade5698590905ab08e9fd807b99289c03139c272a367f895
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 494: Example 5 — Stream pipeline === }
 function Example_StreamPipeline: TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-495
+  Block              : Full integration test
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:aff671a7af38f1ed3b09ab2e961afb9e853866aa58572bc1c0d08c5a8f139ae0
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 495: Full integration test === }
 function IntegrationTest: TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-496
+  Block              : Limitations documentation
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:eac20d8602df096747e60bd681c720f8515164aeba0a77595d747e2b2e898f65
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 496: Limitations documentation === }
 function PascalGPULimitations: AnsiString;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-497
+  Block              : Future work accessor
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:9fd3952672a4ebce03c3e6715635ab7535257c451524b94f202c5bcefdbc369f
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 497: Future work accessor === }
 function BuildFutureWork: TFutureWork;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-498
+  Block              : Project manifest
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:60ff45be68ca99d6ae57604bcc201522c13976edca7429b0b1bc1ddca0b5649d
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 498: Project manifest === }
 function PrintProjectManifest: AnsiString;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-499
+  Block              : Complete workflow demo
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:efe3b9794244db0f4699fc3f2018a08b7f9238511eebcb74a1d0ab806011c0be
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 499: Complete workflow demo === }
 function RunCompleteWorkflow: TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-500
+  Block              : Architecture summary
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:50aef96d7672f47532a305db07fac360c2175d7099c11924dc8d4b23620a3846
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 500: Architecture summary === }
 function BuildArchitectureSummary: TArchitectureSummary;
 function PrintArchitectureSummary: AnsiString;
@@ -248,7 +424,15 @@ end;
   ============================================================================ }
 procedure PascalGPU_Init(LogCallback: TLogCallback);
 begin
-  { === BLOCK 481: PascalGPU_Init — initializes the full stack === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-481
+  Block              : PascalGPU_Init — initializes the full stack
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:b58aa5013c3bb50c7091e03c74d39bdb2d15ece179eb42f6fd0cd71a9fb5842e
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 481: PascalGPU_Init — initializes the full stack === }
   if GInitialized then
     Exit;
 
@@ -279,7 +463,15 @@ end;
   ============================================================================ }
 procedure PascalGPU_Shutdown;
 begin
-  { === BLOCK 482: PascalGPU_Shutdown — tears down all subsystems in reverse order === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-482
+  Block              : PascalGPU_Shutdown — tears down all subsystems in reverse order
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:ce3cb24e38d1ae8dc9f90b01eebfe52e082fe819498806bb42f4bca7ec0e9327
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 482: PascalGPU_Shutdown — tears down all subsystems in reverse order === }
   if not GInitialized then
     Exit;
 
@@ -308,7 +500,15 @@ end;
   ============================================================================ }
 function PascalGPUVersion: AnsiString;
 begin
-  { === BLOCK 484: PascalGPUVersion — returns version string === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-484
+  Block              : PascalGPUVersion — returns version string
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:225a84702a088cd4501ca6b20f4b5342922e720d6278f426cac9f9a00706b373
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 484: PascalGPUVersion — returns version string === }
   Result := 'PascalGPU 1.0.0 (blocks 1-500, pure Pascal simulation, Free Pascal ' +
             {$I %FPCVERSION%} + ')';
 end;
@@ -332,8 +532,24 @@ var
   end;
 
 begin
-  { === BLOCK 485: CUDA→Pascal compatibility table as runtime TCompatEntry array === }
-  { === BLOCK 486: TCompatEntry record population === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-485
+  Block              : CUDA→Pascal compatibility table as runtime TCompatEntry array
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:0aaae4c61d3506d907789e4f4653f8b53c980c5c04644fd894ef99b5fb98ca9c
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 485: CUDA→Pascal compatibility table as runtime TCompatEntry array === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-486
+  Block              : TCompatEntry record population
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:e2371951acbd6fa6ffedb77836756166cbe2575795e157c31d9031bdb6312cf1
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 486: TCompatEntry record population === }
   Count := PASCALGPU_COMPAT_COUNT;
   GetMem(Table, Count * SizeOf(TCompatEntry));
   for I := 0 to Count - 1 do
@@ -459,7 +675,15 @@ var
   Equiv : AnsiString;
   Report: AnsiString;
 begin
-  { === BLOCK 487: PrintCompatibilityReport — iterate TCompatEntry array === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-487
+  Block              : PrintCompatibilityReport — iterate TCompatEntry array
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:2a4d7aa855da76ce49cb5b41a2b62ed3fd567db82241503cd2db5fc3f66d2976
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 487: PrintCompatibilityReport — iterate TCompatEntry array === }
   Report := '=== PascalGPU CUDA Compatibility Report ===' + LineEnding;
   Report := Report + 'Version: ' + PascalGPUVersion + LineEnding;
   Report := Report + StringOfChar('-', 72) + LineEnding;
@@ -496,7 +720,15 @@ function BuildDependencyReport: TDependencyReport;
 var
   R : TDependencyReport;
 begin
-  { === BLOCK 488: TDependencyReport — simulated vs hardware-dependent === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-488
+  Block              : TDependencyReport — simulated vs hardware-dependent
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:18715f226f557cb7d6beedab3c27c003fb52fbbf51e3a7c1a605876e18afb4d8
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 488: TDependencyReport — simulated vs hardware-dependent === }
   R.ActiveBackend := bkSimulated;
   R.BackendName   := 'TSimulatedDeviceBackend (default)';
 
@@ -558,7 +790,15 @@ var
   end;
 
 begin
-  { === BLOCK 489: VerificationReport — TVerificationMatrix === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-489
+  Block              : VerificationReport — TVerificationMatrix
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:a91ac9f7bbf103039cbf7126603abc14ac6eeff3e6d9cbe39d8aa27c3cf0678f
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 489: VerificationReport — TVerificationMatrix === }
   FillChar(M, SizeOf(M), 0);
   M.EntryCount := 0;
   M.TotalFail  := 0;
@@ -604,7 +844,15 @@ var
   Ok         : Boolean;
   SzBytes    : TSizeT;
 begin
-  { === BLOCK 490: Example 1 — VectorAdd end-to-end === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-490
+  Block              : Example 1 — VectorAdd end-to-end
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:8d92c78f3a6ad00ac19fdd20d6254666e3c518628d6fb981ac2709f2e0e77cca
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 490: Example 1 — VectorAdd end-to-end === }
   { Step 1: Fill host arrays }
   for I := 0 to N-1 do
   begin
@@ -666,7 +914,15 @@ var
   Expected : TFloat32;
   Ok       : Boolean;
 begin
-  { === BLOCK 491: Example 2 — MatMul end-to-end 128x128 GEMM === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-491
+  Block              : Example 2 — MatMul end-to-end 128x128 GEMM
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:bdc957a3594167cd3d6489d3662cac1000a29049fe62c1dc8134b64b3a5ed96b
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 491: Example 2 — MatMul end-to-end 128x128 GEMM === }
   SetLength(A, SIZE * SIZE);
   SetLength(B, SIZE * SIZE);
   SetLength(C, SIZE * SIZE);
@@ -727,7 +983,15 @@ var
   SumRow : TFloat64;
   Ok     : Boolean;
 begin
-  { === BLOCK 492: Example 3 — Softmax over batch === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-492
+  Block              : Example 3 — Softmax over batch
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:ccbfc4aeed3961e8c256a68f606965c775d5339c114e3ef0483172428df0533b
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 492: Example 3 — Softmax over batch === }
   { Fill logits with synthetic data }
   for I := 0 to BATCH - 1 do
     for J := 0 to CLASSES - 1 do
@@ -810,7 +1074,15 @@ var
   Loss   : TFloat64;
   Ok     : Boolean;
 begin
-  { === BLOCK 493: Example 4 — Simple training step === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-493
+  Block              : Example 4 — Simple training step
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:4f096e4632f244c6fdf30ce6537e9cccf7569d91c8f7da9c2b91ffbcbd1cfe24
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 493: Example 4 — Simple training step === }
   LR    := 0.001;
   Beta1 := 0.9;
   Beta2 := 0.999;
@@ -892,7 +1164,15 @@ var
   T0, T1           : TDateTime;
   ElapsedMs        : TFloat64;
 begin
-  { === BLOCK 494: Example 5 — Stream pipeline: enqueue 3 kernels, sync, benchmark === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-494
+  Block              : Example 5 — Stream pipeline: enqueue 3 kernels, sync, benchmark
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:c137a2751ecafd0a9386414e9e3ed4afd38b28322e28bd6ae004bc9a7ba59676
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 494: Example 5 — Stream pipeline: enqueue 3 kernels, sync, benchmark === }
   SzBytes := ELEMS * SizeOf(TFloat32);
   GetMem(Buf1, SzBytes);
   GetMem(Buf2, SzBytes);
@@ -960,7 +1240,15 @@ var
   M : TVerificationMatrix;
   I : Integer;
 begin
-  { === BLOCK 495: Full system integration test — runs examples 1-5 and subsystem tests === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-495
+  Block              : Full system integration test — runs examples 1-5 and subsystem tests
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:dbf83c5cde17bd0826e2f62d0a09a81386f5f75d3277627bfae3d08f15e3af70
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 495: Full system integration test — runs examples 1-5 and subsystem tests === }
   Result := PGPU_SUCCESS;
 
   { Run Example 1: VectorAdd }
@@ -1034,7 +1322,15 @@ end;
   ============================================================================ }
 function PascalGPULimitations: AnsiString;
 begin
-  { === BLOCK 496: Limitations documentation === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-496
+  Block              : Limitations documentation
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:461f827a600b535a0e85bd55af44ff06fea7736d22a301bc2d7f454574143009
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 496: Limitations documentation === }
   Result :=
     '=== PascalGPU Known Limitations ===' + LineEnding +
     LineEnding +
@@ -1098,7 +1394,15 @@ var
   end;
 
 begin
-  { === BLOCK 497: TFutureWork — planned extensions === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-497
+  Block              : TFutureWork — planned extensions
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:1ddf587015bcaf18b0a2957c8c4f824e221b9185bf1a010ba7d1c2b7dddc78bf
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 497: TFutureWork — planned extensions === }
   FW.Count := 0;
 
   Add('Real OpenCL Backend',
@@ -1151,7 +1455,15 @@ function PrintProjectManifest: AnsiString;
 var
   Report : AnsiString;
 begin
-  { === BLOCK 498: Project manifest — all Pascal units, block ranges, dependency graph === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-498
+  Block              : Project manifest — all Pascal units, block ranges, dependency graph
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:e104b051b0e54c20dd53055a549ec83ad3b83170f04527ecde4af9b28b64847f
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 498: Project manifest — all Pascal units, block ranges, dependency graph === }
   Report := '=== PascalGPU Project Manifest ===' + LineEnding;
   Report := Report + 'Version : ' + PascalGPUVersion + LineEnding;
   Report := Report + StringOfChar('=', 72) + LineEnding;
@@ -1276,7 +1588,15 @@ var
   SumRow      : TFloat64;
   Ok          : Boolean;
 begin
-  { === BLOCK 499: Complete Pascal replacement for CUDA vector-add + GEMM + softmax === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-499
+  Block              : Complete Pascal replacement for CUDA vector-add + GEMM + softmax
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:2b1ad63b75c0d12edd836740f07fda3323546ba7cedd76754c84ce49ae115aed
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 499: Complete Pascal replacement for CUDA vector-add + GEMM + softmax === }
   { --- Phase 0: Initialise stack --- }
   PascalGPU_Init(nil);
 
@@ -1406,7 +1726,15 @@ var
   end;
 
 begin
-  { === BLOCK 500: Architecture summary — what was built, verified, and what is required === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-004-BLK-500
+  Block              : Architecture summary — what was built, verified, and what is required
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:9602ff2f60442a6f5e9db31ce549cd41daca9e6494bcbe4154b3324f1eb24000
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 500: Architecture summary — what was built, verified, and what is required === }
   S.ProjectName        := 'PascalGPU';
   S.Version            := '1.0.0';
   S.TotalBlocks        := 500;
