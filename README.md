@@ -93,17 +93,7 @@ Source is organized into numbered blocks. Block labels are navigation markers wi
 
 Each block has an explicit interface, invariant, and failure condition. Higher layers consume lower-layer contracts without changing semantics.
 
-## Limitations
 
-- Execution is serial on the host CPU
-- Memory transfers copy between host allocations; no hardware DMA
-- Streams do not provide concurrent GPU execution
-- Hardware-specific warp operations not implemented
-- Non-simulated device backends not implemented
-
-## Testing
-
-Tests are grouped by layer. Each block has tests for its invariant and at least one boundary case. See `src/tests/` for the runner. All tests run on the simulated backend with no hardware required.
 
 ## License
 
