@@ -70,7 +70,7 @@ The 500 blocks in the handcrafted stack are not arbitrary. They are the minimal 
 
 
 
-{ ========================================================================
+ ========================================================================
   SOVEREIGN LEVIATHAN COVENANT — MGPLv3 RECURSIVE INFECTION CLAUSE
   Node-ID:           PASCAL-STACK-008
   File:              PascalGPU_Numerical.pas
@@ -82,13 +82,13 @@ The 500 blocks in the handcrafted stack are not arbitrary. They are the minimal 
   ========================================================================
 
 
-{ -----------------------------------------------------------------------
+ -----------------------------------------------------------------------
   SOVEREIGN NODE KEY : PASCAL-STACK-008-BLK-301
   Block              : Math Constants
   License            : AGPLv3 / SL-AGPL3-001
   Clone-Gate         : sha256:2a626517...
-  ----------------------------------------------------------------------- }
-```
+  ----------------------------------------------------------------------- 
+
 
 AGPLv3 is the governing license. The Sovereign Leviathan clause adds the recursive infection: if you touch a leaf, you honor the terms beneath it spread. `Lex in solido. Pacta sunt servanda. Nemo dat quod non habet.` — the law in solid, agreements must be kept, no one gives what they do not have. Jurisdiction is England and Wales. See `LICENSE` and `SOVEREIGN_LICENSE.md` where present.
 
