@@ -32,7 +32,7 @@
 
   ======================================================================== }
 
-{$mode objfpc}{$H+}{$PackRecords C}
+{$mode objfpc}{$H+}{$PackRecords C}{$modeswitch inscope}
 unit PascalGPU_Matrix;
 
 interface
@@ -1806,7 +1806,7 @@ var
   NewNDim: TUInt32;
   SrcIdx, DstIdx: array[0..7] of TUInt32;
   SrcOffset, DstOffset: TUInt64;
-  ElemCount: TUInt64;
+  ElemCount: LongWord;
   PSrc, PDst: PFloat32;
   d, e: TUInt32;
   DimSizes: array[0..7] of TUInt32;
@@ -1904,7 +1904,7 @@ end;
 function TensorAdd(const A, B: TTensor; out C: TTensor): TResult;
 var
   R: TResult;
-  i: TUInt64;
+  i: LongWord;
   PA, PBPtr, PCPtr: PFloat32;
 begin
   FillChar(C, SizeOf(TTensor), 0);
@@ -1937,7 +1937,7 @@ begin
   PA    := A.Data;
   PBPtr := B.Data;
   PCPtr := C.Data;
-  for i := 0 to A.TotalElements - 1 do
+  for i := 0 to LongWord(A.TotalElements) - 1 do
   begin
     PCPtr^ := PA^ + PBPtr^;
     Inc(PA); Inc(PBPtr); Inc(PCPtr);
@@ -1956,7 +1956,7 @@ end;
 { === BLOCK 384: TensorMul element-wise implementation === }
 function TensorMul(const A, B: TTensor; out C: TTensor): TResult;
 var
-  i: TUInt64;
+  i: LongWord;
   PA, PBPtr, PCPtr: PFloat32;
 begin
   FillChar(C, SizeOf(TTensor), 0);
@@ -1983,7 +1983,7 @@ begin
   PA    := A.Data;
   PBPtr := B.Data;
   PCPtr := C.Data;
-  for i := 0 to A.TotalElements - 1 do
+  for i := 0 to LongWord(A.TotalElements) - 1 do
   begin
     PCPtr^ := PA^ * PBPtr^;
     Inc(PA); Inc(PBPtr); Inc(PCPtr);
@@ -2004,7 +2004,7 @@ end;
 function TensorBatchedMatMul(const A, B: TTensor; out C: TTensor): TResult;
 var
   Batch, M, K, N: TUInt32;
-  b, i, j, k: TUInt32;
+  batchIdx, i, j, kk: TUInt32;
   Acc: TFloat32;
   ABase, BBase, CBase: TUInt64;
   ShapeC: array[0..2] of TUInt32;
@@ -2035,19 +2035,19 @@ begin
   ShapeC[2] := N;
   Result := AllocTensor(C, 3, ShapeC);
   if Result <> PGPU_SUCCESS then Exit;
-  for b := 0 to Batch - 1 do
+  for batchIdx := 0 to Batch - 1 do
   begin
-    ABase := TUInt64(b) * M * K;
-    BBase := TUInt64(b) * K * N;
-    CBase := TUInt64(b) * M * N;
+    ABase := TUInt64(batchIdx) * M * K;
+    BBase := TUInt64(batchIdx) * K * N;
+    CBase := TUInt64(batchIdx) * M * N;
     for i := 0 to M - 1 do
       for j := 0 to N - 1 do
       begin
         Acc := 0.0;
-        for k := 0 to K - 1 do
+        for kk := 0 to K - 1 do
         begin
-          PA    := A.Data; Inc(PA,    ABase + TUInt64(i) * K + k);
-          PBPtr := B.Data; Inc(PBPtr, BBase + TUInt64(k) * N + j);
+          PA    := A.Data; Inc(PA,    ABase + TUInt64(i) * K + kk);
+          PBPtr := B.Data; Inc(PBPtr, BBase + TUInt64(kk) * N + j);
           Acc := Acc + PA^ * PBPtr^;
         end;
         PCPtr := C.Data; Inc(PCPtr, CBase + TUInt64(i) * N + j);
@@ -2073,7 +2073,7 @@ var
   OutCh, KLen: TUInt32;
   OutLen: TUInt32;
   ShapeOut: array[0..2] of TUInt32;
-  b, oc, ol, ic, kl: TUInt32;
+  batchIdx, oc, ol, ic, kl: TUInt32;
   InPos: LongInt;
   Acc: TFloat32;
   PIn, PKer, POut: PFloat32;
@@ -2107,7 +2107,7 @@ begin
   ShapeOut[2] := OutCh;
   Result := AllocTensor(OutT, 3, ShapeOut);
   if Result <> PGPU_SUCCESS then Exit;
-  for b := 0 to Batch - 1 do
+  for batchIdx := 0 to Batch - 1 do
     for ol := 0 to OutLen - 1 do
       for oc := 0 to OutCh - 1 do
       begin
@@ -2118,14 +2118,14 @@ begin
           if (InPos >= 0) and (TUInt32(InPos) < InLen) then
             for ic := 0 to InCh - 1 do
             begin
-              InOff  := TUInt64(b) * InLen * InCh + TUInt64(InPos) * InCh + ic;
+              InOff  := TUInt64(batchIdx) * InLen * InCh + TUInt64(InPos) * InCh + ic;
               KerOff := TUInt64(oc) * KLen * InCh + TUInt64(kl) * InCh + ic;
               PIn  := Input.Data;  Inc(PIn, InOff);
               PKer := Kernel.Data; Inc(PKer, KerOff);
               Acc  := Acc + PIn^ * PKer^;
             end;
         end;
-        OutOff := TUInt64(b) * OutLen * OutCh + TUInt64(ol) * OutCh + oc;
+        OutOff := TUInt64(batchIdx) * OutLen * OutCh + TUInt64(ol) * OutCh + oc;
         POut   := OutT.Data; Inc(POut, OutOff);
         POut^  := Acc;
       end;
@@ -2148,7 +2148,7 @@ var
   OutCh, KH, KW: TUInt32;
   OutH, OutW: TUInt32;
   ShapeOut: array[0..3] of TUInt32;
-  b, oc, oh, ow, ic, kh, kw: TUInt32;
+  batchIdx, oc, oh, ow, ic, khLoop, kwLoop: TUInt32;
   InPosH, InPosW: LongInt;
   Acc: TFloat32;
   PIn, PKer, POut: PFloat32;
@@ -2187,29 +2187,29 @@ begin
   ShapeOut[3] := OutCh;
   Result := AllocTensor(OutT, 4, ShapeOut);
   if Result <> PGPU_SUCCESS then Exit;
-  for b := 0 to Batch - 1 do
+  for batchIdx := 0 to Batch - 1 do
     for oh := 0 to OutH - 1 do
       for ow := 0 to OutW - 1 do
         for oc := 0 to OutCh - 1 do
         begin
           Acc := 0.0;
-          for kh := 0 to KH - 1 do
+          for khLoop := 0 to KH - 1 do
           begin
-            InPosH := LongInt(oh) * LongInt(StrideH) + LongInt(kh) - LongInt(PadH);
+            InPosH := LongInt(oh) * LongInt(StrideH) + LongInt(khLoop) - LongInt(PadH);
             if (InPosH >= 0) and (TUInt32(InPosH) < InH) then
-              for kw := 0 to KW - 1 do
+              for kwLoop := 0 to KW - 1 do
               begin
-                InPosW := LongInt(ow) * LongInt(StrideW) + LongInt(kw) - LongInt(PadW);
+                InPosW := LongInt(ow) * LongInt(StrideW) + LongInt(kwLoop) - LongInt(PadW);
                 if (InPosW >= 0) and (TUInt32(InPosW) < InW) then
                   for ic := 0 to InCh - 1 do
                   begin
-                    InOff  := TUInt64(b) * InH * InW * InCh
+                    InOff  := TUInt64(batchIdx) * InH * InW * InCh
                              + TUInt64(InPosH) * InW * InCh
                              + TUInt64(InPosW) * InCh
                              + ic;
                     KerOff := TUInt64(oc) * KH * KW * InCh
-                             + TUInt64(kh) * KW * InCh
-                             + TUInt64(kw) * InCh
+                             + TUInt64(khLoop) * KW * InCh
+                             + TUInt64(kwLoop) * InCh
                              + ic;
                     PIn  := Input.Data;  Inc(PIn, InOff);
                     PKer := Kernel.Data; Inc(PKer, KerOff);
@@ -2217,7 +2217,7 @@ begin
                   end;
               end;
           end;
-          OutOff := TUInt64(b) * OutH * OutW * OutCh
+          OutOff := TUInt64(batchIdx) * OutH * OutW * OutCh
                   + TUInt64(oh) * OutW * OutCh
                   + TUInt64(ow) * OutCh
                   + oc;
@@ -2242,7 +2242,7 @@ var
   Batch, InH, InW, Ch: TUInt32;
   OutH, OutW: TUInt32;
   ShapeOut: array[0..3] of TUInt32;
-  b, c, oh, ow, kh, kw: TUInt32;
+  batchIdx, c, oh, ow, khLoop, kwLoop: TUInt32;
   InPosH, InPosW: TUInt32;
   MaxV, CurV: TFloat32;
   InOff, OutOff: TUInt64;
@@ -2273,19 +2273,19 @@ begin
   ShapeOut[3] := Ch;
   Result := AllocTensor(OutT, 4, ShapeOut);
   if Result <> PGPU_SUCCESS then Exit;
-  for b := 0 to Batch - 1 do
+  for batchIdx := 0 to Batch - 1 do
     for oh := 0 to OutH - 1 do
       for ow := 0 to OutW - 1 do
         for c := 0 to Ch - 1 do
         begin
           MaxV := -1.0e38;
-          for kh := 0 to KH - 1 do
+          for khLoop := 0 to KH - 1 do
           begin
-            InPosH := oh * SH + kh;
-            for kw := 0 to KW - 1 do
+            InPosH := oh * SH + khLoop;
+            for kwLoop := 0 to KW - 1 do
             begin
-              InPosW := ow * SW + kw;
-              InOff  := TUInt64(b) * InH * InW * Ch
+              InPosW := ow * SW + kwLoop;
+              InOff  := TUInt64(batchIdx) * InH * InW * Ch
                       + TUInt64(InPosH) * InW * Ch
                       + TUInt64(InPosW) * Ch
                       + c;
@@ -2294,7 +2294,7 @@ begin
               if CurV > MaxV then MaxV := CurV;
             end;
           end;
-          OutOff := TUInt64(b) * OutH * OutW * Ch
+          OutOff := TUInt64(batchIdx) * OutH * OutW * Ch
                   + TUInt64(oh) * OutW * Ch
                   + TUInt64(ow) * Ch
                   + c;
@@ -2319,7 +2319,7 @@ var
   Batch, InH, InW, Ch: TUInt32;
   OutH, OutW: TUInt32;
   ShapeOut: array[0..3] of TUInt32;
-  b, c, oh, ow, kh, kw: TUInt32;
+  batchIdx, c, oh, ow, khLoop, kwLoop: TUInt32;
   InPosH, InPosW: TUInt32;
   SumV, KernelArea: TFloat32;
   InOff, OutOff: TUInt64;
@@ -2351,19 +2351,19 @@ begin
   ShapeOut[3] := Ch;
   Result := AllocTensor(OutT, 4, ShapeOut);
   if Result <> PGPU_SUCCESS then Exit;
-  for b := 0 to Batch - 1 do
+  for batchIdx := 0 to Batch - 1 do
     for oh := 0 to OutH - 1 do
       for ow := 0 to OutW - 1 do
         for c := 0 to Ch - 1 do
         begin
           SumV := 0.0;
-          for kh := 0 to KH - 1 do
+          for khLoop := 0 to KH - 1 do
           begin
-            InPosH := oh * SH + kh;
-            for kw := 0 to KW - 1 do
+            InPosH := oh * SH + khLoop;
+            for kwLoop := 0 to KW - 1 do
             begin
-              InPosW := ow * SW + kw;
-              InOff  := TUInt64(b) * InH * InW * Ch
+              InPosW := ow * SW + kwLoop;
+              InOff  := TUInt64(batchIdx) * InH * InW * Ch
                       + TUInt64(InPosH) * InW * Ch
                       + TUInt64(InPosW) * Ch
                       + c;
@@ -2371,7 +2371,7 @@ begin
               SumV := SumV + PIn^;
             end;
           end;
-          OutOff := TUInt64(b) * OutH * OutW * Ch
+          OutOff := TUInt64(batchIdx) * OutH * OutW * Ch
                   + TUInt64(oh) * OutW * Ch
                   + TUInt64(ow) * Ch
                   + c;
@@ -2392,7 +2392,7 @@ end;
 { === BLOCK 390: TensorNorm implementation === }
 function TensorNorm(const T: TTensor; out Norm: TFloat64): TResult;
 var
-  i: TUInt64;
+  i: LongWord;
   V: TFloat32;
   Sum: TFloat64;
   PD: PFloat32;
@@ -2405,7 +2405,7 @@ begin
   end;
   Sum := 0.0;
   PD  := T.Data;
-  for i := 0 to T.TotalElements - 1 do
+  for i := 0 to LongWord(T.TotalElements) - 1 do
   begin
     V   := PD^;
     Sum := Sum + TFloat64(V) * TFloat64(V);
@@ -2426,7 +2426,7 @@ end;
 { === BLOCK 391: TensorFill implementation === }
 function TensorFill(var T: TTensor; Value: TFloat32): TResult;
 var
-  i: TUInt64;
+  i: LongWord;
   PD: PFloat32;
 begin
   if T.Data = nil then
@@ -2435,7 +2435,7 @@ begin
     Exit;
   end;
   PD := T.Data;
-  for i := 0 to T.TotalElements - 1 do
+  for i := 0 to LongWord(T.TotalElements) - 1 do
   begin
     PD^ := Value;
     Inc(PD);
@@ -2455,7 +2455,7 @@ end;
 function TensorPrint(const T: TTensor): AnsiString;
 var
   i: TUInt32;
-  e: TUInt64;
+  e: LongWord;
   PD: PFloat32;
   S: AnsiString;
 begin
@@ -2474,7 +2474,7 @@ begin
   PD := T.Data;
   if T.TotalElements <= 16 then
   begin
-    for e := 0 to T.TotalElements - 1 do
+    for e := 0 to LongWord(T.TotalElements) - 1 do
     begin
       S := S + FloatToStrF(PD^, ffFixed, 6, 4);
       if e < T.TotalElements - 1 then S := S + ', ';
@@ -2509,7 +2509,7 @@ end;
 function ScaledDotProductAttention(const Q, K, V: TTensor; out OutT: TTensor; Scale: TFloat32): TResult;
 var
   Batch, SeqLen, Dim: TUInt32;
-  b, i, j, d: TUInt32;
+  batchIdx, i, j, d: TUInt32;
   Acc, MaxV, SumV, Wij: TFloat32;
   AttnShape: array[0..2] of TUInt32;
   ScoreShape: array[0..2] of TUInt32;
@@ -2540,38 +2540,38 @@ begin
   Result := AllocTensor(Scores, 3, ScoreShape);
   if Result <> PGPU_SUCCESS then Exit;
   { Compute Q * K^T scaled }
-  for b := 0 to Batch - 1 do
+  for batchIdx := 0 to Batch - 1 do
     for i := 0 to SeqLen - 1 do
       for j := 0 to SeqLen - 1 do
       begin
         Acc := 0.0;
         for d := 0 to Dim - 1 do
         begin
-          QOff := TUInt64(b) * SeqLen * Dim + TUInt64(i) * Dim + d;
-          KOff := TUInt64(b) * SeqLen * Dim + TUInt64(j) * Dim + d;
+          QOff := TUInt64(batchIdx) * SeqLen * Dim + TUInt64(i) * Dim + d;
+          KOff := TUInt64(batchIdx) * SeqLen * Dim + TUInt64(j) * Dim + d;
           PQ   := Q.Data; Inc(PQ, QOff);
           PK   := K.Data; Inc(PK, KOff);
           Acc  := Acc + PQ^ * PK^;
         end;
-        ScoreOff  := TUInt64(b) * SeqLen * SeqLen + TUInt64(i) * SeqLen + j;
+        ScoreOff  := TUInt64(batchIdx) * SeqLen * SeqLen + TUInt64(i) * SeqLen + j;
         PScore    := Scores.Data; Inc(PScore, ScoreOff);
         PScore^   := Acc * Scale;
       end;
   { Softmax over last axis }
-  for b := 0 to Batch - 1 do
+  for batchIdx := 0 to Batch - 1 do
     for i := 0 to SeqLen - 1 do
     begin
       MaxV := -1.0e38;
       for j := 0 to SeqLen - 1 do
       begin
-        ScoreOff := TUInt64(b) * SeqLen * SeqLen + TUInt64(i) * SeqLen + j;
+        ScoreOff := TUInt64(batchIdx) * SeqLen * SeqLen + TUInt64(i) * SeqLen + j;
         PScore   := Scores.Data; Inc(PScore, ScoreOff);
         if PScore^ > MaxV then MaxV := PScore^;
       end;
       SumV := 0.0;
       for j := 0 to SeqLen - 1 do
       begin
-        ScoreOff := TUInt64(b) * SeqLen * SeqLen + TUInt64(i) * SeqLen + j;
+        ScoreOff := TUInt64(batchIdx) * SeqLen * SeqLen + TUInt64(i) * SeqLen + j;
         PScore   := Scores.Data; Inc(PScore, ScoreOff);
         PScore^  := Exp(PScore^ - MaxV);
         SumV     := SumV + PScore^;
@@ -2579,7 +2579,7 @@ begin
       if SumV = 0.0 then SumV := 1.0;
       for j := 0 to SeqLen - 1 do
       begin
-        ScoreOff := TUInt64(b) * SeqLen * SeqLen + TUInt64(i) * SeqLen + j;
+        ScoreOff := TUInt64(batchIdx) * SeqLen * SeqLen + TUInt64(i) * SeqLen + j;
         PScore   := Scores.Data; Inc(PScore, ScoreOff);
         PScore^  := PScore^ / SumV;
       end;
@@ -2594,21 +2594,21 @@ begin
     FreeTensor(Scores);
     Exit;
   end;
-  for b := 0 to Batch - 1 do
+  for batchIdx := 0 to Batch - 1 do
     for i := 0 to SeqLen - 1 do
       for d := 0 to Dim - 1 do
       begin
         Acc := 0.0;
         for j := 0 to SeqLen - 1 do
         begin
-          ScoreOff := TUInt64(b) * SeqLen * SeqLen + TUInt64(i) * SeqLen + j;
+          ScoreOff := TUInt64(batchIdx) * SeqLen * SeqLen + TUInt64(i) * SeqLen + j;
           PScore   := Scores.Data; Inc(PScore, ScoreOff);
           Wij      := PScore^;
-          VOff     := TUInt64(b) * SeqLen * Dim + TUInt64(j) * Dim + d;
+          VOff     := TUInt64(batchIdx) * SeqLen * Dim + TUInt64(j) * Dim + d;
           PV       := V.Data; Inc(PV, VOff);
           Acc      := Acc + Wij * PV^;
         end;
-        OutOff  := TUInt64(b) * SeqLen * Dim + TUInt64(i) * Dim + d;
+        OutOff  := TUInt64(batchIdx) * SeqLen * Dim + TUInt64(i) * Dim + d;
         POut    := OutT.Data; Inc(POut, OutOff);
         POut^   := Acc;
       end;
@@ -2730,7 +2730,7 @@ end;
 function TensorBroadcastAdd(const A: TTensor; V: PFloat32; VNDim: TUInt32; out B: TTensor): TResult;
 var
   R: TResult;
-  i: TUInt64;
+  i: LongWord;
   LastDim: TUInt32;
   Remainder: TUInt64;
   PA, PBPtr: PFloat32;
@@ -2757,7 +2757,7 @@ begin
   end;
   PA    := A.Data;
   PBPtr := B.Data;
-  for i := 0 to A.TotalElements - 1 do
+  for i := 0 to LongWord(A.TotalElements) - 1 do
   begin
     VIdx := i mod LastDim;
     PV   := V; Inc(PV, VIdx);
@@ -2788,8 +2788,8 @@ var
   k: TUInt32;
   Acc: TFloat32;
   Count: TUInt32;
-  E: TUInt64;
-  ElemCount: TUInt64;
+  E: LongWord;
+  ElemCount: LongWord;
   Carry: TUInt32;
   AOffset: TUInt64;
   BOffset: TUInt64;
@@ -2825,7 +2825,7 @@ begin
   if Result <> PGPU_SUCCESS then Exit;
   ElemCount := B.TotalElements;
   FillChar(BIdx, SizeOf(BIdx), 0);
-  for E := 0 to ElemCount - 1 do
+  for E := 0 to LongWord(ElemCount) - 1 do
   begin
     { Map BIdx -> AIdx by inserting axis }
     i := 0;
@@ -3029,7 +3029,7 @@ var
   ShapeQ: array[0..2] of TUInt32;
   ReduceOut: TTensor;
 begin
-  Result := PGPU_ERR_UNKNOWN;
+  Result := PGPU_ERR_INVALID_PARAM;
 
   { --- Test AllocMatrix and FreeMatrix --- }
   R := AllocMatrix(M1, 4, 4);
