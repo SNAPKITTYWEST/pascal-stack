@@ -32,7 +32,7 @@
 
   ======================================================================== }
 
-{$mode objfpc}{$H+}{$PackRecords C}
+{$mode objfpc}{$H+}{$PackRecords C}{$modeswitch inscope}
 unit PascalGPU_Numerical;
 
 {
@@ -1062,11 +1062,7 @@ var
 begin
   C := Cos(X);
   if C = 0.0 then
-  begin
-    var W: QWord := QWord($7FF0000000000000);
-    var F: TFloat64 absolute W;
-    Result := F;
-  end
+    Result := Infinity  { +inf for tan(pi/2) }
   else
     Result := Sin(X) / C;
 end;
