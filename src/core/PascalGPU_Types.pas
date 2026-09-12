@@ -32,13 +32,13 @@
 
   ======================================================================== }
 
-{$mode objfpc}{$H+}{$PackRecords C}
+{$mode objfpc}{$H+}{$PackRecords C}{$modeswitch inscope}
 unit PascalGPU_Types;
 
 interface
 
 uses
-  SysUtils;
+  SysUtils, Windows;
 
 { -----------------------------------------------------------------------
   SOVEREIGN NODE KEY : PASCAL-STACK-001-BLK-001
@@ -177,6 +177,7 @@ const
   PGPU_ERR_DRIVER_FAULT      = -14;
   PGPU_ERR_NOT_FOUND         = -15;
   PGPU_ERR_OVERFLOW          = -16;
+  PGPU_ERR_INVALID_VALUE     = -20;
   PGPU_ERR_UNDERFLOW         = -17;
   PGPU_ERR_DIVIDE_BY_ZERO    = -18;
   PGPU_ERR_DEADLOCK          = -19;
@@ -468,7 +469,7 @@ type
   ----------------------------------------------------------------------- }
 { === BLOCK 023: Opaque handle type === }
 type
-  THandle       = Pointer;
+  THandle       = LongWord;
   TDeviceHandle = THandle;
   TStreamHandle = THandle;
   TEventHandle  = THandle;
@@ -872,10 +873,6 @@ procedure PascalGPULog(Level: TLogLevel; const Msg: AnsiString);
 
 implementation
 
-{$IFDEF WINDOWS}
-uses
-  Windows;
-{$ENDIF}
 
 { -----------------------------------------------------------------------
   SOVEREIGN NODE KEY : PASCAL-STACK-001-BLK-007
@@ -1364,14 +1361,14 @@ end;
 function GetSystemMemInfo: TSystemMemInfo;
 {$IFDEF WINDOWS}
 var
-  Stat: TMemoryStatusEx;
+  Stat: MEMORYSTATUS;
 begin
   Stat.dwLength := SizeOf(Stat);
-  GlobalMemoryStatusEx(Stat);
-  Result.TotalPhysical := Stat.ullTotalPhys;
-  Result.FreePhysical  := Stat.ullAvailPhys;
-  Result.TotalVirtual  := Stat.ullTotalVirtual;
-  Result.FreeVirtual   := Stat.ullAvailVirtual;
+  GlobalMemoryStatus(Stat);
+  Result.TotalPhysical := Stat.dwTotalPhys;
+  Result.FreePhysical  := Stat.dwAvailPhys;
+  Result.TotalVirtual  := Stat.dwTotalVirtual;
+  Result.FreeVirtual   := Stat.dwAvailVirtual;
 end;
 {$ELSE}
 begin
