@@ -1,0 +1,21 @@
+PRESERVE UNMODIFIED:
+
+src/
+handcrafted/
+expanded/
+existing tools/
+existing tests/
+
+Required existing directives:
+
+src/tools/tests:
+{$mode delphi}
+{$H+}
+
+handcrafted/expanded:
+{$mode objfpc}
+{$H+}
+{$PackRecords C}
+{$modeswitch inscope}
+
+No dialect layer may rewrite these trees.
