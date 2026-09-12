@@ -70,18 +70,6 @@ The 500 blocks in the handcrafted stack are not arbitrary. They are the minimal 
 
 
 
- ========================================================================
-  SOVEREIGN LEVIATHAN COVENANT — MGPLv3 RECURSIVE INFECTION CLAUSE
-  Node-ID:           PASCAL-STACK-008
-  File:              PascalGPU_Numerical.pas
-  Parent-Work:       pascal-stack
-  Copyright:         2026 SNAPKITTYWEST
-  License-ID:        SL-AGPL3-001 / MGPLv3
-  Covenant-Version:  1.0
-  Compliance:        FAIL-CLOSED
-  ========================================================================
-
-
  -----------------------------------------------------------------------
   SOVEREIGN NODE KEY : PASCAL-STACK-008-BLK-301
   Block              : Math Constants
@@ -96,27 +84,7 @@ Every node is licensed, not just the root. If you copy `BLOCK 301: Math Constant
 
 The synthetic `src/` units are also AGPLv3 in this repo (clean-room, same covenant), even though their headers are shorter (`{ Unit: Bootstrap }`). They are not MIT either.
 
----
 
-## Building, verifying, testing — without pretending
-
-We do not pretend to have a GPU in CI. We verify statically, and we say so.
-
-```powershell
-# 200k verification — counts src + handcrafted + expanded
-powershell -ExecutionPolicy Bypass -File build/build.ps1
-
-# Direct Pascal verifier (when FPC is present)
-fpc -Mdelphi tools/Verify.pas -FEbuild/out
-./build/out/Verify
-# → STATICALLY VERIFIED, Units 127, Lines 216608, Blocks 8787 substantive
-
-# Tests — pure Pascal, real logic, no stubs
-fpc -Mdelphi tests/TestRunner.pas -FEbuild/out
-./build/out/TestRunner
-# → checks: error paths, IEEE, matrix invariants, Stride/Batched/Inplace/Tensor wrappers, no python, no TODO
-```
----
 
 
 — SNAPKITTYWEST, 2026. One p-code runs everywhere. Lex in solido.
