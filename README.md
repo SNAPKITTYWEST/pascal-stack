@@ -1,4 +1,4 @@
-﻿# PascalStack
+﻿# Pascal Stack
 
 
 **UCSD Pascal p-Code Machine (1978) — the portable virtual machine that let one Pascal program run on every 8-bit micro without recompilation. Code segment, evaluation stack, heap, and interpreter loop. We built PascalStack in that same spirit: one Pascal stack, every GPU, same p-code heart.**
