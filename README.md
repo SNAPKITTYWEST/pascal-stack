@@ -65,8 +65,6 @@ AGPLv3 is the governing license. The Sovereign Leviathan clause adds the recursi
 
 Every node is licensed, not just the root. If you copy `BLOCK 301: Math Constants` alone, you copy its Node Key and Clone-Gate and AGPLv3. There is no unlicensed stray, no “example” directory that is somehow public domain. Production means every file is accounted for.
 
-The synthetic `src/` units are also AGPLv3 in this repo (clean-room, same covenant), even though their headers are shorter (`{ Unit: Bootstrap }`). They are not MIT either.
-
 
 
 
