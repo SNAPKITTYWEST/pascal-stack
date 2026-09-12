@@ -47,6 +47,14 @@ uses
   SyncObjs,
   PascalGPU_Types;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-251
+  Block              : TCriticalSection wrapper — Init/Enter/Leave/Destroy
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:4d9c105ce7d75e670e4163cd09b722d9ee59b6ef286b78d8e55f8b97e2d1e34a
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 251: TCriticalSection wrapper — Init/Enter/Leave/Destroy
   ============================================================ }
@@ -62,6 +70,14 @@ procedure CSEnter(var C: TPGPUCriticalSection);
 procedure CSLeave(var C: TPGPUCriticalSection);
 procedure CSDestroy(var C: TPGPUCriticalSection);
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-252
+  Block              : TMutex record — wraps TPGPUCriticalSection, TryLock with timeout stub
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:5b92d17e1e73c000fc1896fba134640ad6696f1596149d27c24d8df527a44164
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 252: TMutex record — wraps TPGPUCriticalSection, TryLock with timeout stub
   ============================================================ }
@@ -73,31 +89,79 @@ type
   end;
   PMutex = ^TMutex;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-253
+  Block              : InitMutex
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:617296580e1832691b39224a82f36941682e6ea960f2746d6a952ee5aba9ab96
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 253: InitMutex
   ============================================================ }
 function InitMutex(var M: TMutex): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-254
+  Block              : LockMutex
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:6cace7d6863ce5001487d8d6c8f85f79abc58a6a685425f1ae4b5ff430aaf373
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 254: LockMutex
   ============================================================ }
 function LockMutex(var M: TMutex): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-255
+  Block              : TryLockMutex — attempt lock with timeout (busy-poll stub)
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:c4a518af19883c5ad23785281f2db205de356191630a80f5e0826a246fa4d765
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 255: TryLockMutex — attempt lock with timeout (busy-poll stub)
   ============================================================ }
 function TryLockMutex(var M: TMutex; TimeoutMs: TUInt32): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-256
+  Block              : UnlockMutex
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:9342ad36cca63202c70890c63d5325aaf557861df3efb806caa15a5b8789f7a6
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 256: UnlockMutex
   ============================================================ }
 function UnlockMutex(var M: TMutex): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-257
+  Block              : DestroyMutex
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:bb756a02bce1dc21a7768e352d4c7182fbcf3d5013bc221dfc783e85c4d87006
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 257: DestroyMutex
   ============================================================ }
 function DestroyMutex(var M: TMutex): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-258
+  Block              : TSpinLock record — busy-wait lock using volatile integer
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:cf6542cd941281f590ee93c50b93bef9cea2d3d078825c638a8aa8ed61bdc7f2
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 258: TSpinLock record — busy-wait lock using volatile integer
   ============================================================ }
@@ -107,16 +171,40 @@ type
   end;
   PSpinLock = ^TSpinLock;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-259
+  Block              : SpinLockAcquire — uses InterlockedCompareExchange loop
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:641ba9ec7235bbffadede2b2da2b606d3b9d346daf5d9fe34bc71d2c122bd942
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 259: SpinLockAcquire — uses InterlockedCompareExchange loop
   ============================================================ }
 procedure SpinLockAcquire(var S: TSpinLock);
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-260
+  Block              : SpinLockRelease
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:af9ce198becf6cab396f9ec5dd8ea6a082e25e8cd94ee07ccf88d5232172c6f7
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 260: SpinLockRelease
   ============================================================ }
 procedure SpinLockRelease(var S: TSpinLock);
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-261
+  Block              : TReadWriteLock — multiple readers / single writer
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:0a822244e668166ebc5c598b9fdfb71019a9d01478e3dff96e3477bddb3379a0
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 261: TReadWriteLock — multiple readers / single writer
   ============================================================ }
@@ -129,26 +217,66 @@ type
   end;
   PReadWriteLock = ^TReadWriteLock;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-262
+  Block              : RWLockAcquireRead
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:c3a3241a85a59c0be0e97664dd579be1c7d0f355d52a9d0b23c1e0ae8e89bd8c
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 262: RWLockAcquireRead
   ============================================================ }
 function RWLockAcquireRead(var RW: TReadWriteLock): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-263
+  Block              : RWLockReleaseRead
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:6b37a3748c9b41c7567c0cf06dbf48fab82398c341d60bfa7e1cf4eb4ecbfeb0
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 263: RWLockReleaseRead
   ============================================================ }
 function RWLockReleaseRead(var RW: TReadWriteLock): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-264
+  Block              : RWLockAcquireWrite
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:205792fe6251d3b1ef5011807d0569b44d4c757de4b45371abf132483239a334
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 264: RWLockAcquireWrite
   ============================================================ }
 function RWLockAcquireWrite(var RW: TReadWriteLock): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-265
+  Block              : RWLockReleaseWrite
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:798054db23f7bf87739d823a6d6cc233c500e58cc1eddbd5a2c1960ba7d306ed
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 265: RWLockReleaseWrite
   ============================================================ }
 function RWLockReleaseWrite(var RW: TReadWriteLock): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-266
+  Block              : TBarrier record — count-down latch
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:67dce6eb5d7494c35af68fa45010a0b1cc8222162f62e3541162f0f7385e8678
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 266: TBarrier record — count-down latch
   ============================================================ }
@@ -162,26 +290,66 @@ type
   end;
   PBarrier = ^TBarrier;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-267
+  Block              : InitBarrier
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:695fdee2545ef03668c8533a3b4c5b9ee6c73cee93e047a30cadb5c3af4d203f
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 267: InitBarrier
   ============================================================ }
 function InitBarrier(var B: TBarrier; ParticipantCount: TUInt32): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-268
+  Block              : BarrierWait — blocks until all participants arrive
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:34cb598e38a233eb9fa4999d108931d948b7c540337b6052f61d68800f66cf93
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 268: BarrierWait — blocks until all participants arrive
   ============================================================ }
 function BarrierWait(var B: TBarrier): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-269
+  Block              : BarrierReset
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:e78d00f6868640bbb3611cad2275bf7865768d27350998bbe3e51f2d137350e8
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 269: BarrierReset
   ============================================================ }
 function BarrierReset(var B: TBarrier): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-270
+  Block              : DestroyBarrier
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:6051309b4ab5d9524701372697a8ac67a33898dd61cfba04e8fecc1944ba2e71
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 270: DestroyBarrier
   ============================================================ }
 function DestroyBarrier(var B: TBarrier): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-271
+  Block              : TAtomicInt32 record
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:6ea29f744d136d36f8c08f7342d2c0b334023a13f26a2408cf89b39bb732e6da
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 271: TAtomicInt32 record
   ============================================================ }
@@ -191,61 +359,157 @@ type
   end;
   PAtomicInt32 = ^TAtomicInt32;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-272
+  Block              : AtomicLoad32
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:0a463b42a8f482d9a5f19b93677509dc9a4acd423d161c9f95df4f42da9550a8
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 272: AtomicLoad32
   ============================================================ }
 function AtomicLoad32(const A: TAtomicInt32): TInt32;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-273
+  Block              : AtomicStore32
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:6149b618e4cb6be9f03fbba9497870c2e6b3e61e6d0c2107ab70738f4a1d4740
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 273: AtomicStore32
   ============================================================ }
 procedure AtomicStore32(var A: TAtomicInt32; Value: TInt32);
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-274
+  Block              : AtomicAdd32 — returns old value
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:719d6474237d6d2b1928b6d58d6b0315de11daf186d4109505a6a5d2fb28e676
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 274: AtomicAdd32 — returns old value
   ============================================================ }
 function AtomicAdd32(var A: TAtomicInt32; Delta: TInt32): TInt32;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-275
+  Block              : AtomicSub32 — returns old value
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:345b87b3586f9bbf795c0e757a2b5a983fa6a0df446f76f51b38ac704ba274cf
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 275: AtomicSub32 — returns old value
   ============================================================ }
 function AtomicSub32(var A: TAtomicInt32; Delta: TInt32): TInt32;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-276
+  Block              : AtomicCAS32 — compare-and-swap, returns old value
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:862aae4ff764ae422c3fa851420625f005aaf68d9fa3c0cdd192916f96b0f8cb
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 276: AtomicCAS32 — compare-and-swap, returns old value
   ============================================================ }
 function AtomicCAS32(var A: TAtomicInt32; Expected, Desired: TInt32): TInt32;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-277
+  Block              : AtomicExchange32 — returns old value
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:4880c7542da5f6463600c3e2f5f1f7a1d554f5ff8f125c3917037e4eb47043a1
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 277: AtomicExchange32 — returns old value
   ============================================================ }
 function AtomicExchange32(var A: TAtomicInt32; NewVal: TInt32): TInt32;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-278
+  Block              : AtomicMax32 — returns old value
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:b49472f26bbc3aac3bb044691059ba9ebe7d4943ec4691af53095e5398c50790
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 278: AtomicMax32 — returns old value
   ============================================================ }
 function AtomicMax32(var A: TAtomicInt32; Val: TInt32): TInt32;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-279
+  Block              : AtomicMin32 — returns old value
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:069d2e588df172b4f9a9ad7db16fd6330e617af9c86090ee5840d6724b63559e
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 279: AtomicMin32 — returns old value
   ============================================================ }
 function AtomicMin32(var A: TAtomicInt32; Val: TInt32): TInt32;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-280
+  Block              : AtomicAnd32 — returns old value as TUInt32
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:19bbd39fc4ca7b28fd759a6934591359f6a4624d0f4261a53d4da6c8edace5e1
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 280: AtomicAnd32 — returns old value as TUInt32
   ============================================================ }
 function AtomicAnd32(var A: TAtomicInt32; Val: TUInt32): TUInt32;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-281
+  Block              : AtomicOr32 — returns old value as TUInt32
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:65b40061e4ea6b1eab1fecce765f4f9db345c5cc3403778ca959445f60d22392
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 281: AtomicOr32 — returns old value as TUInt32
   ============================================================ }
 function AtomicOr32(var A: TAtomicInt32; Val: TUInt32): TUInt32;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-282
+  Block              : AtomicXor32 — returns old value as TUInt32
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:04988c203fca5ad02067cd858655d852d35f836bd160dbac4c20590b468f18bd
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 282: AtomicXor32 — returns old value as TUInt32
   ============================================================ }
 function AtomicXor32(var A: TAtomicInt32; Val: TUInt32): TUInt32;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-283
+  Block              : TAtomicInt64 record
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:68cea5ad93b51f51cce845a443aeae00df24850b8cacd4e594ca4c7d11af1b3d
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 283: TAtomicInt64 record
   ============================================================ }
@@ -256,16 +520,40 @@ type
   end;
   PAtomicInt64 = ^TAtomicInt64;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-284
+  Block              : AtomicAdd64 — returns old value
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:65c014cc733b9b971a2299c73ef74ee13d38f34001c2086bc04648393a174fae
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 284: AtomicAdd64 — returns old value
   ============================================================ }
 function AtomicAdd64(var A: TAtomicInt64; Delta: TInt64): TInt64;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-285
+  Block              : AtomicCAS64 — compare-and-swap, returns old value
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:881685357aa412def4d08bf07078bcbc64c7c593eaf1028453b67aef054cdeeb
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 285: AtomicCAS64 — compare-and-swap, returns old value
   ============================================================ }
 function AtomicCAS64(var A: TAtomicInt64; Expected, Desired: TInt64): TInt64;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-286
+  Block              : TAtomicFloat32 — float32 atomic using CAS32 bit reinterpretation
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:de1304a96775d27fb8d6fd51c719173e10cd9504a66270076fe18d9542e34fe0
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 286: TAtomicFloat32 — float32 atomic using CAS32 bit reinterpretation
   ============================================================ }
@@ -275,16 +563,40 @@ type
   end;
   PAtomicFloat32 = ^TAtomicFloat32;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-287
+  Block              : AtomicAddFloat32 — returns old value
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:13cd95c04661abaf83359e4d81df9df2d5801b272ed8296c7f55e6d64fc207cd
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 287: AtomicAddFloat32 — returns old value
   ============================================================ }
 function AtomicAddFloat32(var A: TAtomicFloat32; Delta: TFloat32): TFloat32;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-288
+  Block              : AtomicMaxFloat32 — returns old value
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:0afc457efd4aede6f26f1e6de0ac26fe7beb0da3de52184a96c90b4559357676
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 288: AtomicMaxFloat32 — returns old value
   ============================================================ }
 function AtomicMaxFloat32(var A: TAtomicFloat32; Val: TFloat32): TFloat32;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-289
+  Block              : TMemoryFence / MemoryFence procedure
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:ccb0cec8cd9af6b890e86e43973a69b2b5812b2fea1d86b3b8158c9a36547c1c
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 289: TMemoryFence / MemoryFence procedure
   ============================================================ }
@@ -296,6 +608,14 @@ type
 
 procedure MemoryFence;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-290
+  Block              : TBlockSyncBarrier — per-block barrier
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:f9ba6dc867f577aa5796ffeb081b316eb3a173c36d447f365eadf66a82e9e92d
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 290: TBlockSyncBarrier — per-block barrier
   ============================================================ }
@@ -309,11 +629,27 @@ type
   end;
   PBlockSyncBarrier = ^TBlockSyncBarrier;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-291
+  Block              : BlockSync — maps to CUDA __syncthreads()
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:c00fc4e9f4a46f28c365d71609583b3c55adbc89b44fe48fa010e4a934a7f246
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 291: BlockSync — maps to CUDA __syncthreads()
   ============================================================ }
 function BlockSync(var B: TBlockSyncBarrier; ThreadCount: TUInt32): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-292
+  Block              : TWarpBarrier — simulates warp-level sync (32-thread group)
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:8b99d41d0d5cabe90894fc60157ea032f84411781f0155952de82c90f92d7a3b
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 292: TWarpBarrier — simulates warp-level sync (32-thread group)
   ============================================================ }
@@ -329,11 +665,27 @@ type
 const
   PGPU_WARP_SIZE = 32;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-293
+  Block              : WarpSync — simulates CUDA __syncwarp()
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:2e9d31299d63a749d9a76b008d742b509e8a9272d68702b416fddb339df6e14d
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 293: WarpSync — simulates CUDA __syncwarp()
   ============================================================ }
 function WarpSync(var W: TWarpBarrier): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-294
+  Block              : TSemaphore record — counting semaphore
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:a03d89a27be7bb4b76c6c8371b986957cf501b6d3df3004d0a13ed63cc7e627b
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 294: TSemaphore record — counting semaphore
   ============================================================ }
@@ -346,26 +698,66 @@ type
   end;
   PSemaphore = ^TSemaphore;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-295
+  Block              : SemaphoreInit
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:591eba40f93dffdaad8b1f5d2280e1f2bd74905b669771c832d995b376c2df60
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 295: SemaphoreInit
   ============================================================ }
 function SemaphoreInit(var S: TSemaphore; InitCount, MaxCount: TUInt32): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-296
+  Block              : SemaphoreWait — decrement; block/spin until count > 0
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:f1ba2c127ca505a66965e164c2febc62f4f3deecb26f3c67b2dfaf788df48d10
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 296: SemaphoreWait — decrement; block/spin until count > 0
   ============================================================ }
 function SemaphoreWait(var S: TSemaphore; TimeoutMs: TUInt32): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-297
+  Block              : SemaphorePost — increment count
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:567cafc7fe34f2b16cc9e2dd4f9bd8ab5f3f7471ed71cf93c998c1f74aa5c5e3
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 297: SemaphorePost — increment count
   ============================================================ }
 function SemaphorePost(var S: TSemaphore): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-298
+  Block              : SemaphoreDestroy
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:0a047477aed140285922be2356aa3821d3511008cae1e69dee4fb801833c03b6
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 298: SemaphoreDestroy
   ============================================================ }
 function SemaphoreDestroy(var S: TSemaphore): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-299
+  Block              : CUDA compatibility mapping comment + thin wrappers
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:4f928c72a59fdae1c4db3f77d3161becdf7ec4a5ca9a42eb849e3c7016a9bc9c
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 299: CUDA compatibility mapping comment + thin wrappers
   ============================================================ }
@@ -384,6 +776,14 @@ function SemaphoreDestroy(var S: TSemaphore): TResult;
   CUDA atomicOr(uint*)    → AtomicOr32
   CUDA atomicXor(uint*)   → AtomicXor32 }
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-009-BLK-300
+  Block              : Sync subsystem self-test
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:170f31d546a8a561ef6f8e1aa78a92806027c90fcd50e5b28268ee394cfc7bc9
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 300: Sync subsystem self-test
   ============================================================ }
