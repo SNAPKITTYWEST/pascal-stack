@@ -1,4 +1,4 @@
-# PascalGPU Stack
+# Pascal GPU Stack
 
 [![Language](https://img.shields.io/badge/language-Free%20Pascal-blue?style=for-the-badge&logo=lazarus)](https://www.freepascal.org/)
 [![Blocks](https://img.shields.io/badge/blocks-500-brightgreen?style=for-the-badge)](./BLOCK_INDEX.md)
