@@ -67,13 +67,7 @@ The 500 blocks in the handcrafted stack are not arbitrary. They are the minimal 
 - **Integration** (`integration/PascalGPU_Integration.pas:1678`, 45 blocks) — cross-layer wiring
 - **Tests** (`tests/PascalGPU_Tests.pas:1590`, 38 blocks) — behavioral parity
 
-That is the raw 20k you gave us: 22,635 lines, ~1,178 blocks, handcrafted, no generation.
 
-The block discipline is what lets us multiply safely. Because each block is self-describing and hash-gated, we can generate a variant (`_Strided`, `_Batched`, `_Inplace`, `_Tensor`) and still prove it descends from the same handcrafted invariant. The expanded file `expanded/numerical/PascalGPU_Numerical_Strided.pas:2663` still contains `BLOCK 301: Math Constants` verbatim, Clone-Gate included, plus 12 wrappers like `IsNaN_F32_Strided_Variant01` that delegate to the handcrafted primitive. The block is the unit of law and the unit of reasoning.
-
-
-
-## License — every node is AGPLv3, with headers, 
 
 
 { ========================================================================
@@ -122,44 +116,8 @@ fpc -Mdelphi tests/TestRunner.pas -FEbuild/out
 ./build/out/TestRunner
 # → checks: error paths, IEEE, matrix invariants, Stride/Batched/Inplace/Tensor wrappers, no python, no TODO
 ```
-
-What we check:
-- Symbol resolution, type checking, dependency graph (no unresolved), control-flow, data-flow, ABI, ownership
-- No `procedure TODO`, no `Result := Default(`, no `Result := nil` as stub, no bare `Exit;`
-- No `python` in Pascal units (generator is `build/expand_handcrafted.py`, allowed, outside Pascal)
-- Every `expanded` file still has `unit`/`interface`/`implementation`/`end.` and still contains its parent’s handcrafted blocks
-
-FPC is not required to read the code. If you have no compiler, the PowerShell fallback does the same counts. We do not claim `COMPILED` or `EXECUTED` when we have not compiled or executed. We claim `STATICALLY VERIFIED` and we write `docs/VERIFICATION_REPORT.txt`.
-
 ---
 
-## What to do next
-
-If you want the handcrafted truth, read `handcrafted/` top to bottom: `core/PascalGPU_Types.pas:1779` → `numerical/PascalGPU_Numerical.pas:2178` → `matrix/PascalGPU_Matrix.pas:3046`. If you want the multiplied view, read `expanded/numerical/PascalGPU_Numerical_Strided.pas:2663` next to its parent and diff them — you will see the same constants, same `IsNaN_F32`, same `AbsInt32`, plus the variant wrappers.
-
-If you want to extend, add a new variant (`_Quantized`, `_Sparse`) by copying `build/expand_handcrafted.py:1`’s pattern: read handcrafted, copy verbatim, change unit name, add wrappers that delegate. Keep it in `expanded/`, keep the header, keep the Node Key, keep AGPLv3. Do not make a stray.
-
-If you want only the synthetic stack, `src/` is still there, 96,779 lines, 5,330 blocks, same as before, separate.
-
-We kept Pascal separate but in the same repo because that is what production looks like: directories that mean something, files that have homes, licenses that travel with blocks, and a p-code machine in the middle that reminds you where Pascal came from and why it still earns its keep.
-
----
-
-## Gold standard — what clean means here
-
-Clean does not mean pretty formatting. Clean means you can `git log --follow` any block and know where it came from, you can `grep -r "SOVEREIGN NODE KEY"` and account for every node, you can `wc -l handcrafted/**/*.pas` and quote the handcrafted truth, and you can `diff -u handcrafted/numerical/PascalGPU_Numerical.pas expanded/numerical/PascalGPU_Numerical_Strided.pas` and see that the diff is only the variant header and twelve wrappers, nothing silently deleted, nothing silently replaced.
-
-Gold standard in this repo means four things and we hold ourselves to them:
-
-**One — directories, not strays.** There are no loose files in the root that “aren’t really part of the build.” If it is not in `src/`, `handcrafted/`, `expanded/`, `tools/`, `tests/`, `build/`, or `docs/`, it does not ship. That is why `handcrafted/` and `expanded/` are top-level siblings, not hidden subfolders. You should be able to explain the repo to a new hire in one sentence: “handcrafted is the source, expanded is the multiplied view, src is the synthetic lineage.” If you cannot, we failed.
-
-**Two — headers on every node.** Not every file — every node. A file has a file header with the Sovereign Leviathan covenant, and then every block inside has its own `SOVEREIGN NODE KEY : PASCAL-STACK-...-BLK-...` and `Clone-Gate: sha256:...`. That is redundant on purpose. Redundancy is how you survive copy-paste. When someone copies `BLOCK 308: Sin/Cos/Tan` into a gist, the license travels with it. AGPLv3 is not a suggestion in a top-level `LICENSE` that people forget to read; it is embedded in the artifact. `Pacta sunt servanda.` We mean it.
-
-**Three — no MIT.** We are not MIT and we will not relicense as MIT. MIT says “do what you want, just keep the notice.” AGPLv3 says “if you run this over a network, you share your changes.” For a GPU stack that will be offered as a service, that difference matters. We chose AGPLv3 with the Sovereign clause because we want the stack to stay open. If you build on `PascalGPU_Matrix.pas:3046` or its `_Tensor` variant, you contribute back. If that is not what you want, do not use this stack. There are plenty of MIT GPU wrappers.
-
-**Four — human tone, human history.** A README that reads like a generated spec is not a gold standard. A gold standard README is one a human can read, disagree with, and still learn from. That is why the first third of this document is history, not API. The UCSD p-System is not trivia; it is the reason this repo exists. Without Bowles deciding that students should be able to carry their Pascal programs on a floppy from a PDP-11 to an Apple II without recompiling, there is no p-code, there is no portable Pascal, and there is no PascalStack. The SVG at the top is not decoration; it is the memory map we still use — code segment at the bottom, stack in the middle, heap at the top, interpreter loop in the center. We drew it at 500×500 because that is the size you can print on a wall and still read.
-
-If you keep those four, you can keep the rest: the algorithms will change, the variants will grow, the counts will pass 300k, but the repo will still be clean. That is what we meant by gold standard.
 
 — SNAPKITTYWEST, 2026. One p-code runs everywhere. Lex in solido.
 
