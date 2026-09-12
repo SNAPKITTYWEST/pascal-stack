@@ -45,6 +45,14 @@ program fpmake;
 uses
   fpmkunit;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-013-PROC-001
+  Block              : PROCEDURE AddPackage
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:0cc609ca51407c97f38620fdc57690655c3c946685d84f6332d5b430e385b992
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 procedure AddPackage;
 var
   P : TPackage;
