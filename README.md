@@ -14,20 +14,6 @@ When Niklaus Wirth published Pascal in 1970, and then when Kenneth Bowles dragge
 
 That is why we kept building in Pascal.
 
-A CUDA stack is, at its core, also a p-machine. You have a device context, you have memory you must explicitly allocate and free, you have kernels you explicitly launch, you have streams you explicitly synchronize, you have numerical kernels that must be bit-identical across runs. CUDA C++ hides a lot of that behind templates and magic. Pascal refuses to hide it. In Pascal you say `AllocMatrix(Rows, Cols)` and you mean it. You say `OwnsData: Boolean` and you own the lifetime. You say `Stride: TUInt32` and you carry the stride. There is no garbage collector coming to save you, and that is the point: in a GPU stack, the person who allocates must be the person who frees, or you leak device memory at 80GB a minute.
-
-So we built PascalStack as a UCSD machine for GPUs. Device is a context record. Memory is an arena and a pool. Kernels are procedures with explicit launch parameters. Execution is a queue you can inspect. Sync is a barrier you can reason about. Numerical is IEEE classification you can test. Matrix is a record with rows, cols, data pointer, ownership flag, stride. Tensor is the same, with broadcast semantics. The interpreter loop is now a scheduler loop, but it is the same three words: fetch, decode, execute.
-
-The other reason is boring and practical: Pascal compiles in a blink. Free Pascal builds 216,000 lines in under two seconds on a laptop. C++ builds that same size in minutes and then invalidates. When you are iterating on a 500-block architecture where every block has a Sovereign Node Key and a Clone-Gate SHA, you want the compiler to get out of your way. Pascal does. It tells you when you got a type wrong, it tells you when you forgot a `var`, and then it gets out of your way.
-
-We also wanted determinism. The original p-System was deterministic by construction: same p-code, same input, same output, every machine. Our PascalStack is deterministic in the same way where it matters: same matrix, same reduction op, same answer. No hidden global state, no randomized iteration, no timing assumption. If you call `IsNaN_F32` or `PowF64` or `SoftmaxF32`, you get the same bits on a Terapin and on a Threadripper. That matters when you are checking a GPU result against a CPU reference.
-
-And there is a human reason. Pascal is readable five years later. I can open `handcrafted/numerical/PascalGPU_Numerical.pas:2178` and know what `Block 301: Math Constants` and `Block 302: IsNaN/IsInf` do without reading a template metaprogram. I can open `handcrafted/matrix/PascalGPU_Matrix.pas:3046` and see `TMatrix = record Rows, Cols, Data, OwnsData, Stride` and know the invariants. When a new person joins, they can read the stack top to bottom, directory by directory, and understand it. That is not true of most modern GPU stacks.
-
-That is why Pascal.
-
----
-
 ## Block architecture — 500 blocks, not 500 files
 
 People hear “500 blocks” and think we mean 500 files. We do not.
