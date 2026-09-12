@@ -1,0 +1,749 @@
+{
+  "Bootstrap": {
+    "subdir": "core",
+    "title": "Bootstrap",
+    "deps": [],
+    "desc": "Bootstrap system, entry points, initialization",
+    "blocks": 80
+  },
+  "SystemTypes": {
+    "subdir": "core",
+    "title": "Primitive types",
+    "deps": [],
+    "desc": "Primitive type definitions and aliases",
+    "blocks": 80
+  },
+  "PrimitiveOps": {
+    "subdir": "core",
+    "title": "PrimitiveOps",
+    "deps": [
+      "SystemTypes"
+    ],
+    "desc": "Primitive operations arithmetic/logic",
+    "blocks": 80
+  },
+  "MathPrimitives": {
+    "subdir": "core",
+    "title": "MathPrimitives",
+    "deps": [
+      "SystemTypes",
+      "PrimitiveOps"
+    ],
+    "desc": "Math primitives",
+    "blocks": 80
+  },
+  "StringPrimitives": {
+    "subdir": "core",
+    "title": "StringPrimitives",
+    "deps": [
+      "SystemTypes"
+    ],
+    "desc": "String primitives",
+    "blocks": 80
+  },
+  "BitOps": {
+    "subdir": "core",
+    "title": "BitOps",
+    "deps": [
+      "SystemTypes"
+    ],
+    "desc": "Bit operations",
+    "blocks": 80
+  },
+  "EnumSets": {
+    "subdir": "core",
+    "title": "EnumSets",
+    "deps": [
+      "SystemTypes"
+    ],
+    "desc": "Enumerations and sets",
+    "blocks": 80
+  },
+  "MemArena": {
+    "subdir": "memory",
+    "title": "MemArena",
+    "deps": [
+      "SystemTypes"
+    ],
+    "desc": "Arena allocator",
+    "blocks": 80
+  },
+  "MemPool": {
+    "subdir": "memory",
+    "title": "MemPool",
+    "deps": [
+      "SystemTypes",
+      "MemArena"
+    ],
+    "desc": "Pool allocator",
+    "blocks": 80
+  },
+  "MemBuffer": {
+    "subdir": "memory",
+    "title": "MemBuffer",
+    "deps": [
+      "SystemTypes",
+      "MemArena"
+    ],
+    "desc": "Buffer management",
+    "blocks": 80
+  },
+  "PtrOps": {
+    "subdir": "memory",
+    "title": "PtrOps",
+    "deps": [
+      "SystemTypes",
+      "MemArena"
+    ],
+    "desc": "Pointer operations & safety",
+    "blocks": 72
+  },
+  "Ownership": {
+    "subdir": "memory",
+    "title": "Ownership",
+    "deps": [
+      "SystemTypes",
+      "MemArena",
+      "MemPool"
+    ],
+    "desc": "Ownership & lifetime",
+    "blocks": 79
+  },
+  "UtilsStr": {
+    "subdir": "core",
+    "title": "UtilsStr",
+    "deps": [
+      "SystemTypes",
+      "StringPrimitives"
+    ],
+    "desc": "String utilities",
+    "blocks": 72
+  },
+  "UtilsMath": {
+    "subdir": "core",
+    "title": "UtilsMath",
+    "deps": [
+      "SystemTypes",
+      "MathPrimitives"
+    ],
+    "desc": "Math utilities",
+    "blocks": 79
+  },
+  "UtilsValidation": {
+    "subdir": "core",
+    "title": "UtilsValidation",
+    "deps": [
+      "SystemTypes"
+    ],
+    "desc": "Validation routines",
+    "blocks": 72
+  },
+  "ErrorModel": {
+    "subdir": "core",
+    "title": "ErrorModel",
+    "deps": [
+      "SystemTypes"
+    ],
+    "desc": "Error codes, exceptions, status",
+    "blocks": 79
+  },
+  "Logging": {
+    "subdir": "core",
+    "title": "Logging",
+    "deps": [
+      "SystemTypes",
+      "UtilsStr"
+    ],
+    "desc": "Logging subsystem",
+    "blocks": 72
+  },
+  "ArrayList": {
+    "subdir": "collections",
+    "title": "ArrayList",
+    "deps": [
+      "SystemTypes",
+      "MemArena",
+      "MemBuffer"
+    ],
+    "desc": "Dynamic array",
+    "blocks": 79
+  },
+  "LinkedList": {
+    "subdir": "collections",
+    "title": "LinkedList",
+    "deps": [
+      "SystemTypes",
+      "MemArena"
+    ],
+    "desc": "Linked list",
+    "blocks": 72
+  },
+  "Stack": {
+    "subdir": "collections",
+    "title": "Stack",
+    "deps": [
+      "SystemTypes",
+      "MemArena"
+    ],
+    "desc": "Stack",
+    "blocks": 79
+  },
+  "Queue": {
+    "subdir": "collections",
+    "title": "Queue",
+    "deps": [
+      "SystemTypes",
+      "MemArena"
+    ],
+    "desc": "Queue",
+    "blocks": 72
+  },
+  "Deque": {
+    "subdir": "collections",
+    "title": "Deque",
+    "deps": [
+      "SystemTypes",
+      "MemArena"
+    ],
+    "desc": "Deque",
+    "blocks": 79
+  },
+  "HashTable": {
+    "subdir": "collections",
+    "title": "HashTable",
+    "deps": [
+      "SystemTypes",
+      "MemArena",
+      "MemPool"
+    ],
+    "desc": "Hash table",
+    "blocks": 72
+  },
+  "HashSet": {
+    "subdir": "collections",
+    "title": "HashSet",
+    "deps": [
+      "SystemTypes",
+      "HashTable"
+    ],
+    "desc": "Hash set",
+    "blocks": 79
+  },
+  "BTree": {
+    "subdir": "collections",
+    "title": "BTree",
+    "deps": [
+      "SystemTypes",
+      "MemArena"
+    ],
+    "desc": "B-Tree",
+    "blocks": 72
+  },
+  "RBTree": {
+    "subdir": "collections",
+    "title": "RBTree",
+    "deps": [
+      "SystemTypes",
+      "MemArena"
+    ],
+    "desc": "Red-black tree",
+    "blocks": 79
+  },
+  "Heap": {
+    "subdir": "collections",
+    "title": "Heap",
+    "deps": [
+      "SystemTypes",
+      "MemArena"
+    ],
+    "desc": "Heap priority queue",
+    "blocks": 72
+  },
+  "Trie": {
+    "subdir": "collections",
+    "title": "Trie",
+    "deps": [
+      "SystemTypes",
+      "MemArena"
+    ],
+    "desc": "Trie",
+    "blocks": 79
+  },
+  "Graph": {
+    "subdir": "collections",
+    "title": "Graph",
+    "deps": [
+      "SystemTypes",
+      "MemArena",
+      "HashTable"
+    ],
+    "desc": "Graph structures",
+    "blocks": 72
+  },
+  "SerBuffer": {
+    "subdir": "serialization",
+    "title": "SerBuffer",
+    "deps": [
+      "SystemTypes",
+      "MemBuffer"
+    ],
+    "desc": "Serialization buffer",
+    "blocks": 79
+  },
+  "SerPrimitives": {
+    "subdir": "serialization",
+    "title": "SerPrimitives",
+    "deps": [
+      "SystemTypes",
+      "SerBuffer",
+      "PrimitiveOps"
+    ],
+    "desc": "Primitive serialization",
+    "blocks": 72
+  },
+  "SerCollections": {
+    "subdir": "serialization",
+    "title": "SerCollections",
+    "deps": [
+      "SystemTypes",
+      "SerBuffer",
+      "ArrayList",
+      "HashTable"
+    ],
+    "desc": "Collection serialization",
+    "blocks": 79
+  },
+  "SerStructs": {
+    "subdir": "serialization",
+    "title": "SerStructs",
+    "deps": [
+      "SystemTypes",
+      "SerBuffer",
+      "SerPrimitives"
+    ],
+    "desc": "Struct serialization",
+    "blocks": 72
+  },
+  "SerProtocol": {
+    "subdir": "serialization",
+    "title": "SerProtocol",
+    "deps": [
+      "SystemTypes",
+      "SerBuffer",
+      "SerPrimitives",
+      "SerCollections"
+    ],
+    "desc": "Protocol serialization",
+    "blocks": 79
+  },
+  "Lexer": {
+    "subdir": "parsing",
+    "title": "Lexer",
+    "deps": [
+      "SystemTypes",
+      "MemBuffer",
+      "UtilsStr",
+      "ErrorModel"
+    ],
+    "desc": "Lexer",
+    "blocks": 72
+  },
+  "ParserCore": {
+    "subdir": "parsing",
+    "title": "ParserCore",
+    "deps": [
+      "SystemTypes",
+      "Lexer",
+      "ErrorModel"
+    ],
+    "desc": "Parser core",
+    "blocks": 79
+  },
+  "AstNodes": {
+    "subdir": "parsing",
+    "title": "AstNodes",
+    "deps": [
+      "SystemTypes",
+      "MemArena",
+      "Lexer"
+    ],
+    "desc": "AST nodes",
+    "blocks": 72
+  },
+  "ParserExpr": {
+    "subdir": "parsing",
+    "title": "ParserExpr",
+    "deps": [
+      "SystemTypes",
+      "ParserCore",
+      "AstNodes"
+    ],
+    "desc": "Expression parsing",
+    "blocks": 79
+  },
+  "Validator": {
+    "subdir": "parsing",
+    "title": "Validator",
+    "deps": [
+      "SystemTypes",
+      "AstNodes",
+      "ErrorModel",
+      "UtilsValidation"
+    ],
+    "desc": "Validation",
+    "blocks": 72
+  },
+  "RtState": {
+    "subdir": "runtime",
+    "title": "RtState",
+    "deps": [
+      "SystemTypes",
+      "ErrorModel"
+    ],
+    "desc": "Runtime state machine",
+    "blocks": 79
+  },
+  "RtScheduler": {
+    "subdir": "runtime",
+    "title": "RtScheduler",
+    "deps": [
+      "SystemTypes",
+      "RtState",
+      "Queue",
+      "Heap"
+    ],
+    "desc": "Scheduler",
+    "blocks": 72
+  },
+  "RtContext": {
+    "subdir": "runtime",
+    "title": "RtContext",
+    "deps": [
+      "SystemTypes",
+      "RtState",
+      "MemArena",
+      "Ownership"
+    ],
+    "desc": "Runtime context",
+    "blocks": 79
+  },
+  "RtExecution": {
+    "subdir": "runtime",
+    "title": "RtExecution",
+    "deps": [
+      "SystemTypes",
+      "RtState",
+      "RtContext",
+      "RtScheduler"
+    ],
+    "desc": "Execution engine",
+    "blocks": 72
+  },
+  "RtResources": {
+    "subdir": "runtime",
+    "title": "RtResources",
+    "deps": [
+      "SystemTypes",
+      "MemArena",
+      "MemPool",
+      "Ownership"
+    ],
+    "desc": "Resource management",
+    "blocks": 79
+  },
+  "AlgoSort": {
+    "subdir": "algorithms",
+    "title": "AlgoSort",
+    "deps": [
+      "SystemTypes",
+      "ArrayList",
+      "Heap"
+    ],
+    "desc": "Sorting algorithms",
+    "blocks": 72
+  },
+  "AlgoSearch": {
+    "subdir": "algorithms",
+    "title": "AlgoSearch",
+    "deps": [
+      "SystemTypes",
+      "ArrayList",
+      "BTree",
+      "RBTree"
+    ],
+    "desc": "Searching algorithms",
+    "blocks": 79
+  },
+  "AlgoHash": {
+    "subdir": "algorithms",
+    "title": "AlgoHash",
+    "deps": [
+      "SystemTypes",
+      "HashTable",
+      "UtilsStr"
+    ],
+    "desc": "Hashing algorithms",
+    "blocks": 72
+  },
+  "AlgoGraph": {
+    "subdir": "algorithms",
+    "title": "AlgoGraph",
+    "deps": [
+      "SystemTypes",
+      "Graph",
+      "Queue",
+      "Heap"
+    ],
+    "desc": "Graph algorithms",
+    "blocks": 79
+  },
+  "AlgoString": {
+    "subdir": "algorithms",
+    "title": "AlgoString",
+    "deps": [
+      "SystemTypes",
+      "UtilsStr",
+      "Trie"
+    ],
+    "desc": "String algorithms",
+    "blocks": 72
+  },
+  "AlgoMath": {
+    "subdir": "algorithms",
+    "title": "AlgoMath",
+    "deps": [
+      "SystemTypes",
+      "MathPrimitives",
+      "UtilsMath"
+    ],
+    "desc": "Math algorithms",
+    "blocks": 79
+  },
+  "AlgoCompression": {
+    "subdir": "algorithms",
+    "title": "AlgoCompression",
+    "deps": [
+      "SystemTypes",
+      "MemBuffer",
+      "SerBuffer"
+    ],
+    "desc": "Compression",
+    "blocks": 72
+  },
+  "AlgoCryptoPrimitive": {
+    "subdir": "algorithms",
+    "title": "AlgoCryptoPrimitive",
+    "deps": [
+      "SystemTypes",
+      "BitOps",
+      "AlgoHash"
+    ],
+    "desc": "Crypto primitives",
+    "blocks": 79
+  },
+  "IoCore": {
+    "subdir": "io",
+    "title": "IoCore",
+    "deps": [
+      "SystemTypes",
+      "MemBuffer",
+      "ErrorModel"
+    ],
+    "desc": "I/O core",
+    "blocks": 72
+  },
+  "IoStream": {
+    "subdir": "io",
+    "title": "IoStream",
+    "deps": [
+      "SystemTypes",
+      "IoCore",
+      "MemBuffer"
+    ],
+    "desc": "Typed streams",
+    "blocks": 79
+  },
+  "IoFile": {
+    "subdir": "io",
+    "title": "IoFile",
+    "deps": [
+      "SystemTypes",
+      "IoCore",
+      "IoStream"
+    ],
+    "desc": "File I/O",
+    "blocks": 72
+  },
+  "NetProtocol": {
+    "subdir": "net",
+    "title": "NetProtocol",
+    "deps": [
+      "SystemTypes",
+      "SerProtocol",
+      "ErrorModel"
+    ],
+    "desc": "Network protocol",
+    "blocks": 79
+  },
+  "NetTransport": {
+    "subdir": "net",
+    "title": "NetTransport",
+    "deps": [
+      "SystemTypes",
+      "NetProtocol",
+      "IoStream"
+    ],
+    "desc": "Transport",
+    "blocks": 72
+  },
+  "StoreEngine": {
+    "subdir": "storage",
+    "title": "StoreEngine",
+    "deps": [
+      "SystemTypes",
+      "MemArena",
+      "IoFile",
+      "HashTable",
+      "BTree"
+    ],
+    "desc": "Storage engine",
+    "blocks": 79
+  },
+  "StoreIndex": {
+    "subdir": "storage",
+    "title": "StoreIndex",
+    "deps": [
+      "SystemTypes",
+      "StoreEngine",
+      "HashTable",
+      "BTree"
+    ],
+    "desc": "Storage indexes",
+    "blocks": 72
+  },
+  "StoreTxn": {
+    "subdir": "storage",
+    "title": "StoreTxn",
+    "deps": [
+      "SystemTypes",
+      "StoreEngine",
+      "ErrorModel",
+      "RtState"
+    ],
+    "desc": "Transactions",
+    "blocks": 79
+  },
+  "Config": {
+    "subdir": "config",
+    "title": "Config",
+    "deps": [
+      "SystemTypes",
+      "ParserCore",
+      "Validator",
+      "ErrorModel"
+    ],
+    "desc": "Configuration",
+    "blocks": 72
+  },
+  "ConfigSchema": {
+    "subdir": "config",
+    "title": "ConfigSchema",
+    "deps": [
+      "SystemTypes",
+      "Config",
+      "Validator"
+    ],
+    "desc": "Config schema",
+    "blocks": 79
+  },
+  "CryptoHash": {
+    "subdir": "crypto",
+    "title": "CryptoHash",
+    "deps": [
+      "SystemTypes",
+      "AlgoHash",
+      "AlgoCryptoPrimitive"
+    ],
+    "desc": "Crypto hashing",
+    "blocks": 72
+  },
+  "CryptoCipher": {
+    "subdir": "crypto",
+    "title": "CryptoCipher",
+    "deps": [
+      "SystemTypes",
+      "AlgoCryptoPrimitive",
+      "MemBuffer"
+    ],
+    "desc": "Cipher",
+    "blocks": 79
+  },
+  "NetApi": {
+    "subdir": "net",
+    "title": "NetApi",
+    "deps": [
+      "SystemTypes",
+      "NetTransport",
+      "Config"
+    ],
+    "desc": "External network API",
+    "blocks": 72
+  },
+  "IoApi": {
+    "subdir": "io",
+    "title": "IoApi",
+    "deps": [
+      "SystemTypes",
+      "IoFile",
+      "NetApi"
+    ],
+    "desc": "External I/O API",
+    "blocks": 79
+  },
+  "TestFramework": {
+    "subdir": "core",
+    "title": "TestFramework",
+    "deps": [
+      "SystemTypes",
+      "ErrorModel",
+      "Logging"
+    ],
+    "desc": "Test framework",
+    "blocks": 72
+  },
+  "Integration": {
+    "subdir": "runtime",
+    "title": "Integration",
+    "deps": [
+      "SystemTypes",
+      "RtExecution",
+      "StoreEngine",
+      "NetTransport",
+      "Config"
+    ],
+    "desc": "Integration layer",
+    "blocks": 79
+  },
+  "BuildSystem": {
+    "subdir": "runtime",
+    "title": "BuildSystem",
+    "deps": [
+      "SystemTypes",
+      "Config",
+      "Logging"
+    ],
+    "desc": "Build integration",
+    "blocks": 72
+  },
+  "Verification": {
+    "subdir": "core",
+    "title": "Verification",
+    "deps": [
+      "SystemTypes",
+      "TestFramework",
+      "ErrorModel"
+    ],
+    "desc": "Verification routines",
+    "blocks": 79
+  }
+}

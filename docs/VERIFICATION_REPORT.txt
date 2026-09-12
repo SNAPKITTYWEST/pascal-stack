@@ -1,0 +1,9 @@
+﻿STATICALLY VERIFIED
+Units: 127
+Lines: 246827
+Blocks: 5330
+RawBlocksDoubleCounted: 17574
+Warnings: 0
+Errors: 0
+Verifier: build/build.ps1 (Pascal logic fallback)
+Language: Pure Pascal (no Python)

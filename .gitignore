@@ -1,0 +1,10 @@
+﻿build/out/
+*.o
+*.ppu
+*.exe
+*.compiled
+__pycache__/
+*.py
+!tools/Verify.pas
+!tests/TestRunner.pas
+!build/expand_handcrafted.py
