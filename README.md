@@ -5,7 +5,6 @@
 [![Lines](https://img.shields.io/badge/lines-18%2C996-orange?style=for-the-badge)]()
 [![Units](https://img.shields.io/badge/units-11-purple?style=for-the-badge)]()
 [![CUDA Concepts Replaced](https://img.shields.io/badge/CUDA%20concepts%20replaced-15-red?style=for-the-badge)]()
-[![License](https://img.shields.io/badge/license-MIT-lightgrey?style=for-the-badge)]()
 [![Build](https://img.shields.io/badge/compiler-FPC%203.2%2B-yellow?style=for-the-badge)]()
 [![Tests](https://img.shields.io/badge/tests-30%2F30%20passing-success?style=for-the-badge)]()
 
