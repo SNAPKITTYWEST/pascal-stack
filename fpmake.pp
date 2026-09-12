@@ -123,7 +123,7 @@ begin
     T.Description := 'PascalGPU_Init/Shutdown, public API, CUDA compat table, 5 examples, Block 500';
 
     { Example program }
-    P.Targets.AddExampleProgram('pascal-gpu-stack.lpr');
+    P.Targets.AddExampleProgram('cmd/pascal-gpu-stack.lpr');
   end;
 end;
 
