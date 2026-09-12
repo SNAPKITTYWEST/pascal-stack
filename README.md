@@ -1932,7 +1932,10 @@ All 500 blocks, their unit, and their one-line description.
 
 ## License
 
-MIT — free to use, modify, and redistribute with attribution.
+ Copyleft — SL-003
+This software is governed by the GNU Affero General Public License, version 3. The AGPLv3 terms remain authoritative wherever this Covenant does not validly add additional terms.
+
+All modifications, derivative works, and conveyances are subject to the copyleft provisions of the AGPLv3.
 
 ---
 
