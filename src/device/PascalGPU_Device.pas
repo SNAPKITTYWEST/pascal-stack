@@ -56,6 +56,14 @@ const
 type
   TInt32DynArray = array of TInt32;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-130
+  Block              : TDeviceCapabilityFlags — bit-flag set for device features
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:38bfab023db3e9ba652510166b812db4f087ee721ccc2a6fabcdb26f67019256
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 130: TDeviceCapabilityFlags — bit-flag set for device features === }
 type
   TDeviceCapabilityFlag = (
@@ -69,6 +77,14 @@ type
   );
   TDeviceCapabilityFlags = set of TDeviceCapabilityFlag;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-101
+  Block              : TDeviceProperties record
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:2d87352c4a331b74bb11a34b8916b52ccb69aa1adc618d9bc1763415494834dd
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 101: TDeviceProperties record === }
 type
   TDeviceProperties = record
@@ -88,6 +104,14 @@ type
     CapabilityFlags:     TDeviceCapabilityFlags;
   end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-102
+  Block              : TDeviceState enumeration
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:25cee2756d15659b95689a6a8a74e237ee637ac787d3f5910c7bb91e4788a76d
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 102: TDeviceState enumeration === }
 type
   TDeviceState = (
@@ -118,6 +142,14 @@ type
     TotalFreeCount:  TInt32;   { Cumulative frees  since Initialize   }
   end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-103
+  Block              : IDeviceBackend — interface all backends must implement
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:ec9eaecda9bbfa762abe0e27df12e85fb69a30356e99f9c9f1eff6927f023afe
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 103: IDeviceBackend — interface all backends must implement === }
 type
   IDeviceBackend = interface(IInterface)
@@ -134,6 +166,14 @@ type
     function SupportsFeature(const Feature: AnsiString): Boolean;
   end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-104
+  Block              : TSimulatedDeviceBackend — pure Pascal, no real GPU
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:08381d4d012f2789fe00a2b7ecd5b489cecbe3b0b18f2fbd59a688b2d84682e8
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 104: TSimulatedDeviceBackend — pure Pascal, no real GPU === }
 type
   TSimulatedDeviceBackend = class(TInterfacedObject, IDeviceBackend)
@@ -157,6 +197,14 @@ type
     function SupportsFeature(const Feature: AnsiString): Boolean;
   end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-113
+  Block              : TDevice — main device object
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:b71368710ef7ee3ff6321e653c8570ab323828e12e3cc1dd3f4b2d2709b720dd
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 113: TDevice — main device object === }
 type
   TDevice = record
@@ -169,6 +217,14 @@ type
   end;
   PDevice = ^TDevice;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-124
+  Block              : TDeviceRegistry — singleton list of available devices
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:a741ee09edca0b243a51fca3b5353336f3d27764a5d529d103ae17446cb22570
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 124: TDeviceRegistry — singleton list of available devices === }
 type
   TDeviceArray    = array of TDevice;
@@ -177,6 +233,14 @@ type
     Count:   TInt32;
   end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-132
+  Block              : TDeviceQuery — query builder for filtering devices by capability
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:622c44a6be837b14d89bfcbefc5882d1d709efb376a984cb613f91258ce86efa
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 132: TDeviceQuery — query builder for filtering devices by capability === }
 type
   TDeviceQuery = record
@@ -189,6 +253,14 @@ type
     HasFlagFilter:    Boolean;
   end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-135
+  Block              : TDeviceContext — lightweight context scoped to a device
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:2dc14a97bf4d44c0aa3235016f3137331e0958ff1c1753c5076bbf82ba7eb1a7
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 135: TDeviceContext — lightweight context scoped to a device === }
 type
   TStreamHandleArray = array of TStreamHandle;
@@ -204,6 +276,14 @@ type
   end;
   PDeviceContext = ^TDeviceContext;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-141
+  Block              : TOpenCLBackend — stub for future OpenCL integration
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:440f535b7ea565dea4649932372143750fb34cce93a1c3ccae77578de66c4f0e
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 141: TOpenCLBackend — stub for future OpenCL integration === }
 type
   TOpenCLBackend = class(TInterfacedObject, IDeviceBackend)
@@ -220,6 +300,14 @@ type
     function SupportsFeature(const Feature: AnsiString): Boolean;
   end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-142
+  Block              : TVulkanComputeBackend — stub for future Vulkan Compute
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:8e63f3ccd459ba826669ae66483da7825a48479ddf8b98204011b562e72b18cd
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 142: TVulkanComputeBackend — stub for future Vulkan Compute === }
 type
   TVulkanComputeBackend = class(TInterfacedObject, IDeviceBackend)
@@ -236,6 +324,14 @@ type
     function SupportsFeature(const Feature: AnsiString): Boolean;
   end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-143
+  Block              : TMetalComputeBackend — macOS Metal Compute stub
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:995325d81bd07ed8807d74541ca9bf0623dd0c68f1923e02704adb8d7c5e80a9
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 143: TMetalComputeBackend — macOS Metal Compute stub === }
 type
   TMetalComputeBackend = class(TInterfacedObject, IDeviceBackend)
@@ -252,6 +348,14 @@ type
     function SupportsFeature(const Feature: AnsiString): Boolean;
   end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-144
+  Block              : IBackendFactory interface + TBackendRegistry
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:1a46bbb307882c9de5af2eceb189e16f734096253e3b7c55dd9c45933c03a078
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 144: IBackendFactory interface + TBackendRegistry === }
 type
   IBackendFactory = interface(IInterface)
@@ -271,99 +375,331 @@ type
     Count:   TInt32;
   end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-114
+  Block              : CreateDevice
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:b3c18433a66541e2045331e2636e1f02df940e2f71de299b69f8a6fdfa47af72
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 114: CreateDevice === }
 function CreateDevice(DeviceID: TInt32; Backend: IDeviceBackend; out Device: TDevice): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-115
+  Block              : DestroyDevice
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:3bb6218d35ba2417ed79fbb6442a39a3da6a6072e5476d7047d9ac3a714dbf48
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 115: DestroyDevice === }
 function DestroyDevice(var Device: TDevice): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-116
+  Block              : DeviceInitialize
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:f90f3d43f4c92c1873680495d5b5f03f29e8f707484287e67458b41aa1e363fe
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 116: DeviceInitialize === }
 function DeviceInitialize(var Device: TDevice): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-117
+  Block              : DeviceFinalize
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:251566e2a91c04d3c5deef7719aa4826ff5f48489efe2c0635ba4ea5f52a82d3
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 117: DeviceFinalize === }
 function DeviceFinalize(var Device: TDevice): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-118
+  Block              : DeviceGetProperties
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:b3b952973f1b9363215e8fea0c6ac0b508339132cc7607c4a95e8bef5a9f9256
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 118: DeviceGetProperties === }
 function DeviceGetProperties(const Device: TDevice; out Props: TDeviceProperties): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-119
+  Block              : DeviceAllocMemory
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:4f3aa6acb1504518e2a688ea19617fb307a0c6507f9b5f40e94b4ec9495366de
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 119: DeviceAllocMemory === }
 function DeviceAllocMemory(var Device: TDevice; Bytes: TSizeT; out Mem: TDeviceMemory): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-120
+  Block              : DeviceFreeMemory
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:e0339d9c1613bc140debf4642b8f59d55c4f0548d0e8678463024850f9f820ca
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 120: DeviceFreeMemory === }
 function DeviceFreeMemory(var Device: TDevice; var Mem: TDeviceMemory): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-121
+  Block              : DeviceSynchronize
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:cbc0faa8c5bc483090c89dbae8a5c4b1a2b11c51d756d14ebcd093f8ee7ea145
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 121: DeviceSynchronize === }
 function DeviceSynchronize(var Device: TDevice): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-122
+  Block              : DeviceGetState
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:a4a29eee25cff19de1b051bfbf8d852c0b652475bdc5df26d43cf3e8718bbee7
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 122: DeviceGetState === }
 function DeviceGetState(const Device: TDevice): TDeviceState;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-123
+  Block              : DeviceSetState
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:c8401047fda095765a711156c27aed04be40df0a02fb7f924d751630a0f8d8a7
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 123: DeviceSetState === }
 procedure DeviceSetState(var Device: TDevice; State: TDeviceState);
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-125
+  Block              : RegisterDevice
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:8b466a094fcac899e97fd5887ddef241b576bc082f793214c08b4505dbf9db5f
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 125: RegisterDevice === }
 function RegisterDevice(var Reg: TDeviceRegistry; var Dev: TDevice): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-126
+  Block              : GetDevice
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:60e95de47a705ab5abe9982895a8ca36c079b02549433bdba2ce2ef1acf33003
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 126: GetDevice === }
 function GetDevice(const Reg: TDeviceRegistry; ID: TInt32; out Dev: TDevice): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-127
+  Block              : EnumerateDevices
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:c64c5fe5cd979efbc1f7604119cc511e0472b20b79e207c7fedd0889cdf1cc84
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 127: EnumerateDevices === }
 function EnumerateDevices(const Reg: TDeviceRegistry): AnsiString;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-128
+  Block              : DeviceCount
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:8c017eb214645af98ce6c4ea7b56a5292eff360444ceb46b4e655c6463462bdd
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 128: DeviceCount === }
 function DeviceCount(const Reg: TDeviceRegistry): TInt32;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-129
+  Block              : DefaultDeviceID global var + SetDefaultDevice/GetDefaultDevice
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:c5e29dd02dee5876fd5726f3630dee2ae6884e3060f283a54fd697c78051d6bb
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 129: DefaultDeviceID global var + SetDefaultDevice/GetDefaultDevice === }
 procedure SetDefaultDevice(DeviceID: TInt32);
 function  GetDefaultDevice: TInt32;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-131
+  Block              : DeviceSupportsCapability
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:3df100d9a07ea9a1cabae77be4fea406f96cf79e558d0385769e8a29402c5ad3
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 131: DeviceSupportsCapability === }
 function DeviceSupportsCapability(const Props: TDeviceProperties;
   Flag: TDeviceCapabilityFlag): Boolean;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-133
+  Block              : QueryDevicesByMemory
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:6e87751bdf8800368859c544bc562e1e5c9126ac19170443f1a3c3553296f3d1
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 133: QueryDevicesByMemory === }
 function QueryDevicesByMemory(MinMemoryGB: TFloat32;
   out IDs: TInt32DynArray): TInt32;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-134
+  Block              : QueryDevicesByCompute
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:6b6f9b19c5eb54b7c31a757454b866d38835044624763e9de89383fc25794a9c
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 134: QueryDevicesByCompute === }
 function QueryDevicesByCompute(MinMajor, MinMinor: TUInt32;
   out IDs: TInt32DynArray): TInt32;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-136
+  Block              : CreateDeviceContext
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:82192dc7dc04158f19484364c81363bc5acedfc4084f41e7bb0a3ae7df4555f9
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 136: CreateDeviceContext === }
 function CreateDeviceContext(DeviceID: TInt32; out Ctx: TDeviceContext): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-137
+  Block              : DestroyDeviceContext
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:5a160492fed7f953f78c9e8867e57c3a7ba703a9e9a72a3cbbe91af53add17a2
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 137: DestroyDeviceContext === }
 function DestroyDeviceContext(var Ctx: TDeviceContext): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-138
+  Block              : SetCurrentContext
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:8a1242f345bc493c9afebedc25a4940839c9b0b4f18505be6e7e2ee0e604c126
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 138: SetCurrentContext === }
 function SetCurrentContext(var Ctx: TDeviceContext): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-139
+  Block              : GetCurrentContext
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:8b1b57c3418b584beaa306863f5f1dc50f503e2f17628e2b7a9555ea5a5873c8
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 139: GetCurrentContext === }
 function GetCurrentContext(out Ctx: TDeviceContext): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-140
+  Block              : ContextSynchronize
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:3d02f318eaa58784cbc8ef50711be0e7335785a9fec11e5b71a5dba499b1defb
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 140: ContextSynchronize === }
 function ContextSynchronize(var Ctx: TDeviceContext): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-145
+  Block              : RegisterBackend
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:9f44fbcc12497b88b5a573946ecc2a705ff4da5b1e19ddbb9a2ba3df47078827
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 145: RegisterBackend === }
 procedure RegisterBackend(const Name: AnsiString; Factory: IBackendFactory);
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-146
+  Block              : CreateBackendByName
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:bb346327a07db1de48a587e36d79276e97de6c2374570f968416bdeb15132aef
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 146: CreateBackendByName === }
 function CreateBackendByName(const Name: AnsiString;
   out Backend: IDeviceBackend): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-147
+  Block              : DeviceMemoryUsage
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:d59d32be0c5905664420b41797b0e1e9cf28331c264f2d0b7b035d3e9c1e7987
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 147: DeviceMemoryUsage === }
 function DeviceMemoryUsage(const Device: TDevice;
   out Used, Total: TUInt64): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-148
+  Block              : DeviceMemoryFill
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:27907a32da0d0d0c82a3fb40f4576f2a9fa638793d0d880ed9cdc184cc95ce23
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 148: DeviceMemoryFill === }
 function DeviceMemoryFill(var Device: TDevice; var Mem: TDeviceMemory;
   Value: TUInt8; Bytes: TSizeT): TResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-149
+  Block              : DeviceSubsystemTest
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:d3a68c469cda00c03dc827a55333a947d4449bad0e5f84759297c050ef55fc3b
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 149: DeviceSubsystemTest === }
 function DeviceSubsystemTest: TResult;
 
 var
-  { === BLOCK 129: DefaultDeviceID global variable === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-129
+  Block              : DefaultDeviceID global variable
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:9a103398eaf895b941f13e2564b17d67610281d310bed5e4c0d0c6e01754ae90
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 129: DefaultDeviceID global variable === }
   DefaultDeviceID:  TInt32;
   { Global device registry used by QueryDevicesByMemory / QueryDevicesByCompute }
   GDeviceRegistry:  TDeviceRegistry;
@@ -428,6 +764,14 @@ begin
   Result          := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-106
+  Block              : TSimulatedDeviceBackend.AllocMemory — GetMem-backed device simulation
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:b5574f8a4cc14e9abb0ca5bfb36cedeff663eef6efc0b52a60bb570645260c70
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 106: TSimulatedDeviceBackend.AllocMemory — GetMem-backed device simulation === }
 
 function TSimulatedDeviceBackend.AllocMemory(Bytes: TSizeT;
@@ -481,6 +825,14 @@ begin
   Result := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-107
+  Block              : TSimulatedDeviceBackend.FreeMemory
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:e5b085031485caadded0d00a4ab9a4041138e2c7ef9d5fab6e1e4a40d0b4d610
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 107: TSimulatedDeviceBackend.FreeMemory === }
 
 function TSimulatedDeviceBackend.FreeMemory(var Mem: TDeviceMemory): TResult;
@@ -510,6 +862,14 @@ begin
   Result      := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-108
+  Block              : TSimulatedDeviceBackend.MemcpyH2D
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:092aae7f64dd220ec52ae9806e1503de5304cafa3340f5ea2d58b11a2621d398
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 108: TSimulatedDeviceBackend.MemcpyH2D === }
 
 function TSimulatedDeviceBackend.MemcpyH2D(Src: Pointer; var Dst: TDeviceMemory;
@@ -535,6 +895,14 @@ begin
   Result := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-109
+  Block              : TSimulatedDeviceBackend.MemcpyD2H
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:9eff87385e5403569a1c51f0de3924ec676208827821a5bd597612c80a5b02a4
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 109: TSimulatedDeviceBackend.MemcpyD2H === }
 
 function TSimulatedDeviceBackend.MemcpyD2H(const Src: TDeviceMemory;
@@ -560,6 +928,14 @@ begin
   Result := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-110
+  Block              : TSimulatedDeviceBackend.MemcpyD2D
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:2e9fa209fcc695f1501098b71aab0d9c6c23a4502b95aa448126b9aee0948625
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 110: TSimulatedDeviceBackend.MemcpyD2D === }
 
 function TSimulatedDeviceBackend.MemcpyD2D(const Src: TDeviceMemory;
@@ -586,6 +962,14 @@ begin
   Result := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-111
+  Block              : TSimulatedDeviceBackend.Synchronize — fence/barrier stub
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:3ab6ce54b90eab9060ffc2f54785f26c356ec8c14be9c6b9cc651db78fae182f
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 111: TSimulatedDeviceBackend.Synchronize — fence/barrier stub === }
 
 function TSimulatedDeviceBackend.Synchronize: TResult;
@@ -599,6 +983,14 @@ begin
   Result := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-112
+  Block              : TSimulatedDeviceBackend.GetProperties
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:4b4d6f4fb179073978ab0c5ec449da879438c2774cbd954c80502fec22e9e6d6
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 112: TSimulatedDeviceBackend.GetProperties === }
 
 function TSimulatedDeviceBackend.GetProperties(out Props: TDeviceProperties): TResult;
@@ -639,6 +1031,14 @@ begin
   );
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-114
+  Block              : CreateDevice
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:ae55b09bee58324d780e2493fe481a67db47a99963102a8dd1350c9374da9559
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 114: CreateDevice === }
 
 function CreateDevice(DeviceID: TInt32; Backend: IDeviceBackend;
@@ -707,6 +1107,14 @@ begin
   Result := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-115
+  Block              : DestroyDevice
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:a878f956c2053eb36a2940e09c71589411e3ffd5305beb7a2b0048a6e39d1b3a
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 115: DestroyDevice === }
 
 function DestroyDevice(var Device: TDevice): TResult;
@@ -725,6 +1133,14 @@ begin
   Result         := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-116
+  Block              : DeviceInitialize
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:ef112e33a1bde1bb6275236d69c258a928434512b0013e59e2a3abecfe1e6562
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 116: DeviceInitialize === }
 
 function DeviceInitialize(var Device: TDevice): TResult;
@@ -760,6 +1176,14 @@ begin
   Result := R;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-117
+  Block              : DeviceFinalize
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:34700c7922dee9d63f1ac81aa206c8bc6b24b0bebb68f91e429a2d325188dfa7
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 117: DeviceFinalize === }
 
 function DeviceFinalize(var Device: TDevice): TResult;
@@ -783,6 +1207,14 @@ begin
   Result := R;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-118
+  Block              : DeviceGetProperties
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:ff8e12b80cc822ff080190f00e7161f906a0a2ef57132246b92609b0279868bd
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 118: DeviceGetProperties === }
 
 function DeviceGetProperties(const Device: TDevice;
@@ -799,6 +1231,14 @@ begin
   Result := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-119
+  Block              : DeviceAllocMemory
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:3f78b7ae43efc7023d8f4f33ecf43263dd8bb9db26772e38b8e7a48ef7b02d52
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 119: DeviceAllocMemory === }
 
 function DeviceAllocMemory(var Device: TDevice; Bytes: TSizeT;
@@ -838,6 +1278,14 @@ begin
   Result := R;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-120
+  Block              : DeviceFreeMemory
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:20620b045ad4bdd1dda23a73eea1875f22a66d0a0abd4772fadf9d858f181bb5
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 120: DeviceFreeMemory === }
 
 function DeviceFreeMemory(var Device: TDevice; var Mem: TDeviceMemory): TResult;
@@ -870,6 +1318,14 @@ begin
   Result := R;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-121
+  Block              : DeviceSynchronize
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:10484aaa918e6fa1b4cc79017af33669e23aedb44babc5c687435511efce8a30
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 121: DeviceSynchronize === }
 
 function DeviceSynchronize(var Device: TDevice): TResult;
@@ -892,6 +1348,14 @@ begin
   Result := Device.Backend.Synchronize;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-122
+  Block              : DeviceGetState
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:415da73df79502292947147bbbe9c2ebcb6beb9b2c26169448ade04a223873c4
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 122: DeviceGetState === }
 
 function DeviceGetState(const Device: TDevice): TDeviceState;
@@ -899,6 +1363,14 @@ begin
   Result := Device.State;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-123
+  Block              : DeviceSetState
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:12c98e00382308da4da9e2d6dec71432444b91dadec05c6af07efe1d82227759
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 123: DeviceSetState === }
 
 procedure DeviceSetState(var Device: TDevice; State: TDeviceState);
@@ -906,6 +1378,14 @@ begin
   Device.State := State;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-125
+  Block              : RegisterDevice
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:c8e0a3cf24deb0ee6adf498e56736c001ef946a2c419def5bf192a55394ffec4
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 125: RegisterDevice === }
 
 function RegisterDevice(var Reg: TDeviceRegistry; var Dev: TDevice): TResult;
@@ -927,6 +1407,14 @@ begin
   Result := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-126
+  Block              : GetDevice
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:43e443ccbd35ba5ea368b258acfaeb84544b815fc5beca04fe34ef554f9b0683
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 126: GetDevice === }
 
 function GetDevice(const Reg: TDeviceRegistry; ID: TInt32;
@@ -974,6 +1462,14 @@ begin
   Result := PGPU_ERR_NOT_FOUND;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-127
+  Block              : EnumerateDevices
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:9f72ebb1e994a701f11a3e72e03ab1b97c206897ce4419a10659d3cb73f57a80
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 127: EnumerateDevices === }
 
 function EnumerateDevices(const Reg: TDeviceRegistry): AnsiString;
@@ -1014,6 +1510,14 @@ begin
   Result := S;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-128
+  Block              : DeviceCount
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:6471034b0da1e32854f04e8605c12e3d7bad2ca4f415baeb20180b0bbc350203
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 128: DeviceCount === }
 
 function DeviceCount(const Reg: TDeviceRegistry): TInt32;
@@ -1021,6 +1525,14 @@ begin
   Result := Reg.Count;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-129
+  Block              : SetDefaultDevice / GetDefaultDevice
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:53ccfd859486f72da0c5ff07e5142ad7a50b667d54b21a0c36004b4b5e651a49
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 129: SetDefaultDevice / GetDefaultDevice === }
 
 procedure SetDefaultDevice(DeviceID: TInt32);
@@ -1033,6 +1545,14 @@ begin
   Result := DefaultDeviceID;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-131
+  Block              : DeviceSupportsCapability
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:4f345fd5c0c6bc48c6cff6ed3d319121fb80955d733ddf1f0a4e153c463fbf5c
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 131: DeviceSupportsCapability === }
 
 function DeviceSupportsCapability(const Props: TDeviceProperties;
@@ -1041,6 +1561,14 @@ begin
   Result := Flag in Props.CapabilityFlags;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-133
+  Block              : QueryDevicesByMemory
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:4154a38e40ea8f4480a6de3ea09be58afc491391ab7270c6bbba9484efd76b84
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 133: QueryDevicesByMemory === }
 
 function QueryDevicesByMemory(MinMemoryGB: TFloat32;
@@ -1067,6 +1595,14 @@ begin
   Result := Count;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-134
+  Block              : QueryDevicesByCompute
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:1b5fdc529867042fbb3c70865c5bbfac908fd85859b78879969f9c91882801f0
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 134: QueryDevicesByCompute === }
 
 function QueryDevicesByCompute(MinMajor, MinMinor: TUInt32;
@@ -1096,6 +1632,14 @@ begin
   Result := Count;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-136
+  Block              : CreateDeviceContext
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:50049117559000b3ac1d971979b094f3f2086afe72b38344f461953fcc85b62e
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 136: CreateDeviceContext === }
 
 function CreateDeviceContext(DeviceID: TInt32; out Ctx: TDeviceContext): TResult;
@@ -1109,6 +1653,14 @@ begin
   Result           := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-137
+  Block              : DestroyDeviceContext
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:132e4d83d69cd0d67eccdfb1f2e4215fdc8ecef680d4b99762e1fe1093f76200
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 137: DestroyDeviceContext === }
 
 function DestroyDeviceContext(var Ctx: TDeviceContext): TResult;
@@ -1127,6 +1679,14 @@ begin
   Result          := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-138
+  Block              : SetCurrentContext
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:2184528bbd9821c3a8b10e8cffe43d4e95cd09f7ba7ef6ab8f7006bc0c960619
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 138: SetCurrentContext === }
 
 function SetCurrentContext(var Ctx: TDeviceContext): TResult;
@@ -1141,6 +1701,14 @@ begin
   Result             := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-139
+  Block              : GetCurrentContext
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:5546e0f6d76d6c9274f90e21e9bfc881b50597a1e91d8ffb61f956b6014b0fab
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 139: GetCurrentContext === }
 
 function GetCurrentContext(out Ctx: TDeviceContext): TResult;
@@ -1160,6 +1728,14 @@ begin
   Result := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-140
+  Block              : ContextSynchronize
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:87fad8247d76e67d72bd1cbd2158ce9164164fbf1dde567eadc218be2c695361
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 140: ContextSynchronize === }
 
 function ContextSynchronize(var Ctx: TDeviceContext): TResult;
@@ -1181,6 +1757,14 @@ begin
   Result := DeviceSynchronize(Dev);
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-141
+  Block              : TOpenCLBackend — stub; all methods raise PGPU_ERR_UNSUPPORTED
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:74982aa058fbc027aa66bd3f3a70873c29af8c95c38f681948051d8f8d5e7bf8
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 141: TOpenCLBackend — stub; all methods raise PGPU_ERR_UNSUPPORTED === }
 
 function TOpenCLBackend.Initialize: TResult;
@@ -1247,6 +1831,14 @@ begin
   Result := False;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-142
+  Block              : TVulkanComputeBackend — stub; all methods raise PGPU_ERR_UNSUPPORTED
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:ae012ed21805915a6c86929821b488d43adb23c27fce0d98bf1b1d69bcbfb515
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 142: TVulkanComputeBackend — stub; all methods raise PGPU_ERR_UNSUPPORTED === }
 
 function TVulkanComputeBackend.Initialize: TResult;
@@ -1313,6 +1905,14 @@ begin
   Result := False;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-143
+  Block              : TMetalComputeBackend — raises PGPU_ERR_UNSUPPORTED on non-macOS
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:656f74ea386f743ff60b4668634fadb96d9f938dc5333cd5573e830ed807e609
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 143: TMetalComputeBackend — raises PGPU_ERR_UNSUPPORTED on non-macOS === }
 {
   On macOS (DARWIN), real Metal API bindings would be wired through Objective-C
@@ -1390,6 +1990,14 @@ begin
   Result := False;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-145
+  Block              : RegisterBackend
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:232b00b0fd604b4522944ce69044b43f27e535b8d1354efb41d125f95c3fb906
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 145: RegisterBackend === }
 
 procedure RegisterBackend(const Name: AnsiString; Factory: IBackendFactory);
@@ -1412,6 +2020,14 @@ begin
   Inc(GBackendRegistry.Count);
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-146
+  Block              : CreateBackendByName
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:82959ccc12312178b32e0fef1b1063b072f7da3bcd98f527462f8d675306f191
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 146: CreateBackendByName === }
 
 function CreateBackendByName(const Name: AnsiString;
@@ -1464,6 +2080,14 @@ begin
   Result := PGPU_ERR_NOT_FOUND;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-147
+  Block              : DeviceMemoryUsage
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:451cab5c6317cd9730aed515bd9f0c6496be08726b811438a48b80a2ee3b25c1
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 147: DeviceMemoryUsage === }
 
 function DeviceMemoryUsage(const Device: TDevice;
@@ -1481,6 +2105,14 @@ begin
   Result := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-148
+  Block              : DeviceMemoryFill
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:f23700e30fe68c1edaf1cea46e71b9863e58da9f06c5cb00fe5fd71476989685
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 148: DeviceMemoryFill === }
 
 function DeviceMemoryFill(var Device: TDevice; var Mem: TDeviceMemory;
@@ -1506,6 +2138,14 @@ begin
   Result := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-002-BLK-149
+  Block              : DeviceSubsystemTest — device self-test
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:64392275c8078871a9d958b3a6d79d4176c1ee0b7ba7f8f2f5c22a9047eec73d
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 149: DeviceSubsystemTest — device self-test === }
 
 function DeviceSubsystemTest: TResult;
