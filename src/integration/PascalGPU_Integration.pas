@@ -32,7 +32,7 @@
 
   ======================================================================== }
 
-{$mode objfpc}{$H+}{$PackRecords C}
+{$mode objfpc}{$H+}{$PackRecords C}{$modeswitch inscope}
 { ============================================================================
   PascalGPU_Integration.pas
   Integration layer, public API, CUDA compatibility, and final verification.
@@ -552,6 +552,7 @@ begin
 { === BLOCK 486: TCompatEntry record population === }
   Count := PASCALGPU_COMPAT_COUNT;
   GetMem(Table, Count * SizeOf(TCompatEntry));
+  FillChar(Table^, Count * SizeOf(TCompatEntry), 0);
   for I := 0 to Count - 1 do
   begin
     Table[I].CUDAName         := '';
@@ -1062,7 +1063,7 @@ var
   M1     : array[0..FEATURES-1, 0..HIDDEN-1] of TFloat32;  { Adam m }
   V1     : array[0..FEATURES-1, 0..HIDDEN-1] of TFloat32;  { Adam v }
   Input  : array[0..FEATURES-1] of TFloat32;
-  Hidden : array[0..HIDDEN-1] of TFloat32;
+  HidAct : array[0..HIDDEN-1] of TFloat32;
   Grad   : array[0..FEATURES-1, 0..HIDDEN-1] of TFloat32;
   I, J   : Integer;
   LR     : TFloat32;
@@ -1106,22 +1107,22 @@ begin
   { Forward pass: hidden = Relu(W1^T * input + B1) }
   for J := 0 to HIDDEN - 1 do
   begin
-    Hidden[J] := B1[J];
+    HidAct[J] := B1[J];
     for I := 0 to FEATURES - 1 do
-      Hidden[J] := Hidden[J] + Input[I] * W1[I][J];
-    if Hidden[J] < 0.0 then Hidden[J] := 0.0;  { ReLU }
+      HidAct[J] := HidAct[J] + Input[I] * W1[I][J];
+    if HidAct[J] < 0.0 then HidAct[J] := 0.0;  { ReLU }
   end;
 
-  { Compute synthetic MSE loss = sum(Hidden^2) / HIDDEN }
+  { Compute synthetic MSE loss = sum(HidAct^2) / HIDDEN }
   Loss := 0.0;
   for J := 0 to HIDDEN - 1 do
-    Loss := Loss + Hidden[J] * Hidden[J];
+    Loss := Loss + HidAct[J] * HidAct[J];
   Loss := Loss / HIDDEN;
 
   { Synthetic gradient: dL/dW1 = outer(Input, dL/dH) }
   for I := 0 to FEATURES - 1 do
     for J := 0 to HIDDEN - 1 do
-      Grad[I][J] := Input[I] * (2.0 * Hidden[J] / HIDDEN);
+      Grad[I][J] := Input[I] * (2.0 * HidAct[J] / HIDDEN);
 
   { Adam update }
   for I := 0 to FEATURES - 1 do
