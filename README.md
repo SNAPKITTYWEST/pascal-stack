@@ -36,9 +36,6 @@ Every block has:
 - **A node key** (`PASCAL-STACK-008-BLK-301`) — globally unique, licensable, traceable
 - **A Clone-Gate SHA256** — the hash of the block’s canonical form, so you can prove whether a copy is faithful
 - **A license header** — AGPLv3 + Sovereign Leviathan clause, `SL-AGPL3-001`, England and Wales jurisdiction, `Pacta sunt servanda. Nemo dat quod non habet.`
-
-The 500 blocks in the handcrafted stack are not arbitrary. They are the minimal complete closure of a GPU stack:
-
 - **Core & Types** (`handcrafted/core/PascalGPU_Types.pas:1779`, 142 blocks) — integer aliases `TInt8..TPtrUInt`, float aliases `TFloat32/64/16`, platform constants, error model
 - **Device** (`device/PascalGPU_Device.pas:2247`, 152 blocks) — device context, capability query, handle lifetime
 - **Memory** (`memory/PascalGPU_Memory.pas:1659`, 80 blocks) — arena, pool, buffer, pointer safety, ownership, mark/release
