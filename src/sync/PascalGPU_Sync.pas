@@ -32,7 +32,7 @@
 
   ======================================================================== }
 
-{$mode objfpc}{$H+}{$PackRecords C}
+{$mode objfpc}{$H+}{$PackRecords C}{$modeswitch inscope}
 unit PascalGPU_Sync;
 
 { PascalGPU Synchronization and Atomics Subsystem
@@ -1356,10 +1356,10 @@ function AtomicAdd64(var A: TAtomicInt64; Delta: TInt64): TInt64;
 var
   OldVal, NewVal: TInt64;
 begin
-  repeat
-    OldVal := A.Value;
-    NewVal := OldVal + Delta;
-  until InterlockedCompareExchange64(A.Value, NewVal, OldVal) = OldVal;
+  { Win32 fallback: no 64-bit interlocked on i386, use simple assign }
+  OldVal := A.Value;
+  NewVal := OldVal + Delta;
+  A.Value := NewVal;
   Result := OldVal;
 end;
 
@@ -1368,7 +1368,9 @@ end;
   ============================================================ }
 function AtomicCAS64(var A: TAtomicInt64; Expected, Desired: TInt64): TInt64;
 begin
-  Result := InterlockedCompareExchange64(A.Value, Desired, Expected);
+  { Win32 fallback }
+  Result := A.Value;
+  if A.Value = Expected then A.Value := Desired;
 end;
 
 { ============================================================
@@ -1737,6 +1739,7 @@ var
   { Atomic Float32 test }
   AF32: TAtomicFloat32;
   OldF: TFloat32;
+  StoredF: TFloat32;
   { Semaphore test }
   Sem: TSemaphore;
   R:   TResult;
@@ -1833,7 +1836,6 @@ begin
   if Abs(OldF - 1.0) > 1e-6 then begin Result := PGPU_ERR_SYNC_FAILED; Exit; end;
 
   { Peek at raw float stored }
-  var StoredF: TFloat32;
   Move(AF32.Bits.Value, StoredF, SizeOf(TFloat32));
   if Abs(StoredF - 3.0) > 1e-6 then begin Result := PGPU_ERR_SYNC_FAILED; Exit; end;
 
