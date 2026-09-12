@@ -49,10 +49,26 @@ uses
   PascalGPU_Types,
   PascalGPU_Kernel;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-011-BLK-451
+  Block              : TTestResult enumeration
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:996756919c6ed654b2384babcf0544e958e446b569e192f6b898f6f695b3695f
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 451: TTestResult enumeration === }
 type
   TTestResult = (trPass, trFail, trSkip, trError);
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-011-BLK-452
+  Block              : TTestCase record
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:cc6dc4ffe183b557c73d0c7721118cfdb241626e3036cdc0654276f05f272dc8
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 452: TTestCase record === }
 type
   TTestCase = record
@@ -62,6 +78,14 @@ type
     ElapsedMs: TFloat32;
   end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-011-BLK-453
+  Block              : TTestSuite record
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:c3c4b56ab2af056de8105dc8ff83d65288671421398ac599fe492e705177acd0
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 453: TTestSuite record === }
 type
   TTestSuite = record
@@ -72,6 +96,14 @@ type
     SkipCount: TUInt32;
   end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-011-BLK-454
+  Block              : RunTest — executes one test procedure, records result
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:6633b5718c1480a60a68652f4173cb115a8a81c1d8f4d9a2d0dc36637959ab9c
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 454: RunTest — executes one test procedure, records result === }
 type
   TTestProc = procedure(out Msg: AnsiString);
@@ -79,6 +111,14 @@ type
 function RunTest(var Suite: TTestSuite; const Name: AnsiString;
                  TestProc: TTestProc): TTestResult;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-011-BLK-455
+  Block              : PrintTestSuite — returns formatted suite summary string
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:8d5e64508bbfaa2bc8c48779f924d3a4d14508e32ca648902d54b93a7fd14db3
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 455: PrintTestSuite — returns formatted suite summary string === }
 function PrintTestSuite(const Suite: TTestSuite): AnsiString;
 
@@ -93,12 +133,28 @@ function AssertEqualF32(A, B: TFloat32; Epsilon: TFloat32;
 function AssertEqualF64(A, B: TFloat64; Epsilon: TFloat64;
                          const Msg: AnsiString): Boolean;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-011-BLK-459
+  Block              : AssertTrue — returns True when Cond is True
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:e88e85c4297cc3fc6b22ba2b14df9887606c2e6767effdb640b65ec1eea04a87
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 459: AssertTrue — returns True when Cond is True === }
 function AssertTrue(Cond: Boolean; const Msg: AnsiString): Boolean;
 
 { === BLOCK 460: AssertResult — returns True when R = PGPU_SUCCESS === }
 function AssertResult(R: TResult; const Msg: AnsiString): Boolean;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-011-BLK-480
+  Block              : RunAllTests — runs blocks 461-479, returns PGPU_SUCCESS if all pass
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:10e2b86ffa6a8d97e487dbba3229d14857301e55e0e9e46bf5f11d454f871af0
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 480: RunAllTests — runs blocks 461-479, returns PGPU_SUCCESS if all pass === }
 function RunAllTests: TResult;
 
@@ -120,6 +176,14 @@ begin
   end;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-011-BLK-454
+  Block              : RunTest implementation
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:aa3acb14e1a9a2dfd17ed6d3595967bba6adfe78e227c159608bee6124e71b8b
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 454: RunTest implementation === }
 
 function RunTest(var Suite: TTestSuite; const Name: AnsiString;
@@ -175,6 +239,14 @@ begin
   Result := TC.Result;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-011-BLK-455
+  Block              : PrintTestSuite implementation
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:a8f421211427109d2619ae3179013abee9b63d601836b06c7ed68eaa3d687bec
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 455: PrintTestSuite implementation === }
 
 function PrintTestSuite(const Suite: TTestSuite): AnsiString;
@@ -206,6 +278,14 @@ begin
     Result := Result + Format('%u TEST(S) FAILED' + LineEnding, [Suite.FailCount]);
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-011-BLK-456
+  Block              : AssertEqual32 implementation
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:befebf443203079e0a3c2cb5014c26967dc8348a2842306b63d563b5ad79babb
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 456: AssertEqual32 implementation === }
 
 function AssertEqual32(A, B: TInt32; const Msg: AnsiString): Boolean;
@@ -213,6 +293,14 @@ begin
   Result := (A = B);
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-011-BLK-457
+  Block              : AssertEqualF32 implementation
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:21fdbb7f81d664bdb05d7bdbea9b49cebc4e7e1450036c5448173477b140d3a8
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 457: AssertEqualF32 implementation === }
 
 function AssertEqualF32(A, B: TFloat32; Epsilon: TFloat32;
@@ -221,6 +309,14 @@ begin
   Result := Abs(A - B) <= Epsilon;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-011-BLK-458
+  Block              : AssertEqualF64 implementation
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:e8e86823d666790807fab736038f5b9c4966a05dbefa4554dd7c606d0571aed0
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 458: AssertEqualF64 implementation === }
 
 function AssertEqualF64(A, B: TFloat64; Epsilon: TFloat64;
@@ -229,6 +325,14 @@ begin
   Result := Abs(A - B) <= Epsilon;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-011-BLK-459
+  Block              : AssertTrue implementation
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:95027df09e869586a51794c1a4178d7e8e3c7c76e26947b9b2cfdae627eb3930
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 459: AssertTrue implementation === }
 
 function AssertTrue(Cond: Boolean; const Msg: AnsiString): Boolean;
@@ -236,6 +340,14 @@ begin
   Result := Cond;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-011-BLK-460
+  Block              : AssertResult implementation
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:288ae9283f5d5755bb554298b2e4f161dc4c00c33dac8ce71451389ff2bafcf9
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { === BLOCK 460: AssertResult implementation === }
 
 function AssertResult(R: TResult; const Msg: AnsiString): Boolean;
@@ -1476,39 +1588,111 @@ begin
   Suite.SkipCount := 0;
   Suite.Cases     := nil;
 
-  { === BLOCK 461: Test — type alias widths === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-011-BLK-461
+  Block              : Test — type alias widths
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:1804ff2a5a9115d048ecc3280e328b66146baf696cbb34c81601ee2a2b8ca3c5
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 461: Test — type alias widths === }
   RunTest(Suite, '461: TypeAliasWidths',
           @Test461_TypeAliasWidths);
 
-  { === BLOCK 462: Test — Float16 round-trip < 0.001 === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-011-BLK-462
+  Block              : Test — Float16 round-trip < 0.001
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:b7112fb25fc798fb1022e28426799a969c313e94b2fed59dba412ca173970363
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 462: Test — Float16 round-trip < 0.001 === }
   RunTest(Suite, '462: Float16RoundTrip',
           @Test462_Float16RoundTrip);
 
-  { === BLOCK 463: Test — AlignUp/AlignDown powers of 2 === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-011-BLK-463
+  Block              : Test — AlignUp/AlignDown powers of 2
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:ebfc86f20ab6a8b28daf479a18105585fddc02ed9235ffcd746e55b861545b77
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 463: Test — AlignUp/AlignDown powers of 2 === }
   RunTest(Suite, '463: AlignUpDownCorrectness',
           @Test463_AlignUpDown);
 
-  { === BLOCK 464: Test — GlobalLinearIndex uniqueness 4x4x4 grid === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-011-BLK-464
+  Block              : Test — GlobalLinearIndex uniqueness 4x4x4 grid
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:9350cd1ba53c3e90deaa06fe69940960696269ae136e87e2ef4e5e40d96f71ac
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 464: Test — GlobalLinearIndex uniqueness 4x4x4 grid === }
   RunTest(Suite, '464: GlobalLinearIndexUniqueness',
           @Test464_GlobalLinearIndexUniqueness);
 
-  { === BLOCK 465: Test — memory alloc/free/zero/bounds === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-011-BLK-465
+  Block              : Test — memory alloc/free/zero/bounds
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:8f70390bde63af26e10bba552e788fc2d75a18eda6165428720e2b09f8342dff
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 465: Test — memory alloc/free/zero/bounds === }
   RunTest(Suite, '465: MemoryAllocFreeZeroBounds',
           @Test465_MemoryAllocFreeZeroBounds);
 
-  { === BLOCK 466: Test — HostToDevice + DeviceToHost round-trip === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-011-BLK-466
+  Block              : Test — HostToDevice + DeviceToHost round-trip
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:95d86c5f03e895891bcd45ea1ab35b610710d5f32f7c042d68728afef33bdf5b
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 466: Test — HostToDevice + DeviceToHost round-trip === }
   RunTest(Suite, '466: HostDeviceRoundTrip',
           @Test466_HostDeviceRoundTrip);
 
-  { === BLOCK 467: Test — SharedMemory read/write byte-accurate === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-011-BLK-467
+  Block              : Test — SharedMemory read/write byte-accurate
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:776077203187a9ed3263a673f15dea9b4f084ad51deebbd628f6cdd1870f15cd
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 467: Test — SharedMemory read/write byte-accurate === }
   RunTest(Suite, '467: SharedMemoryReadWrite',
           @Test467_SharedMemoryReadWrite);
 
-  { === BLOCK 468: Test — VectorAddKernel dispatch on 1024 elements === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-011-BLK-468
+  Block              : Test — VectorAddKernel dispatch on 1024 elements
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:ae915f2919c5b21d08e30ba967fb391e4eb64b4c1abe2a4648ae1341b8158663
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 468: Test — VectorAddKernel dispatch on 1024 elements === }
   RunTest(Suite, '468: VectorAddKernel1024',
           @Test468_VectorAddKernel1024);
 
-  { === BLOCK 469: Test — MatMulKernel vs naive reference (4x4) === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-011-BLK-469
+  Block              : Test — MatMulKernel vs naive reference (4x4)
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:8aa99122e342974064bffe76f64b0737efe7568922fbb09ce4ca9065110c6c1c
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 469: Test — MatMulKernel vs naive reference (4x4) === }
   RunTest(Suite, '469: MatMulKernelReference',
           @Test469_MatMulKernelReference);
 
@@ -1516,15 +1700,39 @@ begin
   RunTest(Suite, '470: ReduceSumKernelReference',
           @Test470_ReduceSumKernelReference);
 
-  { === BLOCK 471: Test — AtomicAdd32 under simulated concurrent increments === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-011-BLK-471
+  Block              : Test — AtomicAdd32 under simulated concurrent increments
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:763ebc1a137721bf6af2f8a075d14054531ca464079b728abb78eb02d638421c
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 471: Test — AtomicAdd32 under simulated concurrent increments === }
   RunTest(Suite, '471: AtomicAdd32Concurrent',
           @Test471_AtomicAdd32Concurrent);
 
-  { === BLOCK 472: Test — BlockSync barrier serialization === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-011-BLK-472
+  Block              : Test — BlockSync barrier serialization
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:a8115d2ab37ad7b750191ea88301f94cbc80678c43292ac9c380cb2996f4e59a
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 472: Test — BlockSync barrier serialization === }
   RunTest(Suite, '472: BlockSyncBarrierSerialization',
           @Test472_BlockSyncBarrier);
 
-  { === BLOCK 473: Test — GEMM vs naive reference (8x8) === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-011-BLK-473
+  Block              : Test — GEMM vs naive reference (8x8)
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:4e620e9b91350bb3bd0996015144a430c9c4f9c0693ed947c5b60442aed6872a
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 473: Test — GEMM vs naive reference (8x8) === }
   RunTest(Suite, '473: GEMMKernelReference',
           @Test473_GEMMReference);
 
@@ -1532,11 +1740,27 @@ begin
   RunTest(Suite, '474: SoftmaxSumsToOne',
           @Test474_SoftmaxSumsToOne);
 
-  { === BLOCK 475: Test — LayerNorm output mean~0 variance~1 === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-011-BLK-475
+  Block              : Test — LayerNorm output mean~0 variance~1
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:d8cdcc194d6f9c875f5ec218524e4584e58e6f9dd3e33b243e97c99754b2ded1
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 475: Test — LayerNorm output mean~0 variance~1 === }
   RunTest(Suite, '475: LayerNormMeanVariance',
           @Test475_LayerNormMeanVariance);
 
-  { === BLOCK 476: Test — Conv2D direct correlation 5x5 input 3x3 kernel === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-011-BLK-476
+  Block              : Test — Conv2D direct correlation 5x5 input 3x3 kernel
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:d4cadfd23aefcd126b72aa7b7af8389f539d29b0af111a5665403852618eb5dc
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 476: Test — Conv2D direct correlation 5x5 input 3x3 kernel === }
   RunTest(Suite, '476: Conv2DDirectCorrelation',
           @Test476_Conv2DDirectCorrelation);
 
@@ -1544,11 +1768,27 @@ begin
   RunTest(Suite, '477: Bench_VectorAddThroughput',
           @Test477_BenchVectorAddThroughput);
 
-  { === BLOCK 478: Benchmark — GEMM GFlops 128/512/1024 === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-011-BLK-478
+  Block              : Benchmark — GEMM GFlops 128/512/1024
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:06ed3b08b76bf1c039301826f18258d9c6ff22317fa030637c05fe512b5b9d96
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 478: Benchmark — GEMM GFlops 128/512/1024 === }
   RunTest(Suite, '478: Bench_GEMMThroughput',
           @Test478_BenchGEMMThroughput);
 
-  { === BLOCK 479: Benchmark — MemcpyH2D+D2H bandwidth === }
+  { -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-011-BLK-479
+  Block              : Benchmark — MemcpyH2D+D2H bandwidth
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:ee287272631fce73a4f7597e03594e441e465d24d6fb82f16aab857310fb6cff
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
+{ === BLOCK 479: Benchmark — MemcpyH2D+D2H bandwidth === }
   RunTest(Suite, '479: Bench_MemcpyBandwidth',
           @Test479_BenchMemcpyBandwidth);
 
