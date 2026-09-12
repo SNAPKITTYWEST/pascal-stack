@@ -14,7 +14,7 @@ When Niklaus Wirth published Pascal in 1970, and then when Kenneth Bowles dragge
 
 That is why we kept building in Pascal.
 
-## Block architecture — 500 blocks
+## Block architecture
 
 A block in PascalStack is a single verifiable unit of behavior with a Sovereign Node Key, a Clone-Gate, and a legal identity. Look at any handcrafted file:
 
