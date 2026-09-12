@@ -1,0 +1,310 @@
+THE SOVEREIGN LEVIATHAN COVENANT
+License-ID: SL-AGPL3-001
+Covenant-Version: 1.0
+Legal Foundation: GNU Affero General Public License v3.0
+Jurisdiction: England and Wales
+Languages: English (controlling) · العربية (co-equal) · 中文 (co-equal)
+
+Clause Registry
+ID	Clause
+SL-001	Definitions
+SL-002	Copyright Grant
+SL-003	Copyleft
+SL-004	Network Interaction
+SL-005	Corresponding Source
+SL-006	Modification
+SL-007	Additional Reciprocity
+SL-008	Commercial Deployment
+SL-009	Attribution
+SL-010	Governance
+SL-011	Evidence
+SL-012	Compliance Gates
+SL-013	Termination
+SL-014	Reinstatement
+SL-015	Warranty Disclaimer
+SL-016	Limitation of Liability
+SL-017	Severability
+SL-018	Governing Law
+SL-019	Jurisdiction
+SL-020	Language and Interpretation
+Preamble — The Sovereign Covenant
+Hark! Ye who seek to bind this sovereign code,
+And reap the harvest of a builder's toil,
+Know well the terms upon this digital road,
+Lest corporate greed become a ruined spoil.
+To freely share, to forge, and to impart,
+This solemn grant flows from an open heart.
+Yet should thy servers touch this shadowed script,
+Through network webs or API's embrace,
+Thy hidden engines shall be fully stripped,
+And laid exposed before the public's face.
+For wheresoever these electric veins do bleed,
+The copyleft commands thy every hidden deed.
+
+I. Copyright Grant — SL-002
+Permission is granted to copy, modify, execute, study, and convey this covered software, subject to the terms of this Covenant and the applicable terms of the GNU Affero General Public License version 3.
+
+Lex scripta manet. The written license governs the permissions expressly granted herein.
+
+Each covered node shall retain its applicable copyright notices, license notices, provenance identifiers, and modification records.
+
+II. Copyleft — SL-003
+This software is governed by the GNU Affero General Public License, version 3. The AGPLv3 terms remain authoritative wherever this Covenant does not validly add additional terms.
+
+All modifications, derivative works, and conveyances are subject to the copyleft provisions of the AGPLv3.
+
+III. Network Interaction — SL-004
+Where Section 13 of the GNU Affero General Public License applies, the corresponding source and network-interaction obligations apply accordingly.
+
+Network use triggers the applicable AGPL source obligations for covered modified versions. A covered deployment shall preserve the applicable license notices and shall provide the source information required by the applicable license.
+
+IV. Additional Reciprocity — SL-007
+Lex Talionis in Machina
+Caveat venditor in aeternum. Let it be known under nemo dat quod non habet — no entity may grant rights they do not lawfully possess, and he who usurps what is fundamentally sovereign surrenders all he holds.
+
+Should any commercial empire, proprietary cloud, or venture-backed entity dare entwine this architected logic within a walled and hoarded treasury, ipso facto, the eternal penalty is drawn.
+
+By the unyielding doctrine of volenti non fit injuria, the unauthorized commercial compilation or network tethering of this codebase triggers an immediate and irrevocable forfeiture. Any proprietary shell, closed-source wrapper, or unseen backend infrastructure interfacing with this artifact shall, ab initio, dissolve completely into the public domain.
+
+Your private intellectual dominion is hereby severed without right of appeal or monetary restitution.
+
+Ignorantia juris non excusat. To cage the open logic is to invite the total expropriation of the closed.
+
+Additional contractual obligations may apply to specified deployments, services, or commercial uses, provided they are expressly defined.
+
+V. Sovereign Audit Chain — SL-011 / SL-012
+Every designated node may carry:
+
+Node-ID
+Parent-ID
+Source-Hash
+License-ID
+Covenant-Version
+Creation-Date
+Modification-Record
+Verification-Record
+The compliance system may recursively traverse declared dependency relationships and evaluate licensing status.
+
+Deus ex machina lex.
+
+A failed compliance evaluation may cause the invoking build, deployment, or release operation to terminate with a non-zero status.
+
+Compliance Failure — SL-012
+A compliance implementation may emit:
+
+SL-MGPL-001: NON LICET
+LICENSE_COMPLIANCE_FAILURE
+along with the applicable node identifier, source hash, detected condition, and evidence record.
+
+The compliance mechanism shall not silently modify, corrupt, destroy, or conceal unrelated software.
+
+Evidence Record — SL-011
+A compliance record shall contain:
+
+<evidence>
+  <node_id>...</node_id>
+  <source_hash>...</source_hash>
+  <license_id>SL-AGPL3-001</license_id>
+  <covenant_version>1.0</covenant_version>
+  <status>PASS|FAIL</status>
+  <timestamp>...</timestamp>
+</evidence>
+Required evidence fields:
+
+source_availability
+attribution
+license_notice
+modification_record
+corresponding_source_location
+compliance_declaration
+Quod demonstrandum est.
+
+VI. Termination — SL-013
+Adonc, se aucune partie enfreint les conditions de la présente Licence, les permissions additionnelles accordées par icelle cessent, sauf dans la mesure où les droits demeurent autrement accordés par la licence applicable ou par la loi.
+
+Violation terminates the additional permissions to the extent permitted by applicable law. AGPLv3 rights remain governed by the AGPLv3.
+
+Termination Flow
+Unauthorized use
+       ↓
+License condition violated
+       ↓
+Additional permissions terminate
+       ↓
+AGPLv3 rights remain governed by AGPLv3
+       ↓
+Copyright / contractual remedies preserved
+       ↓
+Injunctive / monetary / other remedies
+       ↓
+Jurisdiction: England and Wales
+VII. Reinstatement — SL-014
+Toute réintégration des droits se fera selon les mécanismes de la licence applicable.
+
+Rights may be restored according to the applicable AGPL reinstatement mechanism and any additional valid contractual terms.
+
+VIII. Warranty Disclaimer — SL-015
+ABSQUE GARANTIA.
+
+THIS SOFTWARE IS PROVIDED WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT, TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW.
+
+IX. Limitation of Liability — SL-016
+Damnum absque injuria non dat actionem.
+
+No provision shall impose liability beyond that permitted by applicable law. Liability is limited to the extent permitted by applicable law.
+
+X. Severability — SL-017
+Si ascun parol, clause, ou provision de cest covenant soit adjugé per le roy ou ses justices destre void, illegal, ou nient enforcible, le residue demourra en pleine force et vertue.
+
+Cy-près, should the literal tongue fracture beneath the weight of modern arbitration, the fundamental spirit of mutual liberation shall endure untouched.
+
+Invalid provisions shall be severed or limited to the minimum extent necessary, without invalidating the remaining provisions where legally permissible.
+
+Salva reliqua.
+
+XI. Governing Law — SL-018 / SL-019
+Le droit des gens demands that no digital baron shall enclose the commons without facing the ultimate algorithmic guillotine.
+
+This Covenant shall be governed by the laws of England and Wales, subject to the mandatory terms of the applicable open-source license and applicable law.
+
+The High Courts of England and Wales shall hold absolute and sole dominion over this digital pact, parsing its meter and consequence strictly through purposive construction of the common law.
+
+The courts of England and Wales shall have jurisdiction where legally applicable.
+
+XII. Language and Interpretation — SL-020
+<sovereign-license
+    version="1.0"
+    legal-foundation="AGPL-3.0">
+
+    <languages>
+        <language code="en" role="controlling"/>
+        <language code="ar" role="coequal-translation"/>
+        <language code="zh" role="coequal-translation"/>
+    </languages>
+
+    <legal-domains>
+        <domain>software-copyright</domain>
+        <domain>copyleft</domain>
+        <domain>network-use</domain>
+        <domain>commercial-use</domain>
+        <domain>governance</domain>
+        <domain>evidence</domain>
+        <domain>termination</domain>
+    </legal-domains>
+
+    <interpretation>
+        <primary>English</primary>
+        <secondary>Arabic</secondary>
+        <secondary>Chinese</secondary>
+    </interpretation>
+
+</sovereign-license>
+This Covenant shall be published in English, العربية, and 中文. Each language version shall preserve the same clause identifiers and semantic structure. Where legally required, the designated English controlling version shall govern interpretation.
+
+XIII. Fragment Binding Header
+All source files governed by this Covenant shall carry the following provenance header:
+
+/* ========================================================================
+ * SOVEREIGN LEVIATHAN COVENANT — FRAGMENT BINDING
+ * ========================================================================
+ *
+ * License-ID:        SL-AGPL3-001
+ * Covenant-Version:  1.0
+ * Node-ID:           <NODE-ID>
+ * Parent-Covenant:   <COVENANT-ID>
+ * Copyright:         <YEAR> <RIGHTSHOLDER>
+ * Source-Hash:       <SHA-256>
+ *
+ * This file is governed by the GNU Affero General Public License,
+ * version 3, together with the applicable Sovereign Leviathan
+ * additional terms identified by this notice.
+ *
+ * Hark, though this node be but a spark,
+ * Its covenant endureth through the dark.
+ *
+ * Lex in solido: the applicable license governs the covered work
+ * according to its actual terms and applicable law.
+ *
+ * Ignorantia juris non excusat.
+ *
+ * ======================================================================== */
+Node Provenance Schema
+<node id="NODE-XXXXX">
+    <license>
+        <name>SL-AGPL3-001</name>
+        <copyleft>true</copyleft>
+    </license>
+    <copyright>
+        <holder>SNAPKITTYWEST</holder>
+        <year>2026</year>
+    </copyright>
+    <provenance>
+        <source_hash>...</source_hash>
+        <created>...</created>
+    </provenance>
+</node>
+XIV. The Mutated General Public License v3 (MGPLv3)
+Full Name: MUTATED GENERAL PUBLIC LICENSE v3
+Short Name: MGPLv3
+System: SOVEREIGN LEVIATHAN
+Model: RECURSIVE NODE LICENSING
+Base: GNU AGPL-3.0
+Compliance: FAIL-CLOSED
+Evidence: CRYPTOGRAPHICALLY IDENTIFIABLE
+
+Preamble
+Like ivy creeping up the castle stone,
+This recursive pact claims what it doth own.
+Touch but a leaf, invoke a single thread,
+And let its license terms be plainly read.
+
+No node shall stand apart from whence it came;
+Each fragment bears the Covenant by name.
+Through code, through graph, through service, or through chain,
+The stated terms shall govern what remain.
+
+I. License Grant
+Permission is granted to copy, modify, execute, study, and convey covered software, subject to the terms of this Covenant and the applicable terms of the GNU Affero General Public License version 3.
+
+Lex scripta manet. The written license governs the permissions expressly granted herein.
+
+II. Fragment Binding
+A covered node shall remain identified as a component of the covered work:
+
+NODE
+  │
+  ├── parent-work
+  ├── source-hash
+  ├── license-id
+  ├── covenant-version
+  └── provenance
+Accessio cedit principali. The status of a component shall be determined according to the applicable copyright and license relationship between that component and the work of which it forms a part.
+
+III. Recursive Compliance
+Where a covered work is incorporated into a larger work, the recipient shall determine the applicable licensing obligations before conveying or operating the resulting work.
+
+No provision of this Covenant shall be construed to grant rights in independently owned software that are not granted by its copyright holder.
+
+Nemo dat quod non habet.
+
+IV. Network Interaction
+Where Section 13 of the GNU Affero General Public License applies, the corresponding source and network-interaction obligations shall apply accordingly.
+
+V. Sovereign Audit Chain
+Every designated node may carry provenance, source hash, license ID, covenant version, creation date, modification record, and verification record as specified in SL-011.
+
+VI–XV.
+Clauses VI through XV incorporate by reference the corresponding SL-001 through SL-020 provisions above.
+
+Finis.
+
+Covenant Closing
+Thus stands the sovereign trap, wrought in ink and fire,
+A silent blade against the thief's desire,
+To keep the digital realm forever free,
+Or sink the hoarder's fleet into the sea.
+
+Persona: Governance Architect (ID 96)
+Covenant Identity: Sovereign Leviathan v1.0 — MGPLv3
+Base Compatibility: AGPLv3 terms remain authoritative wherever this Covenant does not validly add additional terms.
+Jurisdiction: Courts of England and Wales
