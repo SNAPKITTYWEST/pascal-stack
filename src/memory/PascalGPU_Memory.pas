@@ -56,6 +56,14 @@ const
   PGPU_ERR_INVALID_HANDLE  = -104;
   PGPU_ERR_NOT_INITIALIZED = -105;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-051
+  Block              : TMemoryPool — bump allocator over a contiguous slab
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:dd46b7b6f80089b4aaa8b8320f77864d65a018ff613c9b1d756a804a798ab71c
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 051: TMemoryPool — bump allocator over a contiguous slab
   ============================================================ }
@@ -70,6 +78,14 @@ type
     IsInitialized  : Boolean;
   end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-056
+  Block              : TAllocRecord — tracks a single live allocation
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:4663b22f81ad44b51d097af68dd4658c9ad71b606be2e9e93cf734d1421d58ea
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 056: TAllocRecord — tracks a single live allocation
   ============================================================ }
@@ -82,6 +98,14 @@ type
     IsLive    : Boolean;
   end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-057
+  Block              : TMemoryTracker — array of TAllocRecord + count
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:77d647b4ce443521df656ec83e8db54937dadc4ce04eb70fdafe4c66f20f77e0
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 057: TMemoryTracker — array of TAllocRecord + count
   ============================================================ }
@@ -90,6 +114,14 @@ type
     Count   : TInt32;
   end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-063
+  Block              : TDeviceMemory — device memory handle with simulation backing
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:b09525e5b8c4bfbb3a1a3929ec0428eb5b672c5be465c6d13f6248cfb97a9c87
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 063: TDeviceMemory — device memory handle with simulation backing
   ============================================================ }
@@ -103,6 +135,14 @@ type
     IsValid    : Boolean;
   end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-070
+  Block              : THostPinnedBuffer — simulated page-locked host memory
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:8c7b79e8d3bff64802d3da5c39de574f6664bb0c95d93927b169deb848659e10
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 070: THostPinnedBuffer — simulated page-locked host memory
   ============================================================ }
@@ -113,6 +153,14 @@ type
     RefCount : TInt32;
   end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-073
+  Block              : TSharedMemoryRegion — per-block shared memory simulation
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:65e86e606e474c3ee4cffebcfa05456bd201e68d90a884125da6c035ca113f4d
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 073: TSharedMemoryRegion — per-block shared memory simulation
   ============================================================ }
@@ -123,6 +171,14 @@ type
     IsValid     : Boolean;
   end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-078
+  Block              : TConstantBuffer — read-only device buffer, immutable after upload
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:612966b7904f6ed08f23f3824463b9cdf91a73ab0602a6bc2e93c7fad68f352a
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 078: TConstantBuffer — read-only device buffer, immutable after upload
   ============================================================ }
@@ -133,6 +189,14 @@ type
     Frozen  : Boolean;
   end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-081
+  Block              : TBufferView — non-owning view into a buffer
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:963cd80e9a477d381bf20a8a3c3742494b48cd59c2fc33e9a496d9dc6dd43ffd
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 081: TBufferView — non-owning view into a buffer
   ============================================================ }
@@ -145,6 +209,14 @@ type
     TotalSize : TSizeT;
   end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-084
+  Block              : TMemoryStats — global allocation statistics
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:32de6fd569d4bfab2e0bc5391a327355d3513dedfdaf859136508635bb9b4dba
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 084: TMemoryStats — global allocation statistics
   ============================================================ }
@@ -155,11 +227,27 @@ type
     FreeCount       : TUInt64;
   end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-091
+  Block              : TMemoryLifetime — allocation lifetime classification
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:7196e19e8e2a5b8c117e276bf010a290a09c62f91a91fb7255ebb63d4131267f
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 091: TMemoryLifetime — allocation lifetime classification
   ============================================================ }
   TMemoryLifetime = (ltTemporary, ltSession, ltPersistent);
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-092
+  Block              : TTaggedAllocation — lifetime-tagged allocation descriptor
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:2144997c88da450a5bbb53c41b4482b8e3a8be5d6ab501d8d21cd8d68fee540d
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 092: TTaggedAllocation — lifetime-tagged allocation descriptor
   ============================================================ }
@@ -170,6 +258,14 @@ type
     Tag      : AnsiString;
   end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-095
+  Block              : TSlabAllocator — fixed-size slab allocator with free list
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:39acff351e25b476f2145cbacf0ca2f565f29bd8cd92b9f792bb0d6415c879e5
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 095: TSlabAllocator — fixed-size slab allocator with free list
   ============================================================ }
@@ -316,6 +412,14 @@ begin
   end;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-052
+  Block              : InitMemoryPool
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:ed237c937b9d71cf4303b031613e5f899f4e963f6647d1899bd26b817c7e0c87
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 052: InitMemoryPool
   ============================================================ }
@@ -344,6 +448,14 @@ begin
   Result := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-053
+  Block              : FinalizeMemoryPool
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:cb6cbe43ef99073826c906f34367a74f886804f6397b342e0fe20456561db1f0
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 053: FinalizeMemoryPool
   ============================================================ }
@@ -362,6 +474,14 @@ begin
   end;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-054
+  Block              : PoolAlloc — bump-pointer allocation with alignment
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:414ba65ed67a2f3e1b3622d1e736a3fa36abf24d2786eb066b70c5e8a69f0086
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 054: PoolAlloc — bump-pointer allocation with alignment
   ============================================================ }
@@ -395,6 +515,14 @@ begin
   Inc(Pool.AllocationCount);
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-055
+  Block              : PoolFree — no-op for bump allocator (documented limitation)
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:d748352f1334be2a206dc575af91043b797e2c10971bb8c559d08c012a9f363a
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 055: PoolFree — no-op for bump allocator (documented limitation)
   ============================================================ }
@@ -410,6 +538,14 @@ begin
   { No action — intentional. }
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-058
+  Block              : MemTrackerRecord — register a live allocation
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:1a2d438e19113ee74ac89b8d5ff4a55d1e34d5d41ff4fc7a90b076af717b2ea1
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 058: MemTrackerRecord — register a live allocation
   ============================================================ }
@@ -443,6 +579,14 @@ begin
   Inc(T.Count);
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-059
+  Block              : MemTrackerRelease — mark an allocation as freed
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:d6be7f53d182143ac1dae9a12e635ccaaca15818c48780cd5460f7be569b86f2
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 059: MemTrackerRelease — mark an allocation as freed
   ============================================================ }
@@ -462,6 +606,14 @@ begin
   end;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-060
+  Block              : MemTrackerReport — enumerate all live allocations
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:4da4c5aab5b22a4b934de25c0d7b952a27e86de1f0383d6dc4214d45bb2face6
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 060: MemTrackerReport — enumerate all live allocations
   ============================================================ }
@@ -522,6 +674,14 @@ begin
   StatsAlloc(Bytes);
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-062
+  Block              : PascalGPUFree — release memory allocated by PascalGPUAlloc
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:8047a0a1a6cf7f2cb2ae8eb5e821a480f71cbd02071072982d2bd29d0c001c25
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 062: PascalGPUFree — release memory allocated by PascalGPUAlloc
   ============================================================ }
@@ -537,6 +697,14 @@ begin
   StatsFree;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-064
+  Block              : AllocDeviceMemory — simulate device allocation on host heap
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:fcc3d169a98c0565f5272ec1bbce3563d21e956a93dc97ba53286fb3cf4be32b
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 064: AllocDeviceMemory — simulate device allocation on host heap
   ============================================================ }
@@ -566,6 +734,14 @@ begin
   Result := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-065
+  Block              : FreeDeviceMemory
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:ffd4067f450e56ee3486fc54b5cfd2e9425d65a7237ef62759420b9a0c1970e2
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 065: FreeDeviceMemory
   ============================================================ }
@@ -588,6 +764,14 @@ begin
   Result := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-066
+  Block              : HostToDevice — copy from host pointer into device buffer
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:27b93aaf2dd0385b5247461777cda24db5e48e7d91dce69c863efaef80eefc2b
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 066: HostToDevice — copy from host pointer into device buffer
   ============================================================ }
@@ -616,6 +800,14 @@ begin
   Result := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-067
+  Block              : DeviceToHost — copy from device buffer to host pointer
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:b3c00930e101cce834b589a950317a37e1238447e0844b9a410025b080971a43
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 067: DeviceToHost — copy from device buffer to host pointer
   ============================================================ }
@@ -644,6 +836,14 @@ begin
   Result := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-068
+  Block              : DeviceToDevice — copy between two device buffers
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:4d44b3b86b7ab9cf32b44e3f214e2908275610983a9d2282eafe2a57c1b9f957
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 068: DeviceToDevice — copy between two device buffers
   ============================================================ }
@@ -674,6 +874,14 @@ begin
   Result := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-069
+  Block              : FillDeviceMemory — fill device buffer with a byte pattern
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:02fdda2bb0bcbb69c5c29ed61870713babf23872d8832b578644bc32454957c8
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 069: FillDeviceMemory — fill device buffer with a byte pattern
   ============================================================ }
@@ -694,6 +902,14 @@ begin
   Result := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-071
+  Block              : AllocPinnedBuffer — simulated page-locked host memory
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:355c7b4f0d6cbe84024784f8be7a00e832a16f7df51c2622519f0a117ef58187
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 071: AllocPinnedBuffer — simulated page-locked host memory
   ============================================================ }
@@ -719,6 +935,14 @@ begin
   Result := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-072
+  Block              : FreePinnedBuffer — decrement refcount, free when reaches zero
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:6d257acb98984cfff712ce34468987a53ca9b033958544376d023f1a730f1e21
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 072: FreePinnedBuffer — decrement refcount, free when reaches zero
   ============================================================ }
@@ -742,6 +966,14 @@ begin
   Result := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-074
+  Block              : AllocSharedMemory — per-block shared memory region
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:70cf722b4ed33d14727264c0d42fabeff47003408259ee79489b8512a551cc67
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 074: AllocSharedMemory — per-block shared memory region
   ============================================================ }
@@ -768,6 +1000,14 @@ begin
   Result := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-075
+  Block              : FreeSharedMemory
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:03896540591aa3efd79437b7ba6c7458698c9b9de11f1f77e287b961b358f150
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 075: FreeSharedMemory
   ============================================================ }
@@ -790,6 +1030,14 @@ begin
   Result := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-076
+  Block              : WriteSharedMem32 — write a 32-bit value at byte offset
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:4c20e8b12578790d3944c0a438e3581b9082f1c687364c2421e354c86a03d700
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 076: WriteSharedMem32 — write a 32-bit value at byte offset
   ============================================================ }
@@ -813,6 +1061,14 @@ begin
   Result  := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-077
+  Block              : ReadSharedMem32 — read a 32-bit value at byte offset
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:a45dae31d1d1e5cd2e0459f1d7219fceb9dd868668888389457b21360ac51a60
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 077: ReadSharedMem32 — read a 32-bit value at byte offset
   ============================================================ }
@@ -837,6 +1093,14 @@ begin
   Result := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-079
+  Block              : CreateConstantBuffer — copy src data to immutable buffer
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:44ebe4ed32d1ac122133b92fe152e3505e7d630acec30e75ab291611b2d0941a
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 079: CreateConstantBuffer — copy src data to immutable buffer
   ============================================================ }
@@ -863,6 +1127,14 @@ begin
   Result := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-080
+  Block              : FreeConstantBuffer
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:08aaafc52f0ad7bfcb59f98075b9151ff6ca3c354ab9a533703ab53f9e54a399
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 080: FreeConstantBuffer
   ============================================================ }
@@ -879,6 +1151,14 @@ begin
   end;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-082
+  Block              : MakeBufferView — build a non-owning typed view over a device buffer
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:c4f8798111f55bef206f55cf7876b13eaab0cbe61c7f4e1c12b21a287967e96f
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 082: MakeBufferView — build a non-owning typed view over a device buffer
   ============================================================ }
@@ -901,6 +1181,14 @@ begin
   Result.IsValid   := True;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-083
+  Block              : ValidateBufferView
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:d4d0c535ddccee5d7df50b875850ed9484e9a393ec83cb724254f741bfa59495
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 083: ValidateBufferView
   ============================================================ }
@@ -929,6 +1217,14 @@ begin
   Result := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-085
+  Block              : GetMemoryStats
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:20e449570e3c26fac9039985126d690c02f4612f2501dde5cff318f29f42cd9f
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 085: GetMemoryStats
   ============================================================ }
@@ -939,6 +1235,14 @@ begin
   Result := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-086
+  Block              : ResetMemoryStats
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:a16dd7a3961f5366bff964b52ccf8102844961e130fdbad291afb8b3b3ac64dd
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 086: ResetMemoryStats
   ============================================================ }
@@ -948,6 +1252,14 @@ begin
   GStatsInitialized := True;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-087
+  Block              : CheckBounds — verify [Offset, Offset+AccessSize) fits in TotalSize
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:bb4ad3f1e5fd77dc3996f8f6adb8a7e7390a573e97d5e11db2d963938af8e289
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 087: CheckBounds — verify [Offset, Offset+AccessSize) fits in TotalSize
   ============================================================ }
@@ -971,6 +1283,14 @@ begin
   Result := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-088
+  Block              : RegionsOverlap — true if [A, A+SzA) and [B, B+SzB) intersect
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:d82804b854bfdebbf2028641b6141c2d4d9a2e0d133885c51d3b63bee1e26d43
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 088: RegionsOverlap — true if [A, A+SzA) and [B, B+SzB) intersect
   ============================================================ }
@@ -985,6 +1305,14 @@ begin
   Result := (AStart < BEnd) and (BStart < AEnd);
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-089
+  Block              : ZeroMemoryRegion — fill bytes with zero
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:8c73fedc47506c1bca928de1d14eeccd0330ee4caac02cba814d0efbe61b672f
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 089: ZeroMemoryRegion — fill bytes with zero
   ============================================================ }
@@ -994,6 +1322,14 @@ begin
     FillChar(Ptr^, Bytes, 0);
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-090
+  Block              : CopyMemoryRegion — non-overlapping memory copy
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:fd71d0bf639813acfc0cf38dad292cf10894039ed4218c2edd191bdaac215fef
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 090: CopyMemoryRegion — non-overlapping memory copy
   ============================================================ }
@@ -1053,6 +1389,14 @@ begin
   end;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-094
+  Block              : MemoryAlignmentReport — human-readable alignment diagnostic
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:edcc096f234d7200271c5893c10aeabc611c4845d45efad78dbc18fc846036e6
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 094: MemoryAlignmentReport — human-readable alignment diagnostic
   ============================================================ }
@@ -1081,6 +1425,14 @@ begin
       [Addr, Alignment, Remainder, PtrUInt(Alignment) - Remainder]);
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-096
+  Block              : InitSlabAllocator — allocate InitialCount fixed-size slabs
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:535a003bcfe1bb34bd5bca32ccb434848a2b219a87fe91bc582075b83ecec8db
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 096: InitSlabAllocator — allocate InitialCount fixed-size slabs
   ============================================================ }
@@ -1123,6 +1475,14 @@ begin
   Result := PGPU_SUCCESS;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-097
+  Block              : SlabAlloc — pop a slab from the free list; grow if empty
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:ae7a48ffedecdb2ce18f0efffde8997bbdf1aa9652edbc70a9c830fe089e6313
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 097: SlabAlloc — pop a slab from the free list; grow if empty
   ============================================================ }
@@ -1155,6 +1515,14 @@ begin
   end;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-098
+  Block              : SlabFree — push a slab back onto the free list
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:3df4364182b66b4b6e18803b92a653b32c184886a0c049c2fcd4c9eb01dd4910
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 098: SlabFree — push a slab back onto the free list
   ============================================================ }
@@ -1170,6 +1538,14 @@ begin
   S.FreeList := Node;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-099
+  Block              : FinalizeSlabAllocator — free all backing pages
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:5b18c549d8bc93b5fe4d6541e89135ceeeb3691af0ad3430f043cf47a8daf662
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 099: FinalizeSlabAllocator — free all backing pages
   ============================================================ }
@@ -1192,6 +1568,14 @@ begin
   S.IsInitialized := False;
 end;
 
+{ -----------------------------------------------------------------------
+  SOVEREIGN NODE KEY : PASCAL-STACK-007-BLK-100
+  Block              : MemorySubsystemTest — alloc/free/bounds/overlap self-test
+  License            : MGPLv3 / SL-AGPL3-001
+  Clone-Gate         : sha256:0e1df640ad8fff50e415d6f11046d60e31a28ff354f7c8174a8eeb9d0aed72d7
+  Nemo dat quod non habet.
+  Pacta sunt servanda.
+  ----------------------------------------------------------------------- }
 { ============================================================
   BLOCK 100: MemorySubsystemTest — alloc/free/bounds/overlap self-test
   ============================================================ }
